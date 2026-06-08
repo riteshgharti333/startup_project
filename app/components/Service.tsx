@@ -314,17 +314,7 @@ const Service = () => {
   ];
 
   return (
-    <section className="relative py-20 lg:py-32 bg-(--background) overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
-          transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-40 -right-40 w-[400px] h-[400px] bg-(--primary)/5 rounded-full blur-[100px]"
-        />
-      </div>
-
+    <section className="relative py-20 lg:py-32">
       <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div
