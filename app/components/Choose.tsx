@@ -179,14 +179,8 @@ const Choose: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 lg:py-28 bg-(--background) overflow-hidden"
+      className="relative py-20 lg:py-28"
     >
-      {/* Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.05)_0%,transparent_70%)]" />
-        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-(--border)/50 to-transparent" />
-        <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-(--border)/50 to-transparent" />
-      </div>
 
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-0">

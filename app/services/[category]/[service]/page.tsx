@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { motion, useInView } from "framer-motion"
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import {
   FiArrowRight,
   FiPhone,
@@ -9,48 +9,48 @@ import {
   FiStar,
   FiClock,
   FiArrowLeft,
-} from "react-icons/fi"
+} from "react-icons/fi";
 
 interface ServiceData {
-  slug: string
-  name: string
-  category: string
-  startingPrice: string
+  slug: string;
+  name: string;
+  category: string;
+  startingPrice: string;
   hero: {
-    title: string
-    description: string
-    cta: string
-  }
+    title: string;
+    description: string;
+    cta: string;
+  };
   overview: {
-    title: string
-    content: string
-  }
+    title: string;
+    content: string;
+  };
   solutions: {
-    title: string
-    items: { title: string; description: string }[]
-  }
+    title: string;
+    items: { title: string; description: string }[];
+  };
   process: {
-    title: string
-    steps: { title: string; description: string }[]
-  }
+    title: string;
+    steps: { title: string; description: string }[];
+  };
   features: {
-    title: string
-    items: { title: string; description: string }[]
-  }
+    title: string;
+    items: { title: string; description: string }[];
+  };
   whyChooseUs: {
-    title: string
-    items: string[]
-  }
+    title: string;
+    items: string[];
+  };
   faq: {
-    title: string
-    items: { question: string; answer: string }[]
-  }
-  relatedServices: string[]
+    title: string;
+    items: { question: string; answer: string }[];
+  };
+  relatedServices: string[];
 }
 
 const OneService: React.FC = () => {
-  const sectionRef = useRef<HTMLElement>(null)
-  const isInView = useInView(sectionRef, { once: true, margin: "-80px" })
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
 
   // Example data - replace with actual data fetching
   const service: ServiceData = {
@@ -60,61 +60,149 @@ const OneService: React.FC = () => {
     startingPrice: "৳35,000",
     hero: {
       title: "Full-Stack Web Application Development",
-      description: "Build scalable, secure, and high-performance web applications tailored to your business needs.",
+      description:
+        "Build scalable, secure, and high-performance web applications tailored to your business needs.",
       cta: "Get Free Consultation",
     },
     overview: {
       title: "What Is Full-Stack Web Development?",
-      content: "Full-stack web development involves building both the client-facing frontend and server-side backend of an application. A complete solution includes user interfaces, APIs, databases, authentication systems, and deployment infrastructure. Businesses use full-stack applications to automate operations, improve customer experiences, and streamline workflows.",
+      content:
+        "Full-stack web development involves building both the client-facing frontend and server-side backend of an application. A complete solution includes user interfaces, APIs, databases, authentication systems, and deployment infrastructure. Businesses use full-stack applications to automate operations, improve customer experiences, and streamline workflows.",
     },
     solutions: {
       title: "What Can We Build?",
       items: [
-        { title: "CRM Systems", description: "Manage customers, leads, sales pipelines, and business relationships." },
-        { title: "Learning Management Systems", description: "Online courses, quizzes, certificates, and student management." },
-        { title: "E-Commerce Platforms", description: "Products, payments, inventory management, and order processing." },
-        { title: "Booking Platforms", description: "Appointments, reservations, and scheduling systems." },
-        { title: "SaaS Products", description: "Subscription-based software products and customer portals." },
-        { title: "Admin Portals", description: "Business dashboards, analytics, and operational management." },
+        {
+          title: "CRM Systems",
+          description:
+            "Manage customers, leads, sales pipelines, and business relationships.",
+        },
+        {
+          title: "Learning Management Systems",
+          description:
+            "Online courses, quizzes, certificates, and student management.",
+        },
+        {
+          title: "E-Commerce Platforms",
+          description:
+            "Products, payments, inventory management, and order processing.",
+        },
+        {
+          title: "Booking Platforms",
+          description: "Appointments, reservations, and scheduling systems.",
+        },
+        {
+          title: "SaaS Products",
+          description:
+            "Subscription-based software products and customer portals.",
+        },
+        {
+          title: "Admin Portals",
+          description:
+            "Business dashboards, analytics, and operational management.",
+        },
       ],
     },
     process: {
       title: "Our Development Process",
       steps: [
-        { title: "Discovery", description: "Understand requirements, goals, and business needs." },
-        { title: "Planning", description: "Create project architecture and development roadmap." },
-        { title: "Design", description: "Develop user-friendly interfaces and workflows." },
-        { title: "Development", description: "Build frontend, backend, database, and integrations." },
-        { title: "Testing", description: "Quality assurance, security checks, and optimization." },
-        { title: "Deployment", description: "Launch the application and ensure smooth operation." },
+        {
+          title: "Discovery",
+          description: "Understand requirements, goals, and business needs.",
+        },
+        {
+          title: "Planning",
+          description: "Create project architecture and development roadmap.",
+        },
+        {
+          title: "Design",
+          description: "Develop user-friendly interfaces and workflows.",
+        },
+        {
+          title: "Development",
+          description: "Build frontend, backend, database, and integrations.",
+        },
+        {
+          title: "Testing",
+          description: "Quality assurance, security checks, and optimization.",
+        },
+        {
+          title: "Deployment",
+          description: "Launch the application and ensure smooth operation.",
+        },
       ],
     },
     features: {
       title: "Key Features",
       items: [
-        { title: "Secure Authentication", description: "Protect users and business data with secure access controls." },
-        { title: "Scalable Architecture", description: "Built to support future growth and increased traffic." },
-        { title: "API Integration", description: "Connect with payment gateways, CRMs, and third-party services." },
-        { title: "Mobile Responsive", description: "Optimized for desktop, tablet, and mobile devices." },
-        { title: "Performance Optimized", description: "Fast loading times and smooth user experience." },
-        { title: "SEO Friendly", description: "Structured to support search engine visibility." },
+        {
+          title: "Secure Authentication",
+          description:
+            "Protect users and business data with secure access controls.",
+        },
+        {
+          title: "Scalable Architecture",
+          description: "Built to support future growth and increased traffic.",
+        },
+        {
+          title: "API Integration",
+          description:
+            "Connect with payment gateways, CRMs, and third-party services.",
+        },
+        {
+          title: "Mobile Responsive",
+          description: "Optimized for desktop, tablet, and mobile devices.",
+        },
+        {
+          title: "Performance Optimized",
+          description: "Fast loading times and smooth user experience.",
+        },
+        {
+          title: "SEO Friendly",
+          description: "Structured to support search engine visibility.",
+        },
       ],
     },
     whyChooseUs: {
       title: "Why Choose Us?",
-      items: ["Business-focused solutions", "Scalable architecture", "Transparent communication", "Post-launch support", "Affordable pricing"],
+      items: [
+        "Business-focused solutions",
+        "Scalable architecture",
+        "Transparent communication",
+        "Post-launch support",
+        "Affordable pricing",
+      ],
     },
     faq: {
       title: "Frequently Asked Questions",
       items: [
-        { question: "How long does development take?", answer: "Most projects take between 2 and 12 weeks depending on complexity and requirements." },
-        { question: "Can you redesign an existing application?", answer: "Yes, we can modernize existing applications and improve performance." },
-        { question: "Do you provide hosting?", answer: "Yes, deployment and hosting assistance are available." },
-        { question: "Do you provide maintenance?", answer: "Yes, ongoing support and maintenance plans are available." },
+        {
+          question: "How long does development take?",
+          answer:
+            "Most projects take between 2 and 12 weeks depending on complexity and requirements.",
+        },
+        {
+          question: "Can you redesign an existing application?",
+          answer:
+            "Yes, we can modernize existing applications and improve performance.",
+        },
+        {
+          question: "Do you provide hosting?",
+          answer: "Yes, deployment and hosting assistance are available.",
+        },
+        {
+          question: "Do you provide maintenance?",
+          answer: "Yes, ongoing support and maintenance plans are available.",
+        },
       ],
     },
-    relatedServices: ["API Development & Integration", "Admin Dashboard Development", "E-Commerce Development", "Website Maintenance & Support"],
-  }
+    relatedServices: [
+      "API Development & Integration",
+      "Admin Dashboard Development",
+      "E-Commerce Development",
+      "Website Maintenance & Support",
+    ],
+  };
 
   const getCategoryName = (slug: string): string => {
     const names: Record<string, string> = {
@@ -124,19 +212,14 @@ const OneService: React.FC = () => {
       "cloud-infrastructure": "Cloud & Infrastructure",
       "digital-marketing": "Digital Marketing",
       "consulting-training": "Consulting & Training",
-    }
-    return names[slug] || slug
-  }
+    };
+    return names[slug] || slug;
+  };
 
   return (
-    <main className="relative bg-(--background)">
+    <main className="relative">
       {/* Hero Banner */}
-      <section className="relative pt-32 pb-12 sm:pt-40 sm:pb-16 lg:pt-48 lg:pb-20 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
-          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-(--primary)/5 rounded-full blur-[120px] translate-x-1/4 -translate-y-1/4" />
-        </div>
-
+      <section className="relative pt-32 pb-12 sm:pt-40 sm:pb-16 lg:pt-48 lg:pb-20 ">
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -145,9 +228,19 @@ const OneService: React.FC = () => {
           >
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-sm text-(--text-muted) mb-6">
-              <a href="/services" className="hover:text-(--primary) transition-colors">Services</a>
+              <a
+                href="/services"
+                className="hover:text-(--primary) transition-colors"
+              >
+                Services
+              </a>
               <span>/</span>
-              <a href={`/services/${service.category}`} className="hover:text-(--primary) transition-colors">{getCategoryName(service.category)}</a>
+              <a
+                href={`/services/${service.category}`}
+                className="hover:text-(--primary) transition-colors"
+              >
+                {getCategoryName(service.category)}
+              </a>
               <span>/</span>
               <span className="text-(--text) truncate">{service.name}</span>
             </div>
@@ -155,7 +248,9 @@ const OneService: React.FC = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-(--surface) border border-(--border) rounded-(--radius-xl) mb-6">
               <FiStar size={14} className="text-(--primary)" />
-              <span className="text-sm text-(--text-muted)">{getCategoryName(service.category)}</span>
+              <span className="text-sm text-(--text-muted)">
+                {getCategoryName(service.category)}
+              </span>
             </div>
 
             {/* Title */}
@@ -171,15 +266,25 @@ const OneService: React.FC = () => {
             {/* Price + CTA */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
               <div>
-                <div className="text-3xl sm:text-4xl font-bold text-(--primary)">{service.startingPrice}</div>
-                <p className="text-xs text-(--text-muted) mt-1">Starting price — varies based on complexity</p>
+                <div className="text-3xl sm:text-4xl font-bold text-(--primary)">
+                  {service.startingPrice}
+                </div>
+                <p className="text-xs text-(--text-muted) mt-1">
+                  Starting price — varies based on complexity
+                </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
-                <a href="#contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20">
+                <a
+                  href="#contact"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20"
+                >
                   <FiPhone size={14} />
                   {service.hero.cta}
                 </a>
-                <a href="#contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--surface) border border-(--border) hover:border-(--primary)/30 text-(--text) text-sm font-medium rounded-(--radius-md) transition-all">
+                <a
+                  href="#contact"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--surface) border border-(--border) hover:border-(--primary)/30 text-(--text) text-sm font-medium rounded-(--radius-md) transition-all"
+                >
                   Book a Call
                   <FiArrowRight size={14} />
                 </a>
@@ -198,8 +303,12 @@ const OneService: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-xl sm:text-2xl font-bold text-(--text) mb-4">{service.overview.title}</h2>
-            <p className="text-sm sm:text-base text-(--text-muted) leading-relaxed">{service.overview.content}</p>
+            <h2 className="text-xl sm:text-2xl font-bold text-(--text) mb-4">
+              {service.overview.title}
+            </h2>
+            <p className="text-sm sm:text-base text-(--text-muted) leading-relaxed">
+              {service.overview.content}
+            </p>
           </motion.div>
         </div>
       </section>
@@ -209,7 +318,9 @@ const OneService: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-8">
             <div className="h-px flex-1 bg-(--border)" />
-            <span className="text-xs text-(--text-muted) font-medium uppercase tracking-wider whitespace-nowrap">{service.solutions.title}</span>
+            <span className="text-xs text-(--text-muted) font-medium uppercase tracking-wider whitespace-nowrap">
+              {service.solutions.title}
+            </span>
             <div className="h-px flex-1 bg-(--border)" />
           </div>
 
@@ -224,8 +335,12 @@ const OneService: React.FC = () => {
                 whileHover={{ y: -2 }}
                 className="bg-(--surface) border border-(--border) rounded-(--radius-lg) p-4 sm:p-5 hover:border-(--primary)/30 transition-all duration-300"
               >
-                <h3 className="text-sm sm:text-base font-semibold text-(--text) mb-2">{item.title}</h3>
-                <p className="text-xs sm:text-sm text-(--text-muted) leading-relaxed">{item.description}</p>
+                <h3 className="text-sm sm:text-base font-semibold text-(--text) mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-(--text-muted) leading-relaxed">
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -237,7 +352,9 @@ const OneService: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-8">
             <div className="h-px flex-1 bg-(--border)" />
-            <span className="text-xs text-(--text-muted) font-medium uppercase tracking-wider whitespace-nowrap">{service.process.title}</span>
+            <span className="text-xs text-(--text-muted) font-medium uppercase tracking-wider whitespace-nowrap">
+              {service.process.title}
+            </span>
             <div className="h-px flex-1 bg-(--border)" />
           </div>
 
@@ -255,8 +372,12 @@ const OneService: React.FC = () => {
                   {String(index + 1).padStart(2, "0")}
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-(--text) mb-1">{step.title}</h3>
-                  <p className="text-xs sm:text-sm text-(--text-muted)">{step.description}</p>
+                  <h3 className="text-sm font-semibold text-(--text) mb-1">
+                    {step.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-(--text-muted)">
+                    {step.description}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -275,7 +396,9 @@ const OneService: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-lg sm:text-xl font-bold text-(--text) mb-4">{service.features.title}</h2>
+              <h2 className="text-lg sm:text-xl font-bold text-(--text) mb-4">
+                {service.features.title}
+              </h2>
               <div className="space-y-3">
                 {service.features.items.map((item, index) => (
                   <div key={index} className="flex items-start gap-2">
@@ -283,8 +406,12 @@ const OneService: React.FC = () => {
                       <FiCheck size={10} className="text-green-400" />
                     </div>
                     <div>
-                      <span className="text-sm font-medium text-(--text)">{item.title}</span>
-                      <p className="text-xs text-(--text-muted) mt-0.5">{item.description}</p>
+                      <span className="text-sm font-medium text-(--text)">
+                        {item.title}
+                      </span>
+                      <p className="text-xs text-(--text-muted) mt-0.5">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -298,11 +425,19 @@ const OneService: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h2 className="text-lg sm:text-xl font-bold text-(--text) mb-4">{service.whyChooseUs.title}</h2>
+              <h2 className="text-lg sm:text-xl font-bold text-(--text) mb-4">
+                {service.whyChooseUs.title}
+              </h2>
               <div className="space-y-2">
                 {service.whyChooseUs.items.map((item, index) => (
-                  <div key={index} className="flex items-center gap-2 p-2.5 bg-(--surface) border border-(--border) rounded-(--radius-md)">
-                    <FiCheck size={14} className="text-(--primary) flex-shrink-0" />
+                  <div
+                    key={index}
+                    className="flex items-center gap-2 p-2.5 bg-(--surface) border border-(--border) rounded-(--radius-md)"
+                  >
+                    <FiCheck
+                      size={14}
+                      className="text-(--primary) flex-shrink-0"
+                    />
                     <span className="text-sm text-(--text-muted)">{item}</span>
                   </div>
                 ))}
@@ -317,7 +452,9 @@ const OneService: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-8">
             <div className="h-px flex-1 bg-(--border)" />
-            <span className="text-xs text-(--text-muted) font-medium uppercase tracking-wider whitespace-nowrap">Related Services</span>
+            <span className="text-xs text-(--text-muted) font-medium uppercase tracking-wider whitespace-nowrap">
+              Related Services
+            </span>
             <div className="h-px flex-1 bg-(--border)" />
           </div>
 
@@ -340,7 +477,9 @@ const OneService: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-8">
             <div className="h-px flex-1 bg-(--border)" />
-            <span className="text-xs text-(--text-muted) font-medium uppercase tracking-wider whitespace-nowrap">{service.faq.title}</span>
+            <span className="text-xs text-(--text-muted) font-medium uppercase tracking-wider whitespace-nowrap">
+              {service.faq.title}
+            </span>
             <div className="h-px flex-1 bg-(--border)" />
           </div>
 
@@ -354,8 +493,12 @@ const OneService: React.FC = () => {
                 transition={{ delay: index * 0.1, duration: 0.4 }}
                 className="bg-(--surface) border border-(--border) rounded-(--radius-lg) p-4 sm:p-5"
               >
-                <h3 className="text-sm sm:text-base font-semibold text-(--text) mb-2">{faq.question}</h3>
-                <p className="text-xs sm:text-sm text-(--text-muted) leading-relaxed">{faq.answer}</p>
+                <h3 className="text-sm sm:text-base font-semibold text-(--text) mb-2">
+                  {faq.question}
+                </h3>
+                <p className="text-xs sm:text-sm text-(--text-muted) leading-relaxed">
+                  {faq.answer}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -376,14 +519,21 @@ const OneService: React.FC = () => {
               Ready to Start Your Project?
             </h2>
             <p className="text-sm text-(--text-muted) mb-6 max-w-md mx-auto">
-              Let's discuss your requirements and build a solution that fits your business.
+              Let's discuss your requirements and build a solution that fits
+              your business.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-3">
-              <a href="#contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20">
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20"
+              >
                 <FiPhone size={14} />
                 {service.hero.cta}
               </a>
-              <a href="#contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--background) border border-(--border) hover:border-(--primary)/30 text-(--text) text-sm font-medium rounded-(--radius-md) transition-all">
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--background) border border-(--border) hover:border-(--primary)/30 text-(--text) text-sm font-medium rounded-(--radius-md) transition-all"
+              >
                 Contact Us
                 <FiArrowRight size={14} />
               </a>
@@ -392,7 +542,7 @@ const OneService: React.FC = () => {
         </div>
       </section>
     </main>
-  )
-}
+  );
+};
 
-export default OneService
+export default OneService;

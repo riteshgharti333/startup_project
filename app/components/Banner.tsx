@@ -39,34 +39,8 @@ const Banner = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-(--background)">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
-
-        {/* Gradient Orbs */}
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 -right-40 w-[500px] h-[500px] bg-(--primary)/10 rounded-full blur-[100px]"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.4, 0.2],
-            x: [0, -100, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-(--primary)/10 rounded-full blur-[100px]"
-        />
-      </div>
+    <section className="relative min-h-screen flex items-center">
+     
 
       <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">

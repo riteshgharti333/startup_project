@@ -163,29 +163,7 @@ const Team: React.FC = () => {
   };
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative py-20 lg:py-28 bg-(--background) overflow-hidden"
-    >
-      {/* Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-(--primary)/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-purple-500/5 rounded-full blur-[100px]" />
-
-        {/* World map dots */}
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-(--primary)/20 rounded-full"
-            style={{
-              top: `${20 + Math.random() * 60}%`,
-              left: `${10 + Math.random() * 80}%`,
-            }}
-          />
-        ))}
-      </div>
-
+    <section ref={sectionRef} className="relative py-20 lg:py-28">
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div

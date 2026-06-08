@@ -336,15 +336,12 @@ const Footer: React.FC = () => {
   return (
     <footer
       ref={sectionRef}
-      className="relative bg-(--background) overflow-hidden"
+      className="relative"
     >
       {/* Top Gradient Line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-(--primary)/40 to-transparent" />
 
-      {/* Background Pattern */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(59,130,246,0.06)_0%,transparent_60%)]" />
-      </div>
+     
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-10">
         {/* Top Section - Logo + CTA */}

@@ -248,14 +248,10 @@ const Service: React.FC = () => {
   };
 
   return (
-    <main className="relative bg-(--background)">
+    <main className="relative">
       {/* Hero Banner */}
-      <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-48 lg:pb-24 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-(--primary)/5 rounded-full blur-[150px] translate-x-1/4 -translate-y-1/4" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[120px] -translate-x-1/4 translate-y-1/4" />
-        </div>
+      <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-48 lg:pb-24">
+      
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div

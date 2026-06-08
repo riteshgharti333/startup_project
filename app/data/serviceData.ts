@@ -53,8 +53,7 @@ export const serviceCategories = [
       {
         slug: "website-maintenance-support",
         name: "Website Maintenance & Support",
-        description:
-          "Bug fixes, updates, monitoring, and technical support.",
+        description: "Bug fixes, updates, monitoring, and technical support.",
         startingPrice: "৳3,000/month",
       },
       {
@@ -86,8 +85,7 @@ export const serviceCategories = [
       {
         slug: "ai-chatbot-development",
         name: "AI Chatbot Development",
-        description:
-          "GPT-powered customer support, sales, and FAQ chatbots.",
+        description: "GPT-powered customer support, sales, and FAQ chatbots.",
         startingPrice: "৳15,000",
         featured: true,
       },
@@ -127,22 +125,19 @@ export const serviceCategories = [
       {
         slug: "android-app-development",
         name: "Android App Development",
-        description:
-          "Custom Android applications tailored to business needs.",
+        description: "Custom Android applications tailored to business needs.",
         startingPrice: "৳30,000",
       },
       {
         slug: "ios-app-development",
         name: "iOS App Development",
-        description:
-          "Professional iPhone and iPad applications.",
+        description: "Professional iPhone and iPad applications.",
         startingPrice: "৳40,000",
       },
       {
         slug: "mobile-app-maintenance-support",
         name: "Mobile App Maintenance & Support",
-        description:
-          "Updates, bug fixes, and performance improvements.",
+        description: "Updates, bug fixes, and performance improvements.",
         startingPrice: "৳5,000/month",
       },
     ],
@@ -160,15 +155,13 @@ export const serviceCategories = [
       {
         slug: "cloud-vps-setup",
         name: "Cloud & VPS Setup",
-        description:
-          "Configure cloud servers and VPS environments.",
+        description: "Configure cloud servers and VPS environments.",
         startingPrice: "৳5,000",
       },
       {
         slug: "server-deployment-configuration",
         name: "Server Deployment & Configuration",
-        description:
-          "Deploy and configure applications on production servers.",
+        description: "Deploy and configure applications on production servers.",
         startingPrice: "৳8,000",
       },
       {
@@ -181,15 +174,13 @@ export const serviceCategories = [
       {
         slug: "website-application-hosting",
         name: "Website & Application Hosting",
-        description:
-          "Managed hosting setup for websites and applications.",
+        description: "Managed hosting setup for websites and applications.",
         startingPrice: "৳3,000/month",
       },
       {
         slug: "domain-dns-ssl-configuration",
         name: "Domain, DNS & SSL Configuration",
-        description:
-          "Domain setup, DNS management, and SSL security.",
+        description: "Domain setup, DNS management, and SSL security.",
         startingPrice: "৳2,000",
       },
     ],
@@ -207,37 +198,32 @@ export const serviceCategories = [
       {
         slug: "seo-services",
         name: "Search Engine Optimization (SEO)",
-        description:
-          "Technical and content SEO to improve search rankings.",
+        description: "Technical and content SEO to improve search rankings.",
         startingPrice: "৳8,000/month",
         featured: true,
       },
       {
         slug: "social-media-management",
         name: "Social Media Management",
-        description:
-          "Content planning, publishing, and audience engagement.",
+        description: "Content planning, publishing, and audience engagement.",
         startingPrice: "৳8,000/month",
       },
       {
         slug: "google-ads-management",
         name: "Google Ads Management",
-        description:
-          "Google Ads campaign setup and optimization.",
+        description: "Google Ads campaign setup and optimization.",
         startingPrice: "৳10,000/month",
       },
       {
         slug: "meta-ads-management",
         name: "Meta Ads Management",
-        description:
-          "Facebook and Instagram advertising campaigns.",
+        description: "Facebook and Instagram advertising campaigns.",
         startingPrice: "৳10,000/month",
       },
       {
         slug: "content-marketing",
         name: "Content Marketing",
-        description:
-          "Content creation focused on traffic and conversions.",
+        description: "Content creation focused on traffic and conversions.",
         startingPrice: "৳6,000/month",
       },
     ],
