@@ -12,7 +12,7 @@ import {
   FiShield,
   FiHeadphones,
 } from "react-icons/fi";
-import { serviceCategories } from "../../data/serviceData";
+import { serviceCategories, getCategoryBySlug, getServiceBySlug } from "../../data/serviceData";
 
 interface ServiceItem {
   slug: string;
@@ -22,10 +22,10 @@ interface ServiceItem {
   featured?: boolean;
 }
 
-interface CategoryData {
+interface ServiceCategory {
   slug: string;
-  bannerTitle: string;
-  bannerDescription: string;
+  title: string;
+  description: string;
   services: ServiceItem[];
 }
 
@@ -33,36 +33,45 @@ const Category: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
 
-  // Get category from URL - using first as example
-  const category: CategoryData = serviceCategories[0];
+  // Get category from URL slug - example: /services/web-development
+  // You can get this from useParams() or props
+  const slug = "web-development"; // Replace with actual slug from URL
+  const category = getCategoryBySlug(slug);
+
+  if (!category) {
+    return (
+      <div className="pt-32 text-center">
+        <h1 className="text-2xl font-bold text-(--text)">Category not found</h1>
+      </div>
+    );
+  }
 
   return (
     <main className="relative">
-      {/* Hero Banner - Same as Services Page */}
-      <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-48 lg:pb-24 ">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Hero Banner */}
+      <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-48 lg:pb-24">
+        <div className="relative max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-(--surface) border border-(--border) rounded-(--radius-xl) mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-2 bg-(--surface) border border-(--border) rounded-(--radius-xl) mb-6">
               <FiStar size={14} className="text-(--primary)" />
               <span className="text-sm text-(--text-muted)">
-                {category.bannerTitle} Services
+                {category.title} Services
               </span>
             </div>
 
-            {/* Heading - Same style as Services page */}
+            {/* Heading */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-(--text) mb-4">
-              {category.bannerTitle.split(" ").slice(0, -1).join(" ") ||
-                category.bannerTitle}{" "}
+              {category.title.split(" ").slice(0, -1).join(" ") || category.title}{" "}
               <span className="relative inline-block">
                 <span className="text-(--primary)">
-                  {category.bannerTitle.includes(" ")
-                    ? category.bannerTitle.split(" ").slice(-1)[0]
-                    : ""}
+                  {category.title.includes(" ")
+                    ? category.title.split(" ").slice(-1)[0]
+                    : category.title}
                 </span>
                 <motion.span
                   initial={{ scaleX: 0 }}
@@ -79,10 +88,10 @@ const Category: React.FC = () => {
 
             {/* Description */}
             <p className="text-base sm:text-lg text-(--text-muted) max-w-2xl mx-auto mb-8">
-              {category.bannerDescription}
+              {category.description}
             </p>
 
-            {/* CTA Buttons - Same as Services page */}
+            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row justify-center gap-3">
               <a
                 href="#services-list"
@@ -109,7 +118,7 @@ const Category: React.FC = () => {
         ref={sectionRef}
         className="relative pb-20 lg:pb-28"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           {/* Section Divider */}
           <div className="flex items-center gap-3 mb-10">
             <div className="h-px flex-1 bg-(--border)" />
@@ -118,6 +127,15 @@ const Category: React.FC = () => {
             </span>
             <div className="h-px flex-1 bg-(--border)" />
           </div>
+
+          {/* Back Button */}
+          <a
+            href="/services"
+            className="inline-flex items-center gap-2 text-sm text-(--text-muted) hover:text-(--primary) transition-colors mb-6"
+          >
+            <FiArrowLeft size={16} />
+            <span>Back to All Services</span>
+          </a>
 
           {/* Service Cards Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
@@ -172,43 +190,6 @@ const Category: React.FC = () => {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Bottom CTA - Same as Services page */}
-      <section className="relative pb-20 lg:pb-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-(--surface) border border-(--border) rounded-(--radius-xl) p-8 sm:p-10 text-center"
-          >
-            <h2 className="text-2xl sm:text-3xl font-bold text-(--text) mb-2">
-              Need a Custom Solution?
-            </h2>
-            <p className="text-sm text-(--text-muted) mb-6 max-w-md mx-auto">
-              Let's discuss your project requirements and create a tailored plan
-              for your business.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-3">
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20"
-              >
-                <FiPhone size={14} />
-                Schedule a Call
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--background) border border-(--border) hover:border-(--primary)/30 text-(--text) text-sm font-medium rounded-(--radius-md) transition-all"
-              >
-                Contact Us
-                <FiArrowRight size={14} />
-              </a>
-            </div>
-          </motion.div>
         </div>
       </section>
     </main>

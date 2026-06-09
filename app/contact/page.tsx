@@ -98,13 +98,13 @@ const Contact: React.FC = () => {
     <main className="relative">
       {/* Hero Banner */}
       <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-48 lg:pb-24 overflow-hidden">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-(--surface) border border-(--border) rounded-(--radius-xl) mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-2 bg-(--surface) border border-(--border) rounded-(--radius-xl) mb-6">
               <FiMessageCircle size={14} className="text-(--primary)" />
               <span className="text-sm text-(--text-muted)">Get in Touch</span>
             </div>
@@ -136,7 +136,7 @@ const Contact: React.FC = () => {
 
       {/* Contact Section */}
       <section ref={sectionRef} className="relative pb-20 lg:pb-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Left - Contact Info Cards */}
             <div className="lg:col-span-1 space-y-4">
@@ -206,7 +206,7 @@ const Contact: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="lg:col-span-2"
             >
-              <div className="bg-(--surface) border border-(--border) rounded-(--radius-xl) p-6 sm:p-8 lg:p-10 shadow-xl">
+              <div className="bg-(--surface) border border-(--border) rounded-(--radius-xl) p-4 sm:p-8 lg:p-10 shadow-xl">
                 <h2 className="text-xl sm:text-2xl font-bold text-(--text) mb-2">
                   Send Us a Message
                 </h2>

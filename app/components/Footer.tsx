@@ -334,16 +334,11 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer
-      ref={sectionRef}
-      className="relative"
-    >
+    <footer ref={sectionRef} className="relative">
       {/* Top Gradient Line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-(--primary)/40 to-transparent" />
 
-     
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-10">
+      <div className="relative max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-10">
         {/* Top Section - Logo + CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

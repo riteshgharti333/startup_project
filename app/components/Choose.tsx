@@ -179,10 +179,10 @@ const Choose: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 lg:py-28"
+      className="relative pb-20 lg:pb-28"
     >
 
-      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-0">
           {/* Left Column */}
           <div className="lg:pr-12 lg:border-r border-(--border)">

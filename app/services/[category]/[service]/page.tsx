@@ -220,14 +220,14 @@ const OneService: React.FC = () => {
     <main className="relative">
       {/* Hero Banner */}
       <section className="relative pt-32 pb-12 sm:pt-40 sm:pb-16 lg:pt-48 lg:pb-20 ">
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm text-(--text-muted) mb-6">
+            <div className="flex items-center flex-wrap gap-2  text-[12px] sm:text-sm text-(--text-muted) mb-6">
               <a
                 href="/services"
                 className="hover:text-(--primary) transition-colors"
@@ -246,7 +246,7 @@ const OneService: React.FC = () => {
             </div>
 
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-(--surface) border border-(--border) rounded-(--radius-xl) mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-2 bg-(--surface) border border-(--border) rounded-(--radius-xl) mb-6">
               <FiStar size={14} className="text-(--primary)" />
               <span className="text-sm text-(--text-muted)">
                 {getCategoryName(service.category)}
@@ -296,7 +296,7 @@ const OneService: React.FC = () => {
 
       {/* Overview Section */}
       <section className="relative pb-16 sm:pb-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -315,7 +315,7 @@ const OneService: React.FC = () => {
 
       {/* Solutions Grid */}
       <section ref={sectionRef} className="relative pb-16 sm:pb-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-8">
             <div className="h-px flex-1 bg-(--border)" />
             <span className="text-xs text-(--text-muted) font-medium uppercase tracking-wider whitespace-nowrap">
@@ -349,7 +349,7 @@ const OneService: React.FC = () => {
 
       {/* Process Section */}
       <section className="relative pb-16 sm:pb-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-8">
             <div className="h-px flex-1 bg-(--border)" />
             <span className="text-xs text-(--text-muted) font-medium uppercase tracking-wider whitespace-nowrap">
@@ -387,7 +387,7 @@ const OneService: React.FC = () => {
 
       {/* Features + Why Choose Us */}
       <section className="relative pb-16 sm:pb-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="grid sm:grid-cols-2 gap-8 sm:gap-12">
             {/* Features */}
             <motion.div
@@ -449,7 +449,7 @@ const OneService: React.FC = () => {
 
       {/* Related Services */}
       <section className="relative pb-16 sm:pb-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-8">
             <div className="h-px flex-1 bg-(--border)" />
             <span className="text-xs text-(--text-muted) font-medium uppercase tracking-wider whitespace-nowrap">
@@ -474,7 +474,7 @@ const OneService: React.FC = () => {
 
       {/* FAQ Section */}
       <section className="relative pb-16 sm:pb-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-8">
             <div className="h-px flex-1 bg-(--border)" />
             <span className="text-xs text-(--text-muted) font-medium uppercase tracking-wider whitespace-nowrap">
@@ -502,43 +502,6 @@ const OneService: React.FC = () => {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Bottom CTA */}
-      <section className="relative pb-20 lg:pb-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-(--surface) border border-(--border) rounded-(--radius-xl) p-8 sm:p-10 text-center"
-          >
-            <h2 className="text-2xl sm:text-3xl font-bold text-(--text) mb-2">
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-sm text-(--text-muted) mb-6 max-w-md mx-auto">
-              Let's discuss your requirements and build a solution that fits
-              your business.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-3">
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20"
-              >
-                <FiPhone size={14} />
-                {service.hero.cta}
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--background) border border-(--border) hover:border-(--primary)/30 text-(--text) text-sm font-medium rounded-(--radius-md) transition-all"
-              >
-                Contact Us
-                <FiArrowRight size={14} />
-              </a>
-            </div>
-          </motion.div>
         </div>
       </section>
     </main>

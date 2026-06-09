@@ -101,13 +101,13 @@ const About: React.FC = () => {
     <main className="relative">
       {/* Hero Banner */}
       <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-48 lg:pb-24 ">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-(--surface) border border-(--border) rounded-(--radius-xl) mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-2 bg-(--surface) border border-(--border) rounded-(--radius-xl) mb-6">
               <FiStar size={14} className="text-(--primary)" />
               <span className="text-sm text-(--text-muted)">About Us</span>
             </div>
@@ -157,7 +157,7 @@ const About: React.FC = () => {
 
       {/* Our Story + Our Vision */}
       <section className="relative pb-16 sm:pb-20 lg:pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Our Story */}
             <motion.div
@@ -233,7 +233,7 @@ const About: React.FC = () => {
 
       {/* What We Do - Core Services */}
       <section ref={sectionRef} className="relative pb-16 sm:pb-20 lg:pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -306,7 +306,7 @@ const About: React.FC = () => {
 
       {/* Our Process */}
       <section className="relative pb-16 sm:pb-20 lg:pb-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -386,43 +386,6 @@ const About: React.FC = () => {
 
       {/* Team - Import Component */}
       <Team />
-
-      {/* Bottom CTA */}
-      <section className="relative pb-20 lg:pb-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-(--surface) border border-(--border) rounded-(--radius-xl) p-8 sm:p-10 text-center"
-          >
-            <h2 className="text-2xl sm:text-3xl font-bold text-(--text) mb-2">
-              Ready to Work With Us?
-            </h2>
-            <p className="text-sm text-(--text-muted) mb-6 max-w-md mx-auto">
-              Let's discuss how we can help your business grow with our digital
-              solutions.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-3">
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20"
-              >
-                <FiPhone size={14} />
-                Schedule a Call
-              </a>
-              <a
-                href="/services"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--background) border border-(--border) hover:border-(--primary)/30 text-(--text) text-sm font-medium rounded-(--radius-md) transition-all"
-              >
-                View Services
-                <FiArrowRight size={14} />
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </main>
   );
 };
