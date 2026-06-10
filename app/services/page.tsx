@@ -16,8 +16,11 @@ import {
   FiPenTool,
 } from "react-icons/fi";
 import { serviceCategories } from "../data/serviceData";
+import ServiceCard from "../components/ServiceCard";
+import Link from "next/link";
 
 interface ServiceItem {
+  slug: string;
   name: string;
   description: string;
   startingPrice: string;
@@ -25,7 +28,7 @@ interface ServiceItem {
 }
 
 interface ServiceCategory {
-  icon?: React.ComponentType<{ size?: number; className?: string }>;
+  slug: string;
   title: string;
   description: string;
   services: ServiceItem[];
@@ -36,8 +39,6 @@ const Service: React.FC = () => {
   const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
 
   const getCategoryIcon = (category: ServiceCategory) => {
-    if (category.icon) return category.icon;
-
     const icons: Record<
       string,
       React.ComponentType<{ size?: number; className?: string }>
@@ -51,6 +52,11 @@ const Service: React.FC = () => {
       "Graphic Design": FiPenTool,
     };
     return icons[category.title] || FiCode;
+  };
+
+  const handleGetStarted = (serviceName: string) => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    console.log(`Get started with ${serviceName}`);
   };
 
   return (
@@ -88,20 +94,27 @@ const Service: React.FC = () => {
               everything you need to succeed online.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-3">
-              <a
-                href="#services-list"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20"
-              >
-                View All Services
-                <FiArrowRight size={16} />
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--surface) border border-(--border) hover:border-(--primary)/30 text-(--text) text-sm font-medium rounded-(--radius-md) transition-all"
-              >
-                <FiPhone size={14} className="text-(--primary)" />
-                Book a Call
-              </a>
+              {/* <Link href="/services">
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20 cursor-pointer"
+                >
+                  View All Services
+                  <FiArrowRight size={16} />
+                </motion.div>
+              </Link> */}
+
+              <Link href="/contact">
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--surface) border border-(--border) hover:border-(--primary)/30 text-(--text) text-sm font-medium rounded-(--radius-md) transition-all cursor-pointer"
+                >
+                  <FiPhone size={14} className="text-(--primary)" />
+                  Book a Call
+                </motion.div>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -141,7 +154,7 @@ const Service: React.FC = () => {
                       <CategoryIcon size={22} className="text-(--primary)" />
                     </div>
                     <div>
-                      <h2 className="text-lg sm:text-xl font-bold text-(--text) ">
+                      <h2 className="text-lg sm:text-xl font-bold text-(--text)">
                         {category.title}
                       </h2>
                       <p className="text-xs sm:text-sm text-(--text-muted) mt-0.5">
@@ -153,61 +166,17 @@ const Service: React.FC = () => {
                   {/* Service Cards Grid */}
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                     {category.services.map((service, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.05, duration: 0.4 }}
-                        whileHover={{ y: -2 }}
-                        className="group relative bg-(--surface) border border-(--border) rounded-(--radius-lg) p-4 sm:p-5 hover:border-(--primary)/30 transition-all duration-300 flex flex-col"
-                      >
-                        {/* Featured Badge */}
-                        {service.featured && (
-                          <div className="absolute -top-2 -right-2 px-2.5 py-0.5 bg-(--primary) text-white text-[10px] font-medium rounded-full z-10">
-                            Popular
-                          </div>
-                        )}
-
-                        {/* Content */}
-                        <div className="flex-1">
-                          <h3 className="text-sm sm:text-base font-semibold text-(--text) group-hover:text-(--primary) transition-colors mb-2 pr-6 cursor-pointer">
-                            {service.name}
-                          </h3>
-                          <p className="text-xs sm:text-sm text-(--text-muted) leading-relaxed mb-4">
-                            {service.description}
-                          </p>
-                        </div>
-
-                        {/* Bottom */}
-                        {/* Bottom */}
-                        <div className="pt-3 border-t border-(--border) flex items-center justify-between">
-                          <div>
-                            <motion.div
-                              animate={{
-                                scale: 1,
-                              }}
-                              whileHover={{
-                                scale: 1.05,
-                              }}
-                              className="text-sm sm:text-base font-bold bg-gradient-to-r from-(--primary) to-purple-500 bg-clip-text text-transparent"
-                            >
-                              {service.startingPrice}/
-                              <span className="text-xs">Only</span>
-                            </motion.div>
-                          </div>
-                          <a
-                            href="#contact"
-                            className="inline-flex items-center gap-1 text-xs font-medium text-(--primary) hover:text-(--primary-hover) transition-colors group/link"
-                          >
-                            <span>Get Started</span>
-                            <FiArrowRight
-                              size={12}
-                              className="group-hover/link:translate-x-0.5 transition-transform"
-                            />
-                          </a>
-                        </div>
-                      </motion.div>
+                      <ServiceCard
+                        key={service.slug}
+                        name={service.name}
+                        description={service.description}
+                        startingPrice={service.startingPrice}
+                        slug={service.slug}
+                        categorySlug={category.slug}
+                        featured={service.featured}
+                        index={index}
+                        onGetStarted={() => handleGetStarted(service.name)}
+                      />
                     ))}
                   </div>
                 </motion.div>

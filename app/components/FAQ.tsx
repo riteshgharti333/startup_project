@@ -9,6 +9,7 @@ import {
   FiMessageCircle,
   FiArrowRight,
 } from "react-icons/fi";
+import Link from "next/link";
 
 interface FAQItem {
   question: string;
@@ -212,9 +213,12 @@ const FAQ: React.FC = () => {
                 Still have questions?
               </span>
             </div>
-            <button className="px-5 py-2.5 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20 flex items-center gap-2">
+            <Link
+              href="/contact"
+              className="px-5 py-2.5 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20 flex items-center gap-2"
+            >
               Contact Us <FiArrowRight size={14} />
-            </button>
+            </Link>
           </div>
         </motion.div>
       </div>

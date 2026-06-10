@@ -10,199 +10,12 @@ import {
   FiClock,
   FiArrowLeft,
 } from "react-icons/fi";
-
-interface ServiceData {
-  slug: string;
-  name: string;
-  category: string;
-  startingPrice: string;
-  hero: {
-    title: string;
-    description: string;
-    cta: string;
-  };
-  overview: {
-    title: string;
-    content: string;
-  };
-  solutions: {
-    title: string;
-    items: { title: string; description: string }[];
-  };
-  process: {
-    title: string;
-    steps: { title: string; description: string }[];
-  };
-  features: {
-    title: string;
-    items: { title: string; description: string }[];
-  };
-  whyChooseUs: {
-    title: string;
-    items: string[];
-  };
-  faq: {
-    title: string;
-    items: { question: string; answer: string }[];
-  };
-  relatedServices: string[];
-}
+import { eachData } from "../../../data/eachData";
+import { useParams } from "next/navigation";
+import Link from "next/link";
 
 const OneService: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
-
-  // Example data - replace with actual data fetching
-  const service: ServiceData = {
-    slug: "full-stack-web-application-development",
-    name: "Full-Stack Web Application Development",
-    category: "web-development",
-    startingPrice: "৳35,000",
-    hero: {
-      title: "Full-Stack Web Application Development",
-      description:
-        "Build scalable, secure, and high-performance web applications tailored to your business needs.",
-      cta: "Get Free Consultation",
-    },
-    overview: {
-      title: "What Is Full-Stack Web Development?",
-      content:
-        "Full-stack web development involves building both the client-facing frontend and server-side backend of an application. A complete solution includes user interfaces, APIs, databases, authentication systems, and deployment infrastructure. Businesses use full-stack applications to automate operations, improve customer experiences, and streamline workflows.",
-    },
-    solutions: {
-      title: "What Can We Build?",
-      items: [
-        {
-          title: "CRM Systems",
-          description:
-            "Manage customers, leads, sales pipelines, and business relationships.",
-        },
-        {
-          title: "Learning Management Systems",
-          description:
-            "Online courses, quizzes, certificates, and student management.",
-        },
-        {
-          title: "E-Commerce Platforms",
-          description:
-            "Products, payments, inventory management, and order processing.",
-        },
-        {
-          title: "Booking Platforms",
-          description: "Appointments, reservations, and scheduling systems.",
-        },
-        {
-          title: "SaaS Products",
-          description:
-            "Subscription-based software products and customer portals.",
-        },
-        {
-          title: "Admin Portals",
-          description:
-            "Business dashboards, analytics, and operational management.",
-        },
-      ],
-    },
-    process: {
-      title: "Our Development Process",
-      steps: [
-        {
-          title: "Discovery",
-          description: "Understand requirements, goals, and business needs.",
-        },
-        {
-          title: "Planning",
-          description: "Create project architecture and development roadmap.",
-        },
-        {
-          title: "Design",
-          description: "Develop user-friendly interfaces and workflows.",
-        },
-        {
-          title: "Development",
-          description: "Build frontend, backend, database, and integrations.",
-        },
-        {
-          title: "Testing",
-          description: "Quality assurance, security checks, and optimization.",
-        },
-        {
-          title: "Deployment",
-          description: "Launch the application and ensure smooth operation.",
-        },
-      ],
-    },
-    features: {
-      title: "Key Features",
-      items: [
-        {
-          title: "Secure Authentication",
-          description:
-            "Protect users and business data with secure access controls.",
-        },
-        {
-          title: "Scalable Architecture",
-          description: "Built to support future growth and increased traffic.",
-        },
-        {
-          title: "API Integration",
-          description:
-            "Connect with payment gateways, CRMs, and third-party services.",
-        },
-        {
-          title: "Mobile Responsive",
-          description: "Optimized for desktop, tablet, and mobile devices.",
-        },
-        {
-          title: "Performance Optimized",
-          description: "Fast loading times and smooth user experience.",
-        },
-        {
-          title: "SEO Friendly",
-          description: "Structured to support search engine visibility.",
-        },
-      ],
-    },
-    whyChooseUs: {
-      title: "Why Choose Us?",
-      items: [
-        "Business-focused solutions",
-        "Scalable architecture",
-        "Transparent communication",
-        "Post-launch support",
-        "Affordable pricing",
-      ],
-    },
-    faq: {
-      title: "Frequently Asked Questions",
-      items: [
-        {
-          question: "How long does development take?",
-          answer:
-            "Most projects take between 2 and 12 weeks depending on complexity and requirements.",
-        },
-        {
-          question: "Can you redesign an existing application?",
-          answer:
-            "Yes, we can modernize existing applications and improve performance.",
-        },
-        {
-          question: "Do you provide hosting?",
-          answer: "Yes, deployment and hosting assistance are available.",
-        },
-        {
-          question: "Do you provide maintenance?",
-          answer: "Yes, ongoing support and maintenance plans are available.",
-        },
-      ],
-    },
-    relatedServices: [
-      "API Development & Integration",
-      "Admin Dashboard Development",
-      "E-Commerce Development",
-      "Website Maintenance & Support",
-    ],
-  };
 
   const getCategoryName = (slug: string): string => {
     const names: Record<string, string> = {
@@ -210,11 +23,18 @@ const OneService: React.FC = () => {
       "ai-solutions": "AI Solutions",
       "mobile-app-development": "Mobile App Development",
       "cloud-infrastructure": "Cloud & Infrastructure",
+      "graphic-design": "Graphic Design",
       "digital-marketing": "Digital Marketing",
       "consulting-training": "Consulting & Training",
     };
     return names[slug] || slug;
   };
+
+  const params = useParams();
+
+  const serviceSlug = params.service as string;
+
+  const service = eachData[serviceSlug];
 
   return (
     <main className="relative">
@@ -264,30 +84,39 @@ const OneService: React.FC = () => {
             </p>
 
             {/* Price + CTA */}
+            {/* Price + CTA */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
               <div>
-                <div className="text-3xl sm:text-4xl font-bold text-(--primary)">
+                <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-(--primary) to-purple-500 bg-clip-text text-transparent">
                   {service.startingPrice}
                 </div>
                 <p className="text-xs text-(--text-muted) mt-1">
                   Starting price — varies based on complexity
                 </p>
               </div>
+
               <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20"
-                >
-                  <FiPhone size={14} />
-                  {service.hero.cta}
-                </a>
-                <a
-                  href="#contact"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--surface) border border-(--border) hover:border-(--primary)/30 text-(--text) text-sm font-medium rounded-(--radius-md) transition-all"
-                >
-                  Book a Call
-                  <FiArrowRight size={14} />
-                </a>
+                <Link href="/contact">
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20 cursor-pointer"
+                  >
+                    <FiPhone size={14} />
+                    {service.hero.cta}
+                  </motion.div>
+                </Link>
+
+                <Link href="/contact">
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--surface) border border-(--border) hover:border-(--primary)/30 text-(--text) text-sm font-medium rounded-(--radius-md) transition-all cursor-pointer"
+                  >
+                    Book a Call
+                    <FiArrowRight size={14} />
+                  </motion.div>
+                </Link>
               </div>
             </div>
           </motion.div>
@@ -460,13 +289,13 @@ const OneService: React.FC = () => {
 
           <div className="flex flex-wrap gap-2">
             {service.relatedServices.map((item, index) => (
-              <a
+              <Link
                 key={index}
-                href="#"
+                href={`/services/${service.category}/${item.slug}`}
                 className="px-4 py-2 bg-(--surface) border border-(--border) rounded-(--radius-lg) text-sm text-(--text-muted) hover:text-(--primary) hover:border-(--primary)/30 transition-all"
               >
-                {item}
-              </a>
+                {item.name}
+              </Link>
             ))}
           </div>
         </div>

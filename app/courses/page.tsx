@@ -182,7 +182,7 @@ const Courses: React.FC = () => {
               build real-world projects.
             </p>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-3">
+            {/* <div className="flex flex-col sm:flex-row justify-center gap-3">
               <a
                 href="#courses-list"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20"
@@ -197,7 +197,7 @@ const Courses: React.FC = () => {
                 <FiPhone size={14} className="text-(--primary)" />
                 Enroll Now
               </a>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </section>

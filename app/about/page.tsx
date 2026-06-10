@@ -22,6 +22,9 @@ import Choose from "../components/Choose";
 import Stats from "../components/Stats";
 import Team from "../components/Team";
 
+import Link from "next/link";
+import Service from "../components/Service";
+
 const About: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
@@ -136,20 +139,26 @@ const About: React.FC = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-3">
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20"
-              >
-                Get in Touch
-                <FiArrowRight size={16} />
-              </a>
-              <a
-                href="/services"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--surface) border border-(--border) hover:border-(--primary)/30 text-(--text) text-sm font-medium rounded-(--radius-md) transition-all"
-              >
-                <FiPhone size={14} className="text-(--primary)" />
-                Our Services
-              </a>
+              <Link href="/contact">
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20 cursor-pointer"
+                >
+                  Get in Touch
+                  <FiArrowRight size={16} />
+                </motion.div>
+              </Link>
+
+              <Link href="/services">
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--surface) border border-(--border) hover:border-(--primary)/30 text-(--text) text-sm font-medium rounded-(--radius-md) transition-all cursor-pointer"
+                >
+                  Our Services
+                </motion.div>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -176,7 +185,7 @@ const About: React.FC = () => {
                 </h2>
               </div>
               <p className="text-sm sm:text-base text-(--text-muted) leading-relaxed mb-4">
-                NEXORA Studio was founded with a simple mission: to help
+                Twipra Technology was founded with a simple mission: to help
                 businesses succeed online through exceptional digital solutions.
                 What started as a small team of passionate developers has grown
                 into a full-service digital agency serving clients across 11+
@@ -232,71 +241,7 @@ const About: React.FC = () => {
       </section>
 
       {/* What We Do - Core Services */}
-      <section ref={sectionRef} className="relative pb-16 sm:pb-20 lg:pb-24">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-10 sm:mb-14"
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="h-px flex-1 bg-(--border)" />
-              <span className="text-xs text-(--text-muted) font-medium uppercase tracking-wider whitespace-nowrap">
-                What We Do
-              </span>
-              <div className="h-px flex-1 bg-(--border)" />
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-(--text) mb-4">
-              Core{" "}
-              <span className="relative inline-block">
-                <span className="text-(--primary)">Services</span>
-                <motion.span
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.8,
-                    delay: 0.3,
-                    ease: [0.25, 0.1, 0.25, 1],
-                  }}
-                  className="absolute -bottom-1 left-0 right-0 h-1 bg-(--primary)/30 rounded-full origin-left"
-                />
-              </span>
-            </h2>
-          </motion.div>
-
-          {/* Services Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-            {coreServices.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05, duration: 0.4 }}
-                  whileHover={{ y: -2 }}
-                  className="group relative bg-(--surface) border border-(--border) rounded-(--radius-lg) p-4 sm:p-5 hover:border-(--primary)/30 transition-all duration-300"
-                >
-                  <div className="w-10 h-10 bg-(--primary)/10 rounded-(--radius-md) flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                    <Icon size={20} className="text-(--primary)" />
-                  </div>
-                  <h3 className="text-sm sm:text-base font-semibold text-(--text) group-hover:text-(--primary) transition-colors mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-(--text-muted) leading-relaxed">
-                    {service.desc}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <Service />
 
       {/* Why Choose Us - Import Component */}
       <Choose />

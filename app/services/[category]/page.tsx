@@ -2,17 +2,11 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import {
-  FiArrowRight,
-  FiStar,
-  FiPhone,
-  FiArrowLeft,
-  FiCheck,
-  FiZap,
-  FiShield,
-  FiHeadphones,
-} from "react-icons/fi";
-import { serviceCategories, getCategoryBySlug, getServiceBySlug } from "../../data/serviceData";
+import { FiArrowRight, FiStar, FiPhone, FiArrowLeft } from "react-icons/fi";
+import { getCategoryBySlug } from "../../data/serviceData";
+import { useParams } from "next/navigation";
+import ServiceCard from "../../components/ServiceCard";
+import Link from "next/link";
 
 interface ServiceItem {
   slug: string;
@@ -22,20 +16,12 @@ interface ServiceItem {
   featured?: boolean;
 }
 
-interface ServiceCategory {
-  slug: string;
-  title: string;
-  description: string;
-  services: ServiceItem[];
-}
-
 const Category: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
 
-  // Get category from URL slug - example: /services/web-development
-  // You can get this from useParams() or props
-  const slug = "web-development"; // Replace with actual slug from URL
+  const params = useParams();
+  const slug = params.category as string;
   const category = getCategoryBySlug(slug);
 
   if (!category) {
@@ -45,6 +31,15 @@ const Category: React.FC = () => {
       </div>
     );
   }
+
+  // Handle Get Started button click - scroll to contact section
+  const handleGetStarted = (serviceName: string) => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+    console.log(`Get started with ${serviceName}`);
+  };
 
   return (
     <main className="relative">
@@ -66,7 +61,8 @@ const Category: React.FC = () => {
 
             {/* Heading */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-(--text) mb-4">
-              {category.title.split(" ").slice(0, -1).join(" ") || category.title}{" "}
+              {category.title.split(" ").slice(0, -1).join(" ") ||
+                category.title}{" "}
               <span className="relative inline-block">
                 <span className="text-(--primary)">
                   {category.title.includes(" ")
@@ -93,20 +89,27 @@ const Category: React.FC = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row justify-center gap-3">
-              <a
-                href="#services-list"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20"
-              >
-                Explore Services
-                <FiArrowRight size={16} />
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--surface) border border-(--border) hover:border-(--primary)/30 text-(--text) text-sm font-medium rounded-(--radius-md) transition-all"
-              >
-                <FiPhone size={14} className="text-(--primary)" />
-                Book a Call
-              </a>
+              <Link href="/services">
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20 cursor-pointer"
+                >
+                  Explore Services
+                  <FiArrowRight size={16} />
+                </motion.div>
+              </Link>
+
+              <Link href="/contact">
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--surface) border border-(--border) hover:border-(--primary)/30 text-(--text) text-sm font-medium rounded-(--radius-md) transition-all cursor-pointer"
+                >
+                  <FiPhone size={14} className="text-(--primary)" />
+                  Book a Call
+                </motion.div>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -119,6 +122,15 @@ const Category: React.FC = () => {
         className="relative pb-20 lg:pb-28"
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          {/* Back Button */}
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 text-sm text-(--text-muted) hover:text-(--primary) transition-colors mb-6"
+          >
+            <FiArrowLeft size={16} />
+            <span>Back to All Services</span>
+          </Link>
+
           {/* Section Divider */}
           <div className="flex items-center gap-3 mb-10">
             <div className="h-px flex-1 bg-(--border)" />
@@ -128,66 +140,20 @@ const Category: React.FC = () => {
             <div className="h-px flex-1 bg-(--border)" />
           </div>
 
-          {/* Back Button */}
-          <a
-            href="/services"
-            className="inline-flex items-center gap-2 text-sm text-(--text-muted) hover:text-(--primary) transition-colors mb-6"
-          >
-            <FiArrowLeft size={16} />
-            <span>Back to All Services</span>
-          </a>
-
-          {/* Service Cards Grid */}
+          {/* Service Cards Grid - Using reusable ServiceCard component */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {category.services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05, duration: 0.4 }}
-                whileHover={{ y: -2 }}
-                className="group relative bg-(--surface) border border-(--border) rounded-(--radius-lg) p-4 sm:p-5 hover:border-(--primary)/30 transition-all duration-300 flex flex-col"
-              >
-                {/* Featured Badge */}
-                {service.featured && (
-                  <div className="absolute -top-2 -right-2 px-2.5 py-0.5 bg-(--primary) text-white text-[10px] font-medium rounded-full z-10">
-                    Popular
-                  </div>
-                )}
-
-                {/* Content */}
-                <div className="flex-1">
-                  <h3 className="text-sm sm:text-base font-semibold text-(--text) group-hover:text-(--primary) transition-colors mb-2">
-                    {service.name}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-(--text-muted) leading-relaxed mb-4">
-                    {service.description}
-                  </p>
-                </div>
-
-                {/* Bottom */}
-                <div className="pt-3 border-t border-(--border) flex items-center justify-between">
-                  <div>
-                    <span className="text-sm sm:text-base font-bold text-(--primary)">
-                      {service.startingPrice}
-                    </span>
-                    <span className="text-[10px] text-(--text-muted) ml-1">
-                      starting
-                    </span>
-                  </div>
-                  <a
-                    href={`/services/${category.slug}/${service.slug}`}
-                    className="inline-flex items-center gap-1 text-xs font-medium text-(--primary) hover:text-(--primary-hover) transition-colors group/link"
-                  >
-                    <span>Learn More</span>
-                    <FiArrowRight
-                      size={12}
-                      className="group-hover/link:translate-x-0.5 transition-transform"
-                    />
-                  </a>
-                </div>
-              </motion.div>
+              <ServiceCard
+                key={service.slug}
+                name={service.name}
+                description={service.description}
+                startingPrice={service.startingPrice}
+                slug={service.slug}
+                categorySlug={category.slug}
+                featured={service.featured}
+                index={index}
+                onGetStarted={() => handleGetStarted(service.name)}
+              />
             ))}
           </div>
         </div>
