@@ -28,7 +28,7 @@ import { FiCreditCard } from "react-icons/fi";
 
 import Link from "next/link";
 import logo from "../../public/logo.svg";
-import { mainServices, navLinks } from "../data/data";
+import { mainServices, footerLinks } from "../data/data";
 import { FiShield, FiThumbsUp, FiRotateCcw } from "react-icons/fi";
 
 const Footer: React.FC = () => {
@@ -257,7 +257,7 @@ const Footer: React.FC = () => {
               Quick Links
             </p>
             <div className="space-y-3">
-              {navLinks.map((link, i) => (
+              {footerLinks.map((link, i) => (
                 <Link
                   key={i}
                   href={`${link.href}`}
@@ -346,12 +346,18 @@ const Footer: React.FC = () => {
               reserved.
             </p>
             <div className="flex items-center gap-5 text-xs text-(--text-muted)">
-              <a href="#" className="hover:text-(--primary) transition-colors">
+              <Link
+                href="/privacy-policy"
+                className="hover:text-(--primary) transition-colors"
+              >
                 Privacy Policy
-              </a>
-              <a href="#" className="hover:text-(--primary) transition-colors">
-                Terms of Service
-              </a>
+              </Link>
+              <Link
+                href="/terms-and-conditions"
+                className="hover:text-(--primary) transition-colors"
+              >
+                Terms & Conditions
+              </Link>
             </div>
           </div>
         </div>

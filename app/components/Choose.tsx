@@ -182,7 +182,7 @@ const Choose: React.FC = () => {
       className="relative pb-20 lg:pb-28"
     >
 
-      <div className="relative w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div className="relative w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 overflow-hidden">
         <div className="grid lg:grid-cols-2 gap-0">
           {/* Left Column */}
           <div className="lg:pr-12 lg:border-r border-(--border)">

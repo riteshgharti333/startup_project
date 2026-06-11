@@ -15,6 +15,7 @@ import {
 } from "react-icons/fi";
 import { navLinks } from "../data/data";
 import logo from "../../public/logo.svg";
+import OptimizedImage from "./OptimizedImage";
 
 // Types
 interface NavChild {
@@ -177,11 +178,13 @@ const Navbar: React.FC = () => {
           >
             <Link href="/" className="relative flex items-center gap-2">
               <div className="relative flex-shrink-0">
-                <Image
+                import OptimizedImage from '@/components/OptimizedImage'
+                <OptimizedImage
                   src={logo}
                   alt="TWIPRA Technology"
                   width={36}
                   height={36}
+                  priority={true} // Logo is above fold, load immediately
                   className="w-9 h-9 rounded-(--radius-sm)"
                 />
               </div>
