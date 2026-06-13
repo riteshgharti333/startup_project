@@ -8,14 +8,11 @@ import { usePathname } from "next/navigation";
 import {
   FiPhone,
   FiArrowRight,
-  FiX,
   FiChevronDown,
-  FiCalendar,
-  FiMessageCircle,
 } from "react-icons/fi";
 import { navLinks } from "../data/data";
-import logo from "../../public/logo.svg";
-import OptimizedImage from "./OptimizedImage";
+import logo from "../../public/main-logo.png";
+
 
 // Types
 interface NavChild {
@@ -174,28 +171,27 @@ const Navbar: React.FC = () => {
           {/* Logo Block */}
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="relative flex items-center gap-2 p-3 bg-(--surface) rounded-(--radius-xl) border border-(--border) shadow-lg min-w-fit h-[45px]"
+            className="relative flex items-center px-2 bg-(--surface) rounded-(--radius-xl) border border-(--border) shadow-lg min-w-fit h-[45px]"
           >
             <Link href="/" className="relative flex items-center gap-2">
               <div className="relative flex-shrink-0">
-                import OptimizedImage from '@/components/OptimizedImage'
-                <OptimizedImage
+                <Image
                   src={logo}
                   alt="TWIPRA Technology"
-                  width={36}
-                  height={36}
-                  priority={true} // Logo is above fold, load immediately
-                  className="w-9 h-9 rounded-(--radius-sm)"
+                  // width={36}
+                  // height={36}
+                  priority={true} 
+                  className="h-4 w-full sm:w-full sm:h-7"
                 />
               </div>
-              <div className="sm:block leading-none">
+              {/* <div className="sm:block leading-none">
                 <div className="text-sm font-bold text-(--text) tracking-wide">
                   TWIPRA
                 </div>
                 <div className="text-[10px] text-(--text-muted) tracking-wider">
                   TECHNOLOGY
                 </div>
-              </div>
+              </div> */}
             </Link>
           </motion.div>
 

@@ -30,6 +30,7 @@ import Link from "next/link";
 import logo from "../../public/logo.svg";
 import { mainServices, footerLinks } from "../data/data";
 import { FiShield, FiThumbsUp, FiRotateCcw } from "react-icons/fi";
+import { paymentIconList } from "@/public/payment-icon/payment";
 
 const Footer: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -133,7 +134,6 @@ const Footer: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Payment Methods Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -150,38 +150,24 @@ const Footer: React.FC = () => {
               <FiCreditCard size={16} className="text-(--primary)" />
             </div>
 
-            {/* Payment Icons - Larger Cards */}
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5">
-              <motion.div
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="w-14 h-10 sm:w-16 sm:h-11 bg-(--surface) rounded-(--radius-md) flex items-center justify-center border border-(--border) hover:border-(--primary)/40 hover:shadow-lg transition-all"
-              >
-                <FaCcVisa size={32} className="text-[#1A1F71]" />
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="w-14 h-10 sm:w-16 sm:h-11 bg-(--surface) rounded-(--radius-md) flex items-center justify-center border border-(--border) hover:border-(--primary)/40 hover:shadow-lg transition-all"
-              >
-                <FaCcPaypal size={32} className="text-[#003087]" />
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="w-14 h-10 sm:w-16 sm:h-11 bg-(--surface) rounded-(--radius-md) flex items-center justify-center border border-(--border) hover:border-(--primary)/40 hover:shadow-lg transition-all"
-              >
-                <FaCcAmex size={32} className="text-[#006FCF]" />
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="w-14 h-10 sm:w-16 sm:h-11 bg-(--surface) rounded-(--radius-md) flex items-center justify-center border border-(--border) hover:border-(--primary)/40 hover:shadow-lg transition-all"
-              >
-                <FaBitcoin size={26} className="text-[#F7931A]" />
-              </motion.div>
+            {/* Payment Icons - Using your SVG icons */}
+            <div className=" flex flex-wrap items-center justify-center gap-4 sm:gap-5">
+              {paymentIconList.map((payment, index) => (
+                <div key={index} className="flex flex-col items-center gap-1">
+                  <motion.div
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    className="w-14 h-10 sm:w-16 sm:h-11 bg-(--surface) rounded-(--radius-md) flex items-center justify-center border border-(--border) hover:border-(--primary)/40 hover:shadow-lg transition-all"
+                  >
+                    {payment.image}
+                  </motion.div>
+                  <span className="text-[10px] text-(--text-muted) capitalize">
+                    {payment.name}
+                  </span>
+                </div>
+              ))}
             </div>
 
-            {/* Trust Badge Text - Larger */}
+            {/* Trust Badge Text */}
             <p className="text-xs text-(--text-muted) text-center mt-3 flex items-center justify-center gap-3 flex-wrap">
               <span className="inline-flex items-center gap-1.5">
                 <FiShield size={12} className="text-(--primary)" />

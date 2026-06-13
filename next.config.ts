@@ -23,7 +23,7 @@ const nextConfig: NextConfig = {
   
   // ============ EXPERIMENTAL FEATURES ============
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion', 'react-icons'],
+    optimizePackageImports: ['framer-motion', 'react-icons'],
     // Better TTFB for SEO
     staleTimes: {
       dynamic: 30,
@@ -121,11 +121,11 @@ const nextConfig: NextConfig = {
   output: 'standalone',
   
   // ============ I18N (Multi-language SEO) ============
-  i18n: {
-    locales: ['en', 'hi', 'bn'],
-    defaultLocale: 'en',
-    localeDetection: false, // Must be false (removed true option)
-  },
+  // i18n: {
+  //   locales: ['en', 'hi', 'bn'],
+  //   defaultLocale: 'en',
+  //   localeDetection: false, // Must be false (removed true option)
+  // },
   
   // ============ SEO OPTIMIZATIONS ============
   poweredByHeader: false,

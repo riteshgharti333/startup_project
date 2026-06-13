@@ -15,10 +15,10 @@ export default function Home() {
     <>
       <PageSEO
         title="Home"
-        description="Professional web development, AI solutions, mobile apps, and digital marketing services for businesses in Bangladesh and India."
+        description="Professional web development, AI solutions, mobile apps, and digital marketing services for businesses in Bangladesh."
         keywords={[
           'web development Bangladesh',
-          'AI solutions India',
+          'AI solutions Bangladesh',
           'mobile app development',
           'digital marketing agency',
         ]}

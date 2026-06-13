@@ -14,10 +14,13 @@ import {
 } from "react-icons/fi";
 
 import Link from "next/link";
+import { PageSEO } from "../components/PageSEO";
 
 const Privacy: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
+
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.twipratechnology.com";
 
   const sections = [
     {
@@ -223,139 +226,160 @@ If you believe we have not adequately addressed your concerns, you have the righ
   ];
 
   return (
-    <main className="relative">
-      {/* Hero Banner */}
-      <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-48 lg:pb-24 overflow-hidden">
-        <div className="relative max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-2 bg-(--surface) border border-(--border) rounded-(--radius-xl) mb-6">
-              <FiLock size={14} className="text-(--primary)" />
-              <span className="text-sm text-(--text-muted)">Legal</span>
-            </div>
+    <>
+      <PageSEO
+        title="Privacy Policy | Twipra Technology"
+        description="Read Twipra Technology's Privacy Policy to understand how we collect, use, and protect your personal information when using our website and services."
+        keywords={[
+          "privacy policy",
+          "data protection",
+          "Twipra Technology privacy",
+          "website privacy policy",
+          "data security",
+          "GDPR compliance",
+        ]}
+        canonical={`${baseUrl}/privacy`}
+        ogImage="/og-privacy.jpg"
+        breadcrumbItems={[
+          { name: "Home", url: `${baseUrl}/` },
+          { name: "Privacy Policy", url: `${baseUrl}/privacy` },
+        ]}
+      />
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-(--text) mb-4">
-              Privacy{" "}
-              <span className="relative inline-block">
-                <span className="text-(--primary)">Policy</span>
-                <motion.span
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{
-                    duration: 0.8,
-                    delay: 0.3,
-                    ease: [0.25, 0.1, 0.25, 1],
-                  }}
-                  className="absolute -bottom-1 left-0 right-0 h-1 bg-(--primary)/30 rounded-full origin-left"
-                />
-              </span>
-            </h1>
+      <main className="relative">
+        {/* Hero Banner */}
+        <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-48 lg:pb-24 overflow-hidden">
+          <div className="relative max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-2 bg-(--surface) border border-(--border) rounded-(--radius-xl) mb-6">
+                <FiLock size={14} className="text-(--primary)" />
+                <span className="text-sm text-(--text-muted)">Legal</span>
+              </div>
 
-            <p className="text-sm sm:text-base text-(--text-muted) max-w-2xl mx-auto">
-              Last updated: June 2024 · Your privacy is important to us.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-(--text) mb-4">
+                Privacy{" "}
+                <span className="relative inline-block">
+                  <span className="text-(--primary)">Policy</span>
+                  <motion.span
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.3,
+                      ease: [0.25, 0.1, 0.25, 1],
+                    }}
+                    className="absolute -bottom-1 left-0 right-0 h-1 bg-(--primary)/30 rounded-full origin-left"
+                  />
+                </span>
+              </h1>
 
-      {/* Quick Nav */}
-      <section className="relative pb-12 sm:pb-16">
-        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="bg-(--surface) border border-(--border) rounded-(--radius-xl) p-5 sm:p-6"
-          >
-            <h3 className="text-sm font-semibold text-(--text) mb-3">
-              Quick Navigation
-            </h3>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2">
+              <p className="text-sm sm:text-base text-(--text-muted) max-w-2xl mx-auto">
+                Last updated: June 2024 · Your privacy is important to us.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Quick Nav */}
+        <section className="relative pb-12 sm:pb-16">
+          <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-(--surface) border border-(--border) rounded-(--radius-xl) p-5 sm:p-6"
+            >
+              <h3 className="text-sm font-semibold text-(--text) mb-3">
+                Quick Navigation
+              </h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2">
+                {sections.map((section, index) => (
+                  <Link
+                    key={index}
+                    href={`#${section.id}`}
+                    className="text-xs text-(--text-muted) hover:text-(--primary) transition-colors truncate"
+                  >
+                    {section.title}
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Privacy Content */}
+        <section ref={sectionRef} className="relative pb-20 lg:pb-28">
+          <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div className="space-y-8">
               {sections.map((section, index) => (
-                <Link
+                <motion.div
                   key={index}
-                  href={`#${section.id}`}
-                  className="text-xs text-(--text-muted) hover:text-(--primary) transition-colors truncate"
+                  id={section.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: index * 0.03, duration: 0.4 }}
+                  className="bg-(--surface) border border-(--border) rounded-(--radius-xl) p-5 sm:p-6 lg:p-8"
                 >
-                  {section.title}
-                </Link>
+                  <h2 className="text-lg sm:text-xl font-bold text-(--text) mb-4 flex items-center gap-3">
+                    <span className="w-8 h-8 bg-(--primary)/10 rounded-(--radius-md) flex items-center justify-center text-sm font-bold text-(--primary) flex-shrink-0">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    {section.title.replace(/^\d+\.\s*/, "")}
+                  </h2>
+                  <div className="text-sm sm:text-base text-(--text-muted) leading-relaxed space-y-3 whitespace-pre-line">
+                    {section.content}
+                  </div>
+                </motion.div>
               ))}
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Privacy Content */}
-      <section ref={sectionRef} className="relative pb-20 lg:pb-28">
-        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="space-y-8">
-            {sections.map((section, index) => (
-              <motion.div
-                key={index}
-                id={section.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: index * 0.03, duration: 0.4 }}
-                className="bg-(--surface) border border-(--border) rounded-(--radius-xl) p-5 sm:p-6 lg:p-8"
-              >
-                <h2 className="text-lg sm:text-xl font-bold text-(--text) mb-4 flex items-center gap-3">
-                  <span className="w-8 h-8 bg-(--primary)/10 rounded-(--radius-md) flex items-center justify-center text-sm font-bold text-(--primary) flex-shrink-0">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  {section.title.replace(/^\d+\.\s*/, "")}
-                </h2>
-                <div className="text-sm sm:text-base text-(--text-muted) leading-relaxed space-y-3 whitespace-pre-line">
-                  {section.content}
-                </div>
-              </motion.div>
-            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Bottom CTA */}
-      <section className="relative pb-20 lg:pb-28">
-        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-(--surface) border border-(--border) rounded-(--radius-xl) p-8 sm:p-10 text-center"
-          >
-            <h2 className="text-2xl sm:text-3xl font-bold text-(--text) mb-2">
-              Questions About Your Data?
-            </h2>
-            <p className="text-sm text-(--text-muted) mb-6 max-w-md mx-auto">
-              If you have questions about our Privacy Policy or how we handle
-              your data, please reach out.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-3">
-              <Link
-                href="mailto:privacy@twipra.tech"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20"
-              >
-                <FiShield size={14} />
-                Contact Privacy Team
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--background) border border-(--border) hover:border-(--primary)/30 text-(--text) text-sm font-medium rounded-(--radius-md) transition-all"
-              >
-                <FiPhone size={14} className="text-(--primary)" />
-                Contact Us
-                <FiArrowRight size={14} />
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    </main>
+        {/* Bottom CTA */}
+        <section className="relative pb-20 lg:pb-28">
+          <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-(--surface) border border-(--border) rounded-(--radius-xl) p-8 sm:p-10 text-center"
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-(--text) mb-2">
+                Questions About Your Data?
+              </h2>
+              <p className="text-sm text-(--text-muted) mb-6 max-w-md mx-auto">
+                If you have questions about our Privacy Policy or how we handle
+                your data, please reach out.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-3">
+                <Link
+                  href="mailto:privacy@twipra.tech"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20"
+                >
+                  <FiShield size={14} />
+                  Contact Privacy Team
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--background) border border-(--border) hover:border-(--primary)/30 text-(--text) text-sm font-medium rounded-(--radius-md) transition-all"
+                >
+                  <FiPhone size={14} className="text-(--primary)" />
+                  Contact Us
+                  <FiArrowRight size={14} />
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      </main>
+    </>
   );
 };
 
