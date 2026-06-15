@@ -44,6 +44,7 @@ interface FormErrors {
   email?: string;
   phone?: string;
   position?: string;
+  experience?: string;
   resume?: string;
 }
 
@@ -128,8 +129,16 @@ const Career: React.FC = () => {
       newErrors.phone = "Please enter a valid phone number";
     }
 
+    if (!formData.experience) {
+      newErrors.experience = "Please select years of experience";
+    }
+
     if (!formData.position) {
       newErrors.position = "Please select a position";
+    }
+
+    if (!formData.experience) {
+      newErrors.experience = "Please select years of experience";
     }
 
     if (!formData.resume) {
@@ -674,16 +683,20 @@ const Career: React.FC = () => {
                       </p>
                     )}
                   </div>
-
                   <div>
                     <label className="block text-sm font-medium text-(--text) mb-2">
-                      Years of Experience
+                      Years of Experience{" "}
+                      <span className="text-red-500">*</span>
                     </label>
                     <select
                       name="experience"
                       value={formData.experience}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-3 bg-(--background) border border-(--border) rounded-(--radius-md) text-(--text) focus:outline-none focus:border-(--primary) transition-colors appearance-none"
+                      className={`w-full px-3 py-3 bg-(--background) border ${
+                        errors.experience
+                          ? "border-red-500"
+                          : "border-(--border)"
+                      } rounded-(--radius-md) text-(--text) focus:outline-none focus:border-(--primary) transition-colors appearance-none`}
                     >
                       <option value="">Select experience</option>
                       <option value="Fresher (0-1 years)">
@@ -700,6 +713,11 @@ const Career: React.FC = () => {
                       </option>
                       <option value="Lead (8+ years)">Lead (8+ years)</option>
                     </select>
+                    {errors.experience && (
+                      <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                        <FiAlertCircle size={10} /> {errors.experience}
+                      </p>
+                    )}
                   </div>
                 </div>
 

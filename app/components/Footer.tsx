@@ -27,10 +27,10 @@ import {
 import { FiCreditCard } from "react-icons/fi";
 
 import Link from "next/link";
-import logo from "../../public/logo.svg";
 import { mainServices, footerLinks } from "../data/data";
 import { FiShield, FiThumbsUp, FiRotateCcw } from "react-icons/fi";
 import { paymentIconList } from "@/public/payment-icon/payment";
+import logo from "../../public/new-logo.png";
 
 const Footer: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -65,18 +65,18 @@ const Footer: React.FC = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-(--primary) to-purple-600 rounded-(--radius-xl) blur-2xl opacity-40 group-hover:opacity-60 transition-opacity" />
 
-              <div className="relative w-20 h-20 bg-gradient-to-br from-white to-gray-100 rounded-(--radius-xl) flex items-center justify-center shadow-xl shadow-(--primary)/20 overflow-hidden mb-4 mx-auto">
+              <div className="relative w-full h-20  rounded-(--radius-xl) flex items-center justify-center  overflow-hidden mb-4 mx-auto">
                 <img
                   src={logo.src}
                   alt="TWIPRA TECHNOLOGY"
-                  className="w-12 h-12 object-contain"
+                  className="w-full h-12 object-contain"
                 />
               </div>
             </motion.div>
           </Link>
 
           {/* Company Name */}
-          <Link href="/" className="block group">
+          {/* <Link href="/" className="block group">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-3">
               <span className="bg-gradient-to-r from-(--text) to-(--text)/80 bg-clip-text text-transparent">
                 TWIPRA
@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
                 TECHNOLOGY
               </span>
             </h1>
-          </Link>
+          </Link> */}
 
           {/* Tagline with Icon */}
           <div className="flex items-center justify-center gap-2 mb-4">

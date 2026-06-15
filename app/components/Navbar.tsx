@@ -11,7 +11,7 @@ import {
   FiChevronDown,
 } from "react-icons/fi";
 import { navLinks } from "../data/data";
-import logo from "../../public/main-logo.png";
+import logo from "../../public/new-logo.png";
 
 
 // Types
