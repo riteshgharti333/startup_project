@@ -3,6 +3,8 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
+import toast, { Toaster } from "react-hot-toast";
+import axiosInstance from "../utils/axios";
 import {
   FiUsers,
   FiTarget,
@@ -20,12 +22,10 @@ import {
   FiLinkedin,
   FiGithub,
   FiBriefcase,
-  FiMapPin,
   FiClock,
 } from "react-icons/fi";
 import { PageSEO } from "../components/PageSEO";
 
-// Career form state
 interface FormData {
   fullName: string;
   email: string;
@@ -49,9 +49,7 @@ interface FormErrors {
 
 const Career: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
+  const [uploadProgress, setUploadProgress] = useState(0);
   const formRef = useRef<HTMLDivElement>(null);
 
   const [formData, setFormData] = useState<FormData>({
@@ -83,7 +81,29 @@ const Career: React.FC = () => {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
-    setFormData((prev) => ({ ...prev, resume: file }));
+
+    if (file) {
+      // Validate file size (2MB)
+      if (file.size > 2 * 1024 * 1024) {
+        toast.error("File size must be less than 2MB");
+        return;
+      }
+
+      // Validate file type
+      const allowedTypes = [
+        "application/pdf",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      ];
+      if (!allowedTypes.includes(file.type)) {
+        toast.error("Only PDF, DOC, or DOCX files are allowed");
+        return;
+      }
+
+      setFormData((prev) => ({ ...prev, resume: file }));
+      toast.success("Resume uploaded successfully!");
+    }
+
     if (errors.resume) {
       setErrors((prev) => ({ ...prev, resume: undefined }));
     }
@@ -117,7 +137,27 @@ const Career: React.FC = () => {
     }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+
+    if (Object.keys(newErrors).length > 0) {
+      toast.error("Please fix the errors in the form");
+      return false;
+    }
+
+    return true;
+  };
+
+  const simulateProgress = () => {
+    setUploadProgress(0);
+    const interval = setInterval(() => {
+      setUploadProgress((prev) => {
+        if (prev >= 90) {
+          clearInterval(interval);
+          return 90;
+        }
+        return prev + 10;
+      });
+    }, 200);
+    return interval;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -128,11 +168,62 @@ const Career: React.FC = () => {
     }
 
     setIsSubmitting(true);
+    const progressInterval = simulateProgress();
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus("success");
+    try {
+      // Prepare the data
+      const apiData = {
+        fullName: formData.fullName,
+        email: formData.email,
+        phoneNumber: formData.phone,
+        position: formData.position,
+        yearsOfExperience: formData.experience,
+        portfolioUrl: formData.portfolio || null,
+        linkedInProfile: formData.linkedin || null,
+        githubProfile: formData.github || null,
+        coverLetter: formData.coverLetter || "",
+      };
+
+      console.log("Submitting data:", apiData);
+
+      // Create FormData
+      const submitFormData = new FormData();
+      submitFormData.append("data", JSON.stringify(apiData));
+
+      if (formData.resume) {
+        console.log(
+          "Attaching resume:",
+          formData.resume.name,
+          formData.resume.type,
+        );
+        submitFormData.append("resume", formData.resume);
+      }
+
+      // Make axios request
+      const response = await axiosInstance.post(
+        "/application",
+        submitFormData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          onUploadProgress: (progressEvent) => {
+            if (progressEvent.total) {
+              const percentCompleted = Math.round(
+                (progressEvent.loaded * 100) / progressEvent.total,
+              );
+              setUploadProgress(percentCompleted);
+            }
+          },
+        },
+      );
+
+      setUploadProgress(100);
+      toast.success(
+        response.data.message || "Application submitted successfully! 🎉",
+      );
+
+      // Reset form
       setFormData({
         fullName: "",
         email: "",
@@ -150,10 +241,36 @@ const Career: React.FC = () => {
       const fileInput = document.getElementById("resume") as HTMLInputElement;
       if (fileInput) fileInput.value = "";
 
+      // Scroll to top of form
+      formRef.current?.scrollIntoView({ behavior: "smooth" });
+    } catch (error: any) {
+      console.error("Submission error details:", error);
+
+      // Show specific error message
+      if (
+        error.message ===
+        "Cannot connect to server. Please check if backend is running."
+      ) {
+        toast.error("Backend server is not running. Please try again later.");
+      } else if (error.response?.status === 400) {
+        toast.error(
+          error.response.data.message ||
+            "Invalid form data. Please check all fields.",
+        );
+      } else if (error.response?.status === 413) {
+        toast.error("File too large. Maximum size is 2MB.");
+      } else {
+        toast.error(
+          error.message || "Failed to submit application. Please try again.",
+        );
+      }
+    } finally {
+      clearInterval(progressInterval);
       setTimeout(() => {
-        setSubmitStatus("idle");
-      }, 5000);
-    }, 1500);
+        setIsSubmitting(false);
+        setUploadProgress(0);
+      }, 1000);
+    }
   };
 
   // Benefits data
@@ -240,6 +357,30 @@ const Career: React.FC = () => {
         ]}
       />
 
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: "#1e1e2e",
+            color: "#fff",
+            border: "1px solid #313244",
+          },
+          success: {
+            iconTheme: {
+              primary: "#10b981",
+              secondary: "#fff",
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: "#ef4444",
+              secondary: "#fff",
+            },
+          },
+        }}
+      />
+
       <main className="relative">
         {/* Hero Banner */}
         <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-48 lg:pb-24 overflow-hidden">
@@ -282,6 +423,25 @@ const Career: React.FC = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* Progress Bar (shown during submission) */}
+        {isSubmitting && (
+          <div className="fixed top-0 left-0 right-0 z-50">
+            <div className="h-1 bg-(--surface)">
+              <motion.div
+                className="h-full bg-(--primary)"
+                initial={{ width: "0%" }}
+                animate={{ width: `${uploadProgress}%` }}
+                transition={{ duration: 0.3 }}
+              />
+            </div>
+            <div className="bg-(--surface)/95 backdrop-blur-sm border-b border-(--border) py-2 text-center">
+              <p className="text-sm text-(--text-muted)">
+                Submitting application... {uploadProgress}%
+              </p>
+            </div>
+          </div>
+        )}
 
         {/* Why Join Us Section */}
         <section className="relative pb-12 sm:pb-16">
@@ -398,321 +558,286 @@ const Career: React.FC = () => {
                 </p>
               </div>
 
-              {submitStatus === "success" ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="bg-green-500/10 border border-green-500/30 rounded-(--radius-lg) p-6 text-center"
-                >
-                  <div className="w-14 h-14 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <FiCheckCircle size={28} className="text-green-500" />
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Full Name */}
+                <div>
+                  <label className="block text-sm font-medium text-(--text) mb-2">
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
+                  <div className="relative">
+                    <FiUser className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted) size-4" />
+                    <input
+                      type="text"
+                      name="fullName"
+                      value={formData.fullName}
+                      onChange={handleInputChange}
+                      placeholder="Full Name"
+                      className={`w-full pl-10 pr-4 py-3 bg-(--background) border ${
+                        errors.fullName ? "border-red-500" : "border-(--border)"
+                      } rounded-(--radius-md) text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary) transition-colors`}
+                    />
                   </div>
-                  <h3 className="text-xl font-semibold text-(--text) mb-2">
-                    Application Submitted!
-                  </h3>
-                  <p className="text-(--text-muted) text-sm">
-                    Thank you for applying. Our hiring team will review your
-                    application and reach out soon.
-                  </p>
-                  <button
-                    onClick={() => setSubmitStatus("idle")}
-                    className="mt-6 inline-flex items-center gap-2 px-3 py-2 bg-(--background) border border-(--border) rounded-(--radius-md) text-sm text-(--text) hover:border-(--primary)/30 transition-all"
-                  >
-                    Submit Another Application
-                  </button>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Full Name */}
+                  {errors.fullName && (
+                    <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                      <FiAlertCircle size={10} /> {errors.fullName}
+                    </p>
+                  )}
+                </div>
+
+                {/* Email & Phone - 2 columns */}
+                <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-sm font-medium text-(--text) mb-2">
-                      Full Name <span className="text-red-500">*</span>
+                      Email Address <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
-                      <FiUser className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted) size-4" />
+                      <FiMail className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted) size-4" />
                       <input
-                        type="text"
-                        name="fullName"
-                        value={formData.fullName}
+                        type="email"
+                        name="email"
+                        value={formData.email}
                         onChange={handleInputChange}
-                        placeholder="John Doe"
+                        placeholder="company@example.com"
                         className={`w-full pl-10 pr-4 py-3 bg-(--background) border ${
-                          errors.fullName
-                            ? "border-red-500"
-                            : "border-(--border)"
+                          errors.email ? "border-red-500" : "border-(--border)"
                         } rounded-(--radius-md) text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary) transition-colors`}
                       />
                     </div>
-                    {errors.fullName && (
+                    {errors.email && (
                       <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
-                        <FiAlertCircle size={10} /> {errors.fullName}
+                        <FiAlertCircle size={10} /> {errors.email}
                       </p>
                     )}
                   </div>
 
-                  {/* Email & Phone - 2 columns */}
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-medium text-(--text) mb-2">
-                        Email Address <span className="text-red-500">*</span>
-                      </label>
-                      <div className="relative">
-                        <FiMail className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted) size-4" />
-                        <input
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          placeholder="john@example.com"
-                          className={`w-full pl-10 pr-4 py-3 bg-(--background) border ${
-                            errors.email
-                              ? "border-red-500"
-                              : "border-(--border)"
-                          } rounded-(--radius-md) text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary) transition-colors`}
-                        />
-                      </div>
-                      {errors.email && (
-                        <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
-                          <FiAlertCircle size={10} /> {errors.email}
-                        </p>
-                      )}
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-(--text) mb-2">
-                        Phone Number <span className="text-red-500">*</span>
-                      </label>
-                      <div className="relative">
-                        <FiPhone className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted) size-4" />
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          placeholder="+91 98765 43210"
-                          className={`w-full pl-10 pr-4 py-3 bg-(--background) border ${
-                            errors.phone
-                              ? "border-red-500"
-                              : "border-(--border)"
-                          } rounded-(--radius-md) text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary) transition-colors`}
-                        />
-                      </div>
-                      {errors.phone && (
-                        <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
-                          <FiAlertCircle size={10} /> {errors.phone}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Position & Experience */}
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-medium text-(--text) mb-2">
-                        Position Applying For{" "}
-                        <span className="text-red-500">*</span>
-                      </label>
-                      <select
-                        name="position"
-                        value={formData.position}
+                  <div>
+                    <label className="block text-sm font-medium text-(--text) mb-2">
+                      Phone Number <span className="text-red-500">*</span>
+                    </label>
+                    <div className="relative">
+                      <FiPhone className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted) size-4" />
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
                         onChange={handleInputChange}
-                        className={`w-full px-3 py-3 bg-(--background) border ${
-                          errors.position
-                            ? "border-red-500"
-                            : "border-(--border)"
-                        } rounded-(--radius-md) text-(--text) focus:outline-none focus:border-(--primary) transition-colors appearance-none`}
-                      >
-                        <option value="">Select a position</option>
-                        <option value="Frontend Developer">
-                          Frontend Developer
-                        </option>
-                        <option value="Backend Developer">
-                          Backend Developer
-                        </option>
-                        <option value="Full Stack Developer">
-                          Full Stack Developer
-                        </option>
-                        <option value="UI/UX Designer">UI/UX Designer</option>
-                        <option value="Project Manager">Project Manager</option>
-                        <option value="Quality Assurance Engineer">
-                          Quality Assurance Engineer
-                        </option>
-                        <option value="DevOps Engineer">DevOps Engineer</option>
-                        <option value="Technical Writer">
-                          Technical Writer
-                        </option>
-                      </select>
-                      {errors.position && (
-                        <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
-                          <FiAlertCircle size={10} /> {errors.position}
-                        </p>
-                      )}
+                        placeholder="+880 98765 43210"
+                        className={`w-full pl-10 pr-4 py-3 bg-(--background) border ${
+                          errors.phone ? "border-red-500" : "border-(--border)"
+                        } rounded-(--radius-md) text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary) transition-colors`}
+                      />
                     </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-(--text) mb-2">
-                        Years of Experience
-                      </label>
-                      <select
-                        name="experience"
-                        value={formData.experience}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-3 bg-(--background) border border-(--border) rounded-(--radius-md) text-(--text) focus:outline-none focus:border-(--primary) transition-colors appearance-none"
-                      >
-                        <option value="">Select experience</option>
-                        <option value="Fresher (0-1 years)">
-                          Fresher (0-1 years)
-                        </option>
-                        <option value="Junior (1-3 years)">
-                          Junior (1-3 years)
-                        </option>
-                        <option value="Mid-Level (3-5 years)">
-                          Mid-Level (3-5 years)
-                        </option>
-                        <option value="Senior (5-8 years)">
-                          Senior (5-8 years)
-                        </option>
-                        <option value="Lead (8+ years)">Lead (8+ years)</option>
-                      </select>
-                    </div>
+                    {errors.phone && (
+                      <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                        <FiAlertCircle size={10} /> {errors.phone}
+                      </p>
+                    )}
                   </div>
+                </div>
 
-                  {/* Portfolio / LinkedIn / GitHub */}
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-medium text-(--text) mb-2">
-                        Portfolio URL
-                      </label>
-                      <div className="relative">
-                        <FiBriefcase className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted) size-4" />
-                        <input
-                          type="url"
-                          name="portfolio"
-                          value={formData.portfolio}
-                          onChange={handleInputChange}
-                          placeholder="https://yourportfolio.com"
-                          className="w-full pl-10 pr-4 py-3 bg-(--background) border border-(--border) rounded-(--radius-md) text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary) transition-colors"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-(--text) mb-2">
-                        LinkedIn Profile
-                      </label>
-                      <div className="relative">
-                        <FiLinkedin className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted) size-4" />
-                        <input
-                          type="url"
-                          name="linkedin"
-                          value={formData.linkedin}
-                          onChange={handleInputChange}
-                          placeholder="https://linkedin.com/in/username"
-                          className="w-full pl-10 pr-4 py-3 bg-(--background) border border-(--border) rounded-(--radius-md) text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary) transition-colors"
-                        />
-                      </div>
-                    </div>
+                {/* Position & Experience */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-medium text-(--text) mb-2">
+                      Position Applying For{" "}
+                      <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      name="position"
+                      value={formData.position}
+                      onChange={handleInputChange}
+                      className={`w-full px-3 py-3 bg-(--background) border ${
+                        errors.position ? "border-red-500" : "border-(--border)"
+                      } rounded-(--radius-md) text-(--text) focus:outline-none focus:border-(--primary) transition-colors appearance-none`}
+                    >
+                      <option value="">Select a position</option>
+                      <option value="Frontend Developer">
+                        Frontend Developer
+                      </option>
+                      <option value="Backend Developer">
+                        Backend Developer
+                      </option>
+                      <option value="Full Stack Developer">
+                        Full Stack Developer
+                      </option>
+                      <option value="UI/UX Designer">UI/UX Designer</option>
+                      <option value="Project Manager">Project Manager</option>
+                      <option value="Quality Assurance Engineer">
+                        Quality Assurance Engineer
+                      </option>
+                      <option value="DevOps Engineer">DevOps Engineer</option>
+                      <option value="Technical Writer">Technical Writer</option>
+                    </select>
+                    {errors.position && (
+                      <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                        <FiAlertCircle size={10} /> {errors.position}
+                      </p>
+                    )}
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-(--text) mb-2">
-                      GitHub Profile
+                      Years of Experience
+                    </label>
+                    <select
+                      name="experience"
+                      value={formData.experience}
+                      onChange={handleInputChange}
+                      className="w-full px-3 py-3 bg-(--background) border border-(--border) rounded-(--radius-md) text-(--text) focus:outline-none focus:border-(--primary) transition-colors appearance-none"
+                    >
+                      <option value="">Select experience</option>
+                      <option value="Fresher (0-1 years)">
+                        Fresher (0-1 years)
+                      </option>
+                      <option value="Junior (1-3 years)">
+                        Junior (1-3 years)
+                      </option>
+                      <option value="Mid-Level (3-5 years)">
+                        Mid-Level (3-5 years)
+                      </option>
+                      <option value="Senior (5-8 years)">
+                        Senior (5-8 years)
+                      </option>
+                      <option value="Lead (8+ years)">Lead (8+ years)</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Portfolio / LinkedIn / GitHub */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-medium text-(--text) mb-2">
+                      Portfolio URL
                     </label>
                     <div className="relative">
-                      <FiGithub className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted) size-4" />
+                      <FiBriefcase className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted) size-4" />
                       <input
                         type="url"
-                        name="github"
-                        value={formData.github}
+                        name="portfolio"
+                        value={formData.portfolio}
                         onChange={handleInputChange}
-                        placeholder="https://github.com/username"
+                        placeholder="https://yourportfolio.com"
                         className="w-full pl-10 pr-4 py-3 bg-(--background) border border-(--border) rounded-(--radius-md) text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary) transition-colors"
                       />
                     </div>
                   </div>
 
-                  {/* Resume Upload */}
                   <div>
                     <label className="block text-sm font-medium text-(--text) mb-2">
-                      Resume/CV <span className="text-red-500">*</span>
+                      LinkedIn Profile
                     </label>
-                    <div
-                      className={`border-2 border-dashed ${
-                        errors.resume ? "border-red-500" : "border-(--border)"
-                      } rounded-(--radius-lg) p-6 text-center hover:border-(--primary)/50 transition-colors`}
-                    >
-                      <FiFileText className="mx-auto size-8 text-(--text-muted) mb-3" />
-                      <p className="text-sm text-(--text-muted) mb-2">
-                        Drag & drop your resume here, or{" "}
-                        <button
-                          type="button"
-                          onClick={() =>
-                            document.getElementById("resume")?.click()
-                          }
-                          className="text-(--primary) hover:underline"
-                        >
-                          browse
-                        </button>
-                      </p>
-                      <p className="text-xs text-(--text-muted)">
-                        Supported formats: PDF, DOC, DOCX (Max 5MB)
-                      </p>
+                    <div className="relative">
+                      <FiLinkedin className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted) size-4" />
                       <input
-                        id="resume"
-                        type="file"
-                        accept=".pdf,.doc,.docx"
-                        onChange={handleFileChange}
-                        className="hidden"
+                        type="url"
+                        name="linkedin"
+                        value={formData.linkedin}
+                        onChange={handleInputChange}
+                        placeholder="https://linkedin.com/in/username"
+                        className="w-full pl-10 pr-4 py-3 bg-(--background) border border-(--border) rounded-(--radius-md) text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary) transition-colors"
                       />
-                      {formData.resume && (
-                        <p className="mt-3 text-xs text-(--primary) flex items-center justify-center gap-1">
-                          <FiCheckCircle size={12} /> {formData.resume.name}
-                        </p>
-                      )}
                     </div>
-                    {errors.resume && (
-                      <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
-                        <FiAlertCircle size={10} /> {errors.resume}
-                      </p>
-                    )}
                   </div>
+                </div>
 
-                  {/* Cover Letter */}
-                  <div>
-                    <label className="block text-sm font-medium text-(--text) mb-2">
-                      Cover Letter / Why do you want to join us?
-                    </label>
-                    <textarea
-                      name="coverLetter"
-                      value={formData.coverLetter}
+                <div>
+                  <label className="block text-sm font-medium text-(--text) mb-2">
+                    GitHub Profile
+                  </label>
+                  <div className="relative">
+                    <FiGithub className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted) size-4" />
+                    <input
+                      type="url"
+                      name="github"
+                      value={formData.github}
                       onChange={handleInputChange}
-                      rows={4}
-                      placeholder="Tell us about yourself, your skills, and why you'd be a great fit for our team..."
-                      className="w-full px-3 py-3 bg-(--background) border border-(--border) rounded-(--radius-md) text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary) transition-colors resize-none"
+                      placeholder="https://github.com/username"
+                      className="w-full pl-10 pr-4 py-3 bg-(--background) border border-(--border) rounded-(--radius-md) text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary) transition-colors"
                     />
                   </div>
+                </div>
 
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20 disabled:opacity-70 disabled:cursor-not-allowed"
+                {/* Resume Upload */}
+                <div>
+                  <label className="block text-sm font-medium text-(--text) mb-2">
+                    Resume/CV <span className="text-red-500">*</span>
+                  </label>
+                  <div
+                    className={`border-2 border-dashed ${
+                      errors.resume ? "border-red-500" : "border-(--border)"
+                    } rounded-(--radius-lg) p-6 text-center hover:border-(--primary)/50 transition-colors`}
                   >
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        Submitting...
-                      </>
-                    ) : (
-                      <>
-                        <FiSend size={14} />
-                        Submit Application
-                        <FiArrowRight size={14} />
-                      </>
+                    <FiFileText className="mx-auto size-8 text-(--text-muted) mb-3" />
+                    <p className="text-sm text-(--text-muted) mb-2">
+                      Drag & drop your resume here, or{" "}
+                      <button
+                        type="button"
+                        onClick={() =>
+                          document.getElementById("resume")?.click()
+                        }
+                        className="text-(--primary) hover:underline"
+                      >
+                        browse
+                      </button>
+                    </p>
+                    <p className="text-xs text-(--text-muted)">
+                      Supported formats: PDF, DOC, DOCX (Max 2MB)
+                    </p>
+                    <input
+                      id="resume"
+                      type="file"
+                      accept=".pdf,.doc,.docx"
+                      onChange={handleFileChange}
+                      className="hidden"
+                    />
+                    {formData.resume && (
+                      <p className="mt-3 text-xs text-(--primary) flex items-center justify-center gap-1">
+                        <FiCheckCircle size={12} /> {formData.resume.name}
+                      </p>
                     )}
-                  </button>
-                </form>
-              )}
+                  </div>
+                  {errors.resume && (
+                    <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                      <FiAlertCircle size={10} /> {errors.resume}
+                    </p>
+                  )}
+                </div>
+
+                {/* Cover Letter */}
+                <div>
+                  <label className="block text-sm font-medium text-(--text) mb-2">
+                    Cover Letter / Why do you want to join us?
+                  </label>
+                  <textarea
+                    name="coverLetter"
+                    value={formData.coverLetter}
+                    onChange={handleInputChange}
+                    rows={4}
+                    placeholder="Tell us about yourself, your skills, and why you'd be a great fit for our team..."
+                    className="w-full px-3 py-3 bg-(--background) border border-(--border) rounded-(--radius-md) text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary) transition-colors resize-none"
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20 disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      Submitting... {uploadProgress}%
+                    </>
+                  ) : (
+                    <>
+                      <FiSend size={14} />
+                      Submit Application
+                      <FiArrowRight size={14} />
+                    </>
+                  )}
+                </button>
+              </form>
             </motion.div>
           </div>
         </section>
