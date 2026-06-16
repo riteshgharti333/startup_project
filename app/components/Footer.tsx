@@ -17,13 +17,6 @@ import {
   FiClock,
 } from "react-icons/fi";
 
-import {
-  FaCcVisa,
-  FaCcMastercard,
-  FaCcPaypal,
-  FaCcAmex,
-  FaBitcoin,
-} from "react-icons/fa";
 import { FiCreditCard } from "react-icons/fi";
 
 import Link from "next/link";
@@ -31,17 +24,15 @@ import { mainServices, footerLinks } from "../data/data";
 import { FiShield, FiThumbsUp, FiRotateCcw } from "react-icons/fi";
 import { paymentIconList } from "@/public/payment-icon/payment";
 import logo from "../../public/new-logo.png";
+import { FaXTwitter } from "react-icons/fa6";
+import { socialData, socialLinks } from "../data/links";
 
 const Footer: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
 
-  const socialLinks = [
-    { icon: FiTwitter, href: "#" },
-    { icon: FiLinkedin, href: "#" },
-    { icon: FiInstagram, href: "#" },
-    { icon: FiGithub, href: "#" },
-  ];
+ 
+ 
 
   return (
     <footer ref={sectionRef} className="relative">
@@ -210,25 +201,31 @@ const Footer: React.FC = () => {
                   size={15}
                   className="text-(--primary) flex-shrink-0"
                 />
-                <span>+1 (555) 123-4567</span>
+                   <span>{socialData.contact1}</span>
+              </a>
+                <a
+                href="tel:+15551234567"
+                className="flex items-center gap-3 text-sm text-(--text-muted) hover:text-(--primary) transition-colors group"
+              >
+                <FiPhoneCall
+                  size={15}
+                  className="text-(--primary) flex-shrink-0"
+                />
+                   <span>{socialData.contact2}</span>
               </a>
               <a
                 href="mailto:hello@nexora.studio"
                 className="flex items-center gap-3 text-sm text-(--text-muted) hover:text-(--primary) transition-colors group"
               >
                 <FiMail size={15} className="text-(--primary) flex-shrink-0" />
-                <span>hello@twipra.com</span>
+                <span>{socialData.email}</span>
               </a>
               <div className="flex items-center gap-3 text-sm text-(--text-muted)">
                 <FiMapPin
                   size={15}
                   className="text-(--primary) flex-shrink-0"
                 />
-                <span>Dhaka, Bangladesh</span>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-(--text-muted)">
-                <FiClock size={15} className="text-(--primary) flex-shrink-0" />
-                <span>Mon-Fri: 9AM - 6PM</span>
+                  <span>{socialData.address}</span>
               </div>
             </div>
           </motion.div>
@@ -293,8 +290,9 @@ const Footer: React.FC = () => {
                   <motion.a
                     key={index}
                     href={social.href}
+                     target="_blank"
                     whileHover={{ scale: 1.1, y: -2 }}
-                    className="w-9 h-9 rounded-full bg-(--surface) border border-(--border) flex items-center justify-center text-(--text-muted) hover:text-(--primary) hover:border-(--primary)/40 transition-all"
+                    className="w-9 h-9 rounded-full bg-(--surface) border border-(--border) flex items-center justify-center text-(--text-muted) hover:text-(--primary) `${social.color}` transition-all"
                   >
                     <Icon size={15} />
                   </motion.a>

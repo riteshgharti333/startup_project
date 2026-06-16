@@ -18,7 +18,21 @@ import {
   FiFileText,
   FiPhoneCall,
 } from "react-icons/fi";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaXTwitter,
+  FaLinkedin,
+  FaGithub,
+} from "react-icons/fa6";
 import { PageSEO } from "../components/PageSEO";
+import {
+  budgets,
+  contactInfo,
+  services,
+  socialData,
+  socialLinks,
+} from "../data/links";
 
 const Contact: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -51,51 +65,6 @@ const Contact: React.FC = () => {
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
   };
-
-  const contactInfo = [
-    {
-      icon: FiPhoneCall,
-      label: "Call Us",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567",
-    },
-    {
-      icon: FiMail,
-      label: "Email Us",
-      value: "hello@nexora.studio",
-      href: "mailto:hello@nexora.studio",
-    },
-    {
-      icon: FiMapPin,
-      label: "Visit Us",
-      value: "Dhaka, Bangladesh",
-      href: "#",
-    },
-    {
-      icon: FiClock,
-      label: "Working Hours",
-      value: "Mon-Fri: 9AM - 6PM",
-      href: "#",
-    },
-  ];
-
-  const services = [
-    "Web Development",
-    "AI Solutions",
-    "Mobile App Development",
-    "Cloud & Infrastructure",
-    "Digital Marketing",
-    "Consulting & Training",
-  ];
-
-  const budgets = [
-    "Under ৳10,000",
-    "৳10,000 - ৳25,000",
-    "৳25,000 - ৳50,000",
-    "৳50,000 - ৳1,00,000",
-    "৳1,00,000+",
-    "Not Sure Yet",
-  ];
 
   return (
     <>
@@ -211,19 +180,40 @@ const Contact: React.FC = () => {
                   })}
                 </div>
 
-                {/* Quick Response Badge */}
+                {/* Social Media Section */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.5, duration: 0.4 }}
-                  className="mt-6 p-4 bg-green-500/5 border border-green-500/20 rounded-(--radius-lg) text-center"
+                  transition={{ delay: 0.4, duration: 0.4 }}
+                  className="mt-6 p-4 bg-(--surface) border border-(--border) rounded-(--radius-lg)"
                 >
-                  <div className="flex items-center justify-center gap-2 text-sm text-green-400">
-                    <FiCheck size={14} />
-                    <span className="font-medium">
-                      We reply within 24 hours
-                    </span>
+                  <h3 className="text-sm font-semibold text-(--text) mb-3">
+                    Follow Us
+                  </h3>
+                  <div className="flex gap-3">
+                    {socialLinks.map((social, index) => {
+                      const SocialIcon = social.icon;
+                      return (
+                        <motion.a
+                          key={index}
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{
+                            delay: 0.5 + index * 0.05,
+                            duration: 0.3,
+                          }}
+                          className={`w-10 h-10 bg-(--background) border border-(--border) rounded-(--radius-md) flex items-center justify-center text-(--text-muted) transition-all duration-300 hover:scale-110 hover:border-transparent ${social.color}`}
+                          aria-label={social.label}
+                        >
+                          <SocialIcon size={16} />
+                        </motion.a>
+                      );
+                    })}
                   </div>
                 </motion.div>
               </div>

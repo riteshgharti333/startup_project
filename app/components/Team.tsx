@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import {
   FiLinkedin,
   FiTwitter,
@@ -15,7 +15,57 @@ import {
 } from "react-icons/fi";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
+
+import {
+  IN,
+  BD,
+  NP,
+  NG,
+  GH,
+  CM,
+  MW,
+  LK,
+  TH,
+  SL,
+} from "country-flag-icons/react/3x2";
+
+// Flag mapping
+const flagMap: Record<string, React.ComponentType<any>> = {
+  India: IN,
+  Bangladesh: BD,
+  Nepal: NP,
+  Nigeria: NG,
+  Ghana: GH,
+  Cameroon: CM,
+  Malawi: MW,
+  "Sri Lanka": LK,
+  Thailand: TH,
+  "Sierra Leone": SL,
+};
+
+// Reusable CountryFlag component
+const CountryFlag = ({ country }: { country: string }) => {
+  const Flag = flagMap[country];
+
+  return (
+    <div className="inline-flex items-center gap-1.5">
+      {Flag ? (
+        <Flag className="w-4 h-3  flex-shrink-0" />
+      ) : (
+        <span className="text-xs">{getFlagEmoji(country)}</span>
+      )}
+      <span className="text-xs text-(--text-muted)">{country}</span>
+    </div>
+  );
+};
+
+// Fallback emoji flags for countries not in the package (like Tibet)
+const getFlagEmoji = (country: string): string => {
+  const flags: Record<string, string> = {
+    Tibet: "🏔️",
+  };
+  return flags[country] || "🌍";
+};
 
 interface TeamMember {
   name: string;
@@ -145,23 +195,6 @@ const Team: React.FC = () => {
       .join("");
   };
 
-  const getFlag = (country: string): string => {
-    const flags: Record<string, string> = {
-      Bangladesh: "🇧🇩",
-      India: "🇮🇳",
-      Malawi: "🇲🇼",
-      "Sierra Leone": "🇸🇱",
-      Nepal: "🇳🇵",
-      Cameroon: "🇨🇲",
-      Nigeria: "🇳🇬",
-      Ghana: "🇬🇭",
-      Thailand: "🇹🇭",
-      Tibet: "🏔️",
-      "Sri Lanka": "🇱🇰",
-    };
-    return flags[country] || "🌍";
-  };
-
   return (
     <section ref={sectionRef} className="relative pb-20 lg:pb-28">
       <div className="relative w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
@@ -203,7 +236,6 @@ const Team: React.FC = () => {
         </motion.div>
 
         {/* Leadership Cards */}
-        {/* Leadership - Hexagon Style Cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-24">
           {leaders.map((leader, index) => (
             <motion.div
@@ -236,11 +268,9 @@ const Team: React.FC = () => {
                   {leader.role}
                 </p>
 
-                {/* Country Badge */}
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-(--primary)/5 rounded-(--radius-md) mb-4">
-                  <span className="text-xs text-(--text-muted)">
-                    {leader.country}
-                  </span>
+                {/* Country Badge with Flag */}
+                <div className="inline-flex items-center px-3 py-1 bg-(--primary)/5 rounded-(--radius-md) mb-4">
+                  <CountryFlag country={leader.country} />
                 </div>
 
                 {/* Description */}
@@ -304,7 +334,7 @@ const Team: React.FC = () => {
             }}
             className="team-swiper"
           >
-            {teamMembers.map((member, index) => (
+            {teamMembers.map((member) => (
               <SwiperSlide key={member.name}>
                 <div className="bg-(--surface) border border-(--border) rounded-(--radius-lg) p-4 mt-2 text-center hover:border-(--primary)/30 transition-all duration-200 ease-out cursor-pointer group hover:-translate-y-1 hover:shadow-lg">
                   {/* Avatar */}
@@ -322,11 +352,9 @@ const Team: React.FC = () => {
                     {member.role}
                   </p>
 
-                  {/* Country */}
-                  <div className="flex items-center justify-center gap-1 mt-2">
-                    <span className="text-[10px] text-(--text-muted)">
-                      {member.country}
-                    </span>
+                  {/* Country with Flag */}
+                  <div className="flex items-center justify-center mt-2 text-[10px] text-(--text-muted)">
+                    <CountryFlag country={member.country} />
                   </div>
                 </div>
               </SwiperSlide>
