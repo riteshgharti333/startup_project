@@ -31,9 +31,6 @@ const Footer: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
 
- 
- 
-
   return (
     <footer ref={sectionRef} className="relative">
       {/* Top Gradient Line */}
@@ -182,14 +179,14 @@ const Footer: React.FC = () => {
         <div className="h-px bg-(--border) mb-12 sm:mb-16" />
 
         {/* Bottom Section - 4 Columns */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-10 mb-10 sm:mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-8 sm:gap-10 mb-10 sm:mb-14">
           {/* Column 1 - Contact */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <p className="text-xs text-(--text-muted) uppercase tracking-wider mb-5">
+            <p className="text-xs  text-(--primary) uppercase tracking-wider mb-5">
               Get in Touch
             </p>
             <div className="space-y-4">
@@ -201,9 +198,9 @@ const Footer: React.FC = () => {
                   size={15}
                   className="text-(--primary) flex-shrink-0"
                 />
-                   <span>{socialData.contact1}</span>
+                <span>{socialData.contact1}</span>
               </a>
-                <a
+              <a
                 href="tel:+15551234567"
                 className="flex items-center gap-3 text-sm text-(--text-muted) hover:text-(--primary) transition-colors group"
               >
@@ -211,7 +208,7 @@ const Footer: React.FC = () => {
                   size={15}
                   className="text-(--primary) flex-shrink-0"
                 />
-                   <span>{socialData.contact2}</span>
+                <span>{socialData.contact2}</span>
               </a>
               <a
                 href="mailto:hello@nexora.studio"
@@ -225,7 +222,7 @@ const Footer: React.FC = () => {
                   size={15}
                   className="text-(--primary) flex-shrink-0"
                 />
-                  <span>{socialData.address}</span>
+                <span>{socialData.address}</span>
               </div>
             </div>
           </motion.div>
@@ -236,7 +233,7 @@ const Footer: React.FC = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <p className="text-xs text-(--text-muted) uppercase tracking-wider mb-5">
+            <p className="text-xs text-(--primary)  uppercase tracking-wider mb-5">
               Quick Links
             </p>
             <div className="space-y-3">
@@ -258,7 +255,7 @@ const Footer: React.FC = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <p className="text-xs text-(--text-muted) uppercase tracking-wider mb-5">
+            <p className="text-xs text-(--primary)    uppercase tracking-wider mb-5">
               Services
             </p>
             <div className="space-y-3">
@@ -280,7 +277,7 @@ const Footer: React.FC = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <p className="text-xs text-(--text-muted) uppercase tracking-wider mb-5">
+            <p className="text-xs text-(--primary)  uppercase tracking-wider mb-5">
               Follow Us
             </p>
             <div className="flex gap-2 mb-4">
@@ -290,7 +287,7 @@ const Footer: React.FC = () => {
                   <motion.a
                     key={index}
                     href={social.href}
-                     target="_blank"
+                    target="_blank"
                     whileHover={{ scale: 1.1, y: -2 }}
                     className="w-9 h-9 rounded-full bg-(--surface) border border-(--border) flex items-center justify-center text-(--text-muted) hover:text-(--primary) `${social.color}` transition-all"
                   >

@@ -193,20 +193,9 @@ const Career: React.FC = () => {
         coverLetter: formData.coverLetter || "",
       };
 
-      console.log("Submitting data:", apiData);
-
       // Create FormData
       const submitFormData = new FormData();
       submitFormData.append("data", JSON.stringify(apiData));
-
-      if (formData.resume) {
-        console.log(
-          "Attaching resume:",
-          formData.resume.name,
-          formData.resume.type,
-        );
-        submitFormData.append("resume", formData.resume);
-      }
 
       // Make axios request
       const response = await axiosInstance.post(

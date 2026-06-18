@@ -12,7 +12,7 @@ export const socialData = {
   x: "https://x.com/TwipraTechth",
   email: "twipratechnologies@gmail.com",
   contact1: "+880 1851072019",
-  contact2: "+01 310889153",
+  contact2: "+880 1310889153",
   address: "Dhaka, Bangladesh",
 };
 

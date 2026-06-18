@@ -88,7 +88,7 @@ const Team: React.FC = () => {
       country: "Bangladesh",
       color: "text-(--primary)",
       bg: "bg-(--primary)/10",
-      desc: "Leads company vision, client relationships, and business strategy with 6+ years in tech.",
+      desc: "Leads company vision, client relationships, AI Solution and business strategy with 6+ years in tech.",
     },
     {
       name: "Ritesh Gharti",
@@ -105,6 +105,14 @@ const Team: React.FC = () => {
       color: "text-green-400",
       bg: "bg-green-500/10",
       desc: "Creates beautiful, intuitive user experiences for web and mobile products.",
+    },
+    {
+      name: "Payel Paul Mrong",
+      role: " Branding & Marketing/ Branding & Marketing Lead",
+      country: "Bangladesh",
+      color: "text-green-400",
+      bg: "bg-green-500/10",
+      desc: "Builds strong brands through creative marketing and audience engagement.",
     },
   ];
 
@@ -236,7 +244,7 @@ const Team: React.FC = () => {
         </motion.div>
 
         {/* Leadership Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-24">
+        <div className="leaders-grid  mb-16 sm:mb-24">
           {leaders.map((leader, index) => (
             <motion.div
               key={leader.name}
@@ -402,6 +410,37 @@ const Team: React.FC = () => {
       </div>
 
       <style>{`
+
+      .leaders-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 640px) {
+    .leaders-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .leaders-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .leaders-grid {
+      grid-template-columns: repeat(3, 1fr); // 4 cards at 1024px
+    }
+  }
+
+   @media (min-width: 1200px) {
+    .leaders-grid {
+      grid-template-columns: repeat(4, 1fr); // 4 cards at 1024px
+    }
+  }
+    
         .team-swiper .swiper-pagination,
         .team-swiper .swiper-button-next,
         .team-swiper .swiper-button-prev {

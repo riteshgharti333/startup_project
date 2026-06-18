@@ -281,7 +281,7 @@ const About: React.FC = () => {
               {/* Vertical Line */}
               <div className="absolute left-5 sm:left-6 top-0 bottom-0 w-px bg-(--border)" />
 
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {steps.map((step, index) => (
                   <motion.div
                     key={index}
