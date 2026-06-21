@@ -339,7 +339,14 @@ const Footer: React.FC = () => {
               >
                 Terms & Conditions
               </Link>
+               <Link
+                href="/cookie-policy"
+                className="hover:text-(--primary) transition-colors"
+              >
+              Cookie Policy
+              </Link>
             </div>
+
           </div>
         </div>
       </div>

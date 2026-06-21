@@ -18,6 +18,7 @@ import Footer from "./components/Footer";
 import Backgrounds from "../app/components/Backgrounds";
 import { localBusinessSchema, organizationSchema } from "./lib/schema";
 import { AnalyticsWrapper } from "./analytics";
+import Float from "./components/Float";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -215,6 +216,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <AnalyticsWrapper />
           <Footer />
+          {/* <Float /> */}
         </div>
       </body>
     </html>

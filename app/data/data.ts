@@ -394,8 +394,8 @@ We encourage you to review these Terms periodically for any updates.`,
 Twipra Technology
 Dhaka, Bangladesh
 
-Email: legal@twipra.tech
-Phone: [Your Phone Number]
+Email: twipratechnologies@gmail.com
+Phone: +880 1851072019, +880 1310889153
 Website: twipra.tech
 
 We aim to respond to all inquiries within 2-3 business days.

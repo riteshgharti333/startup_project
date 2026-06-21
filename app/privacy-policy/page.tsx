@@ -212,9 +212,9 @@ By using our services, you consent to the transfer of your information to countr
 Twipra Technology
 Dhaka, Bangladesh
 
-Data Protection Officer: privacy@twipra.tech
-General Inquiries: hello@twipra.tech
-Phone: [Your Phone Number]
+Data Protection Officer: twipratechnologies@gmail.com
+General Inquiries: twipratechnologies@gmail.com
+Phone: +880 1851072019, +880 1310889153
 Website: twipra.tech
 
 We aim to acknowledge all inquiries within 48 hours and provide a full response within 30 days.
