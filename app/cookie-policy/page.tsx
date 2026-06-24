@@ -91,6 +91,7 @@ Please note that disabling certain cookies may affect website functionality.`,
 
 Email: contact@twipra.com
 Phone: +880 1851072019
+WhatsApp: +880 1310889153
 Address: Dhaka, Bangladesh`,
   },
 ];

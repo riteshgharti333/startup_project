@@ -1,10 +1,11 @@
-import { FaFacebook, FaInstagram, FaXTwitter } from "react-icons/fa6";
-
 import {
-  FiMail,
-  FiMapPin,
-  FiPhoneCall,
-} from "react-icons/fi";
+  FaFacebook,
+  FaInstagram,
+  FaWhatsapp,
+  FaXTwitter,
+} from "react-icons/fa6";
+
+import { FiMail, FiMapPin, FiPhoneCall } from "react-icons/fi";
 
 export const socialData = {
   facebook: "https://www.facebook.com/profile.php?id=61590817079535",
@@ -46,10 +47,10 @@ export const contactInfo = [
     href: `tel:${socialData.contact1}`,
   },
   {
-    icon: FiPhoneCall,
-    label: "Call Us",
+    icon: FaWhatsapp,
+    label: "Whatsapp Us",
     value: socialData.contact2,
-    href: `tel:${socialData.contact2}`,
+    href: `https://wa.me/${socialData.contact2.replace(/\D/g, "")}`,
   },
   {
     icon: FiMail,

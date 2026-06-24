@@ -395,7 +395,8 @@ Twipra Technology
 Dhaka, Bangladesh
 
 Email: twipratechnologies@gmail.com
-Phone: +880 1851072019, +880 1310889153
+Phone: +880 1851072019
+WhatsApp: +880 1310889153
 Website: twipra.tech
 
 We aim to respond to all inquiries within 2-3 business days.

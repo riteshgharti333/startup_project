@@ -214,7 +214,8 @@ Dhaka, Bangladesh
 
 Data Protection Officer: twipratechnologies@gmail.com
 General Inquiries: twipratechnologies@gmail.com
-Phone: +880 1851072019, +880 1310889153
+Phone: +880 1851072019
+WhatsApp: +880 1310889153
 Website: twipra.tech
 
 We aim to acknowledge all inquiries within 48 hours and provide a full response within 30 days.

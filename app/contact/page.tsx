@@ -18,13 +18,6 @@ import {
   FiFileText,
   FiPhoneCall,
 } from "react-icons/fi";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaXTwitter,
-  FaLinkedin,
-  FaGithub,
-} from "react-icons/fa6";
 import { PageSEO } from "../components/PageSEO";
 import {
   budgets,
@@ -155,6 +148,8 @@ const Contact: React.FC = () => {
                       <motion.a
                         key={index}
                         href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}

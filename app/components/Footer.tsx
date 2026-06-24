@@ -24,7 +24,7 @@ import { mainServices, footerLinks } from "../data/data";
 import { FiShield, FiThumbsUp, FiRotateCcw } from "react-icons/fi";
 import { paymentIconList } from "@/public/payment-icon/payment";
 import logo from "../../public/new-logo.png";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 import { socialData, socialLinks } from "../data/links";
 
 const Footer: React.FC = () => {
@@ -191,7 +191,7 @@ const Footer: React.FC = () => {
             </p>
             <div className="space-y-4">
               <a
-                href="tel:+15551234567"
+                href="tel:8801851072019"
                 className="flex items-center gap-3 text-sm text-(--text-muted) hover:text-(--primary) transition-colors group"
               >
                 <FiPhoneCall
@@ -201,14 +201,16 @@ const Footer: React.FC = () => {
                 <span>{socialData.contact1}</span>
               </a>
               <a
-                href="tel:+15551234567"
+                href="https://wa.me/8801310889153?text=Hello%20TWIPRA%20Team!"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 text-sm text-(--text-muted) hover:text-(--primary) transition-colors group"
               >
-                <FiPhoneCall
-                  size={15}
+                <FaWhatsapp
+                  size={16}
                   className="text-(--primary) flex-shrink-0"
                 />
-                <span>{socialData.contact2}</span>
+                <span>+880 1310889153</span>
               </a>
               <a
                 href="mailto:hello@nexora.studio"
@@ -339,14 +341,13 @@ const Footer: React.FC = () => {
               >
                 Terms & Conditions
               </Link>
-               <Link
+              <Link
                 href="/cookie-policy"
                 className="hover:text-(--primary) transition-colors"
               >
-              Cookie Policy
+                Cookie Policy
               </Link>
             </div>
-
           </div>
         </div>
       </div>

@@ -22,16 +22,16 @@ const nextConfig: NextConfig = {
   },
   
   // ============ EXPERIMENTAL FEATURES ============
-  experimental: {
-    optimizePackageImports: ['framer-motion', 'react-icons'],
-    // Better TTFB for SEO
-    staleTimes: {
-      dynamic: 30,
-      static: 180,
-    },
-    // Optimize server components
-    optimizeServerReact: true,
-  },
+  // experimental: {
+  //   optimizePackageImports: ['framer-motion', 'react-icons'],
+  //   // Better TTFB for SEO
+  //   staleTimes: {
+  //     dynamic: 30,
+  //     static: 180,
+  //   },
+  //   // Optimize server components
+  //   optimizeServerReact: true,
+  // },
   
   // ============ SEO HEADERS (Critical for ranking) ============
   async headers() {
