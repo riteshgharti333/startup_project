@@ -80,36 +80,6 @@ const Career: React.FC = () => {
     }
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0] || null;
-
-    if (file) {
-      // Validate file size (2MB)
-      if (file.size > 2 * 1024 * 1024) {
-        toast.error("File size must be less than 2MB");
-        return;
-      }
-
-      // Validate file type
-      const allowedTypes = [
-        "application/pdf",
-        "application/msword",
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-      ];
-      if (!allowedTypes.includes(file.type)) {
-        toast.error("Only PDF, DOC, or DOCX files are allowed");
-        return;
-      }
-
-      setFormData((prev) => ({ ...prev, resume: file }));
-      toast.success("Resume uploaded successfully!");
-    }
-
-    if (errors.resume) {
-      setErrors((prev) => ({ ...prev, resume: undefined }));
-    }
-  };
-
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
@@ -169,107 +139,157 @@ const Career: React.FC = () => {
     return interval;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null;
 
-    if (!validateForm()) {
+    if (file) {
+      // Validate file size (2MB)
+      if (file.size > 2 * 1024 * 1024) {
+        toast.error("File size must be less than 2MB");
+        // Clear the file input
+        e.target.value = "";
+        return;
+      }
+
+      // Validate file type
+      const allowedTypes = [
+        "application/pdf",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      ];
+      if (!allowedTypes.includes(file.type)) {
+        toast.error("Only PDF, DOC, or DOCX files are allowed");
+        // Clear the file input
+        e.target.value = "";
+        return;
+      }
+
+      setFormData((prev) => ({ ...prev, resume: file }));
+      // Clear the resume error
+      setErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors.resume;
+        return newErrors;
+      });
+      toast.success("Resume uploaded successfully!");
+    } else {
+      setFormData((prev) => ({ ...prev, resume: null }));
+    }
+  };
+
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (!validateForm()) {
+    return;
+  }
+
+  setIsSubmitting(true);
+  const progressInterval = simulateProgress();
+
+  try {
+    // Create FormData
+    const submitFormData = new FormData();
+    
+    // Prepare the JSON data exactly as Postman sends it
+    const apiData = {
+      fullName: formData.fullName,
+      email: formData.email,
+      phoneNumber: formData.phone,
+      position: formData.position,
+      yearsOfExperience: formData.experience,
+      portfolioUrl: formData.portfolio || null,
+      linkedInProfile: formData.linkedin || null,
+      githubProfile: formData.github || null,
+      coverLetter: formData.coverLetter || "",
+    };
+    
+    // Append data as JSON string (exactly like Postman)
+    submitFormData.append("data", JSON.stringify(apiData));
+    
+    // Append resume file (exactly like Postman)
+    if (formData.resume) {
+      submitFormData.append("resume", formData.resume);
+      
+      // For debugging - log what we're sending
+      console.log("Sending FormData with:");
+      console.log("data:", JSON.stringify(apiData));
+      console.log("resume:", formData.resume.name);
+    } else {
+      toast.error("Resume file is required");
+      setIsSubmitting(false);
       return;
     }
 
-    setIsSubmitting(true);
-    const progressInterval = simulateProgress();
-
-    try {
-      // Prepare the data
-      const apiData = {
-        fullName: formData.fullName,
-        email: formData.email,
-        phoneNumber: formData.phone,
-        position: formData.position,
-        yearsOfExperience: formData.experience,
-        portfolioUrl: formData.portfolio || null,
-        linkedInProfile: formData.linkedin || null,
-        githubProfile: formData.github || null,
-        coverLetter: formData.coverLetter || "",
-      };
-
-      // Create FormData
-      const submitFormData = new FormData();
-      submitFormData.append("data", JSON.stringify(apiData));
-
-      // Make axios request
-      const response = await axiosInstance.post(
-        "/application",
-        submitFormData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-          onUploadProgress: (progressEvent) => {
-            if (progressEvent.total) {
-              const percentCompleted = Math.round(
-                (progressEvent.loaded * 100) / progressEvent.total,
-              );
-              setUploadProgress(percentCompleted);
-            }
-          },
+    // Make axios request
+    const response = await axiosInstance.post(
+      "/application",
+      submitFormData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
         },
-      );
+        onUploadProgress: (progressEvent) => {
+          if (progressEvent.total) {
+            const percentCompleted = Math.round(
+              (progressEvent.loaded * 100) / progressEvent.total,
+            );
+            setUploadProgress(percentCompleted);
+          }
+        },
+      },
+    );
 
-      setUploadProgress(100);
-      toast.success(
-        response.data.message || "Application submitted successfully! 🎉",
-      );
+    setUploadProgress(100);
+    toast.success(
+      response.data.message || "Application submitted successfully! 🎉",
+    );
 
-      // Reset form
-      setFormData({
-        fullName: "",
-        email: "",
-        phone: "",
-        position: "",
-        experience: "",
-        portfolio: "",
-        linkedin: "",
-        github: "",
-        coverLetter: "",
-        resume: null,
-      });
+    // Reset form
+    setFormData({
+      fullName: "",
+      email: "",
+      phone: "",
+      position: "",
+      experience: "",
+      portfolio: "",
+      linkedin: "",
+      github: "",
+      coverLetter: "",
+      resume: null,
+    });
+    
+    // Clear errors
+    setErrors({});
 
-      // Reset file input
-      const fileInput = document.getElementById("resume") as HTMLInputElement;
-      if (fileInput) fileInput.value = "";
+    // Reset file input
+    const fileInput = document.getElementById("resume") as HTMLInputElement;
+    if (fileInput) fileInput.value = "";
 
-      // Scroll to top of form
-      formRef.current?.scrollIntoView({ behavior: "smooth" });
-    } catch (error: any) {
-      console.error("Submission error details:", error);
-
-      // Show specific error message
-      if (
-        error.message ===
-        "Cannot connect to server. Please check if backend is running."
-      ) {
-        toast.error("Backend server is not running. Please try again later.");
-      } else if (error.response?.status === 400) {
-        toast.error(
-          error.response.data.message ||
-            "Invalid form data. Please check all fields.",
-        );
-      } else if (error.response?.status === 413) {
-        toast.error("File too large. Maximum size is 2MB.");
-      } else {
-        toast.error(
-          error.message || "Failed to submit application. Please try again.",
-        );
-      }
-    } finally {
-      clearInterval(progressInterval);
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setUploadProgress(0);
-      }, 1000);
+    // Scroll to top of form
+    formRef.current?.scrollIntoView({ behavior: "smooth" });
+    
+  } catch (error: any) {
+    console.error("Submission error details:", error);
+    
+    // Handle specific error cases
+    if (error.response?.data?.message) {
+      toast.error(error.response.data.message);
+    } else if (error.response?.status === 500) {
+      toast.error("Server error. Please try again later.");
+    } else if (error.message) {
+      toast.error(error.message);
+    } else {
+      toast.error("Failed to submit application. Please try again.");
     }
-  };
+  } finally {
+    clearInterval(progressInterval);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setUploadProgress(0);
+    }, 1000);
+  }
+};
 
   // Benefits data
   const benefits = [
