@@ -295,11 +295,39 @@ export const serviceCategories = [
         startingPrice: "৳25,000",
       },
       {
+        name: "Newspaper Website Development",
+        slug: "newspaper-website-development",
+        description:
+          "Modern news portals with categories, breaking news, ads management, and CMS.",
+        startingPrice: "৳30,000",
+      },
+      {
+        name: "Blog Website Development",
+        slug: "blog-website-development",
+        description:
+          "Fast and SEO-friendly blogging platforms with categories, comments, and content management.",
+        startingPrice: "৳12,000",
+      },
+      {
+        name: "Educational Website Development",
+        slug: "educational-website-development",
+        description:
+          "School, college, and training institute websites with admission forms, notices, and course management.",
+        startingPrice: "৳25,000",
+      },
+      {
         name: "Admin Dashboard Development",
         slug: "admin-dashboard-development",
         description:
           "Custom dashboards, analytics panels, and management systems.",
         startingPrice: "৳20,000",
+      },
+      {
+        name: "NGO Website",
+        slug: "ngo-website-development",
+        description:
+          "Professional websites for NGOs, charities, and non-profit organizations with donation and project showcase",
+        startingPrice: "৳18,000",
       },
       {
         name: "CMS & Blog Development",

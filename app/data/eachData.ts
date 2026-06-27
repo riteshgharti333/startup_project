@@ -208,6 +208,511 @@ export const eachData: Record<string, ServiceData> = {
     ],
   },
 
+  "newspaper-website-development": {
+  slug: "newspaper-website-development",
+  name: "Newspaper Website Development",
+  category: "web-development",
+  startingPrice: "৳30,000",
+  color: "#8B5CF6",
+
+  hero: {
+    title: "Modern Newspaper & News Portal Development",
+    description:
+      "Launch a fast, SEO-friendly online newspaper with powerful content management, categories, breaking news, and advertisement support.",
+    cta: "Get Free Consultation",
+  },
+
+  overview: {
+    title: "What Is Newspaper Website Development?",
+    content:
+      "We build professional online newspaper and news portal websites designed for publishers, journalists, and media companies. Our platforms include content management, multiple categories, advertising spaces, and responsive layouts for all devices.",
+  },
+
+  solutions: {
+    title: "What We Can Build",
+    items: [
+      {
+        title: "Online Newspaper",
+        description: "Complete digital newspaper platforms.",
+      },
+      {
+        title: "News Portal",
+        description: "Multi-category news publishing websites.",
+      },
+      {
+        title: "Magazine Website",
+        description: "Modern online magazine platforms.",
+      },
+      {
+        title: "Regional News Site",
+        description: "Local and regional news portals.",
+      },
+      {
+        title: "Media Company Website",
+        description: "Professional websites for media organizations.",
+      },
+      {
+        title: "News Blog",
+        description: "Editorial and article publishing platforms.",
+      },
+    ],
+  },
+
+  process: {
+    title: "Our Development Process",
+    steps: [
+      { title: "Requirement Analysis", description: "Understand your publishing workflow." },
+      { title: "UI/UX Design", description: "Design an engaging news experience." },
+      { title: "Development", description: "Build fast and scalable news systems." },
+      { title: "CMS Setup", description: "Configure easy article management." },
+      { title: "Testing", description: "Test speed, security, and responsiveness." },
+      { title: "Launch", description: "Deploy your news website successfully." },
+    ],
+  },
+
+  features: {
+    title: "Key Features",
+    items: [
+      { title: "Breaking News", description: "Highlight urgent news instantly." },
+      { title: "Category Management", description: "Organize news into multiple categories." },
+      { title: "Advertisement System", description: "Display banner and sponsored ads." },
+      { title: "SEO Optimized", description: "Increase search engine visibility." },
+      { title: "Responsive Design", description: "Perfect on mobile and desktop." },
+      { title: "Content Management", description: "Publish articles with ease." },
+    ],
+  },
+
+  whyChooseUs: {
+    title: "Why Choose Us?",
+    items: [
+      "SEO-friendly news portal",
+      "Fast loading pages",
+      "Easy article publishing",
+      "Scalable architecture",
+      "Ongoing maintenance support",
+    ],
+  },
+
+  faq: {
+    title: "Frequently Asked Questions",
+    items: [
+      {
+        question: "Can multiple authors publish articles?",
+        answer: "Yes, role-based author and editor management is supported.",
+      },
+      {
+        question: "Can advertisements be added?",
+        answer: "Yes, banner ads and sponsored content can be managed easily.",
+      },
+      {
+        question: "Is it mobile-friendly?",
+        answer: "Yes, every news portal is fully responsive.",
+      },
+      {
+        question: "Can I manage articles myself?",
+        answer: "Yes, an easy-to-use CMS is included.",
+      },
+    ],
+  },
+
+  relatedServices: [
+    { name: "Business Website Development", slug: "business-website-development" },
+    { name: "Blog Website Development", slug: "blog-website-development" },
+    { name: "SEO Services", slug: "seo-services" },
+  ],
+},
+
+"blog-website-development": {
+  slug: "blog-website-development",
+  name: "Blog Website Development",
+  category: "web-development",
+  startingPrice: "৳12,000",
+  color: "#EF4444",
+
+  hero: {
+    title: "Professional Blog Website Development",
+    description:
+      "Create a beautiful, fast, and SEO-friendly blog that helps you grow your audience and share valuable content.",
+    cta: "Get Free Consultation",
+  },
+
+  overview: {
+    title: "What Is Blog Website Development?",
+    content:
+      "We develop modern blogging platforms for individuals, businesses, and content creators with clean design, category management, SEO optimization, and easy content publishing.",
+  },
+
+  solutions: {
+    title: "What We Can Build",
+    items: [
+      {
+        title: "Personal Blog",
+        description: "Share your thoughts and experiences.",
+      },
+      {
+        title: "Business Blog",
+        description: "Grow traffic through content marketing.",
+      },
+      {
+        title: "Tech Blog",
+        description: "Publish tutorials and technology articles.",
+      },
+      {
+        title: "Travel Blog",
+        description: "Showcase destinations and travel stories.",
+      },
+      {
+        title: "Food Blog",
+        description: "Recipe and restaurant blogging websites.",
+      },
+      {
+        title: "Lifestyle Blog",
+        description: "Fashion, fitness, and lifestyle content platforms.",
+      },
+    ],
+  },
+
+  process: {
+    title: "Our Development Process",
+    steps: [
+      { title: "Planning", description: "Understand your blogging goals." },
+      { title: "Design", description: "Create a modern blog layout." },
+      { title: "Development", description: "Build a responsive platform." },
+      { title: "SEO Setup", description: "Optimize for search engines." },
+      { title: "Testing", description: "Ensure quality and performance." },
+      { title: "Launch", description: "Publish your blog online." },
+    ],
+  },
+
+  features: {
+    title: "Key Features",
+    items: [
+      { title: "SEO Friendly", description: "Rank better on Google." },
+      { title: "Category Management", description: "Organize blog posts easily." },
+      { title: "Comment System", description: "Engage with your readers." },
+      { title: "Responsive Design", description: "Works on every device." },
+      { title: "Fast Performance", description: "Optimized loading speed." },
+      { title: "CMS Integration", description: "Manage content effortlessly." },
+    ],
+  },
+
+  whyChooseUs: {
+    title: "Why Choose Us?",
+    items: [
+      "Clean modern blog design",
+      "SEO-optimized structure",
+      "Fast loading performance",
+      "Easy content management",
+      "Affordable pricing",
+    ],
+  },
+
+  faq: {
+    title: "Frequently Asked Questions",
+    items: [
+      {
+        question: "Can I publish articles myself?",
+        answer: "Yes, you'll receive a user-friendly CMS.",
+      },
+      {
+        question: "Is SEO included?",
+        answer: "Yes, every blog is built with SEO best practices.",
+      },
+      {
+        question: "Can readers leave comments?",
+        answer: "Yes, comment functionality can be enabled.",
+      },
+      {
+        question: "Will it work on mobile?",
+        answer: "Yes, it is fully responsive.",
+      },
+    ],
+  },
+
+  relatedServices: [
+    { name: "Business Website Development", slug: "business-website-development" },
+    { name: "Newspaper Website Development", slug: "newspaper-website-development" },
+    { name: "SEO Services", slug: "seo-services" },
+  ],
+},
+
+"ngo-website-development": {
+  slug: "ngo-website-development",
+  name: "NGO Website Development",
+  category: "web-development",
+  startingPrice: "৳18,000",
+  color: "#10B981",
+
+  hero: {
+    title: "Professional NGO Website Development",
+    description:
+      "Build a trustworthy online presence for your NGO, charity, or non-profit organization with a modern, responsive website.",
+    cta: "Get Free Consultation",
+  },
+
+  overview: {
+    title: "What Is NGO Website Development?",
+    content:
+      "We create professional websites for NGOs, charities, foundations, and non-profit organizations to showcase their mission, projects, impact, and donation campaigns while building trust with donors and volunteers.",
+  },
+
+  solutions: {
+    title: "What We Can Build",
+    items: [
+      {
+        title: "NGO Website",
+        description: "Professional websites for non-profit organizations.",
+      },
+      {
+        title: "Charity Website",
+        description: "Donation-focused charity platforms.",
+      },
+      {
+        title: "Foundation Website",
+        description: "Websites for social and charitable foundations.",
+      },
+      {
+        title: "Volunteer Portal",
+        description: "Volunteer registration and management.",
+      },
+      {
+        title: "Campaign Website",
+        description: "Promote fundraising and awareness campaigns.",
+      },
+      {
+        title: "Donation Platform",
+        description: "Secure online donation and supporter pages.",
+      },
+    ],
+  },
+
+  process: {
+    title: "Our Development Process",
+    steps: [
+      {
+        title: "Consultation",
+        description: "Understand your mission and goals.",
+      },
+      {
+        title: "Design",
+        description: "Create a clean and trustworthy interface.",
+      },
+      {
+        title: "Development",
+        description: "Build a responsive and secure website.",
+      },
+      {
+        title: "Content Setup",
+        description: "Add projects, galleries, and information.",
+      },
+      {
+        title: "Testing",
+        description: "Ensure quality across all devices.",
+      },
+      {
+        title: "Launch",
+        description: "Deploy your NGO website online.",
+      },
+    ],
+  },
+
+  features: {
+    title: "Key Features",
+    items: [
+      {
+        title: "Donation Integration",
+        description: "Accept online donations securely.",
+      },
+      {
+        title: "Project Showcase",
+        description: "Highlight your ongoing initiatives.",
+      },
+      {
+        title: "Volunteer Registration",
+        description: "Allow volunteers to join easily.",
+      },
+      {
+        title: "Event Management",
+        description: "Publish upcoming events and campaigns.",
+      },
+      {
+        title: "Responsive Design",
+        description: "Optimized for all devices.",
+      },
+      {
+        title: "SEO Optimized",
+        description: "Improve online visibility.",
+      },
+    ],
+  },
+
+  whyChooseUs: {
+    title: "Why Choose Us?",
+    items: [
+      "Affordable NGO solutions",
+      "Modern and responsive design",
+      "Easy content management",
+      "SEO-friendly structure",
+      "Reliable support after launch",
+    ],
+  },
+
+  faq: {
+    title: "Frequently Asked Questions",
+    items: [
+      {
+        question: "Can we accept online donations?",
+        answer:
+          "Yes, we can integrate secure online donation gateways.",
+      },
+      {
+        question: "Can we update projects ourselves?",
+        answer:
+          "Yes, you'll receive an easy-to-use content management system.",
+      },
+      {
+        question: "Is the website mobile-friendly?",
+        answer:
+          "Yes, every NGO website is fully responsive.",
+      },
+      {
+        question: "Can volunteer registration be added?",
+        answer:
+          "Yes, we can build volunteer registration and inquiry forms.",
+      },
+    ],
+  },
+
+  relatedServices: [
+    {
+      name: "Business Website Development",
+      slug: "business-website-development",
+    },
+    {
+      name: "Educational Website Development",
+      slug: "educational-website-development",
+    },
+    {
+      name: "Website Maintenance & Support",
+      slug: "website-maintenance-support",
+    },
+  ],
+},
+
+"educational-website-development": {
+  slug: "educational-website-development",
+  name: "Educational Website Development",
+  category: "web-development",
+  startingPrice: "৳25,000",
+  color: "#0EA5E9",
+
+  hero: {
+    title: "Educational Website Development Services",
+    description:
+      "Professional websites for schools, colleges, universities, coaching centers, and online learning platforms.",
+    cta: "Get Free Consultation",
+  },
+
+  overview: {
+    title: "What Is Educational Website Development?",
+    content:
+      "We build secure and responsive educational websites that simplify communication, admissions, course management, notices, and student engagement for educational institutions.",
+  },
+
+  solutions: {
+    title: "What We Can Build",
+    items: [
+      {
+        title: "School Website",
+        description: "Professional websites for schools.",
+      },
+      {
+        title: "College Website",
+        description: "Institutional websites with admission details.",
+      },
+      {
+        title: "University Portal",
+        description: "Comprehensive university information systems.",
+      },
+      {
+        title: "Coaching Center Website",
+        description: "Course and student information platforms.",
+      },
+      {
+        title: "E-Learning Website",
+        description: "Online learning and course management systems.",
+      },
+      {
+        title: "Training Institute Website",
+        description: "Professional websites for training centers.",
+      },
+    ],
+  },
+
+  process: {
+    title: "Our Development Process",
+    steps: [
+      { title: "Requirement Gathering", description: "Understand institution needs." },
+      { title: "Design", description: "Create an intuitive interface." },
+      { title: "Development", description: "Develop secure and scalable systems." },
+      { title: "Content Integration", description: "Upload courses and information." },
+      { title: "Testing", description: "Ensure reliability and performance." },
+      { title: "Launch", description: "Deploy your educational platform." },
+    ],
+  },
+
+  features: {
+    title: "Key Features",
+    items: [
+      { title: "Admission Forms", description: "Online admission applications." },
+      { title: "Course Management", description: "Display courses and programs." },
+      { title: "Notice Board", description: "Publish announcements easily." },
+      { title: "Responsive Design", description: "Accessible on all devices." },
+      { title: "SEO Optimized", description: "Improve online visibility." },
+      { title: "Contact & Inquiry Forms", description: "Manage student inquiries." },
+    ],
+  },
+
+  whyChooseUs: {
+    title: "Why Choose Us?",
+    items: [
+      "Custom solutions for educational institutions",
+      "Modern responsive design",
+      "Secure development practices",
+      "Easy content management",
+      "Reliable support and maintenance",
+    ],
+  },
+
+  faq: {
+    title: "Frequently Asked Questions",
+    items: [
+      {
+        question: "Can students apply online?",
+        answer: "Yes, we provide online admission forms.",
+      },
+      {
+        question: "Can administrators update notices?",
+        answer: "Yes, a CMS allows easy updates.",
+      },
+      {
+        question: "Is the website mobile-friendly?",
+        answer: "Yes, it works perfectly on all devices.",
+      },
+      {
+        question: "Can courses be managed?",
+        answer: "Yes, courses and programs can be updated anytime.",
+      },
+    ],
+  },
+
+  relatedServices: [
+    { name: "Business Website Development", slug: "business-website-development" },
+    { name: "Learning Management System", slug: "learning-management-system" },
+    { name: "Website Maintenance & Support", slug: "website-maintenance-support" },
+  ],
+},
+
   "landing-page-development": {
     slug: "landing-page-development",
     name: "Landing Page Development",

@@ -2,6 +2,7 @@
 import { PageSEO } from "../app/components/PageSEO"
 import Banner from "./components/Banner";
 import Choose from "./components/Choose";
+import Company from "./components/Company";
 import FAQ from "./components/FAQ";
 import Review from "./components/Review";
 import Service from "./components/Service";
@@ -33,6 +34,7 @@ export default function Home() {
         <Banner />
         <Service />
         <Choose />
+        <Company />
         <Review />
         <Stats />
         <Team />

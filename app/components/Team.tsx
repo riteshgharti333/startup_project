@@ -86,6 +86,7 @@ interface Leader {
   desc: string;
   linkedin?: string;
   website?: string;
+  imagePosition?: string
 }
 
 const Team: React.FC = () => {
@@ -103,6 +104,7 @@ const Team: React.FC = () => {
       desc: "Leads company vision, client relationships, AI Solution and business strategy with 6+ years in tech.",
       linkedin: "https://www.linkedin.com/in/luis-king-richard-tripura/",
       website: "https://sites.google.com/view/richardtripura",
+      imagePosition: "center 10%",
     },
     {
       name: "Ritesh Gharti",
@@ -114,28 +116,31 @@ const Team: React.FC = () => {
       desc: "Oversees all technical architecture, AI research, and engineering best practices.",
       linkedin: "https://www.linkedin.com/in/riteshgharti333",
       website: "https://rgdev-portfolio-six.vercel.app/",
+      imagePosition: "center 10%",
     },
     {
       name: "Clinton Tripura",
       role: "Head of Design",
       country: "Bangladesh",
-      image: "/profile.png",
+      image: "/leader4.jpg",
       color: "text-green-400",
       bg: "bg-green-500/10",
       desc: "Creates beautiful, intuitive user experiences for web and mobile products.",
       linkedin: "https://linkedin.com/in/clinton-tripura",
       website: "https://clintontripura.com",
+      imagePosition: "center 10%",
     },
     {
       name: "Payel Paul Mrong",
       role: "Branding & Marketing Lead",
       country: "Bangladesh",
-      image: "/profile.png",
+      image: "/leader2.jpg",
       color: "text-green-400",
       bg: "bg-green-500/10",
       desc: "Builds strong brands through creative marketing and audience engagement.",
       linkedin: "https://linkedin.com/in/payel-paul-mrong",
       website: "https://richardtripura.com",
+      imagePosition: "center 10%",
     },
   ];
 
@@ -282,14 +287,16 @@ const Team: React.FC = () => {
             >
               <div className="relative h-full bg-(--surface) border border-(--border) rounded-(--radius-md) overflow-hidden hover:border-(--primary)/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 will-change-transform flex flex-col">
                 {/* Large Image Section */}
-                <div className="relative w-full h-48 sm:h-56 lg:h-64 overflow-hidden flex-shrink-0">
+                <div className="relative w-full h-64 sm:h-64 lg:h-64 overflow-hidden flex-shrink-0">
                   {leader.image ? (
                     <div className="relative w-full h-full">
                       <img
                         src={leader.image}
                         alt={leader.name}
                         className="w-full h-full object-cover transition-transform duration-500 ease-out"
-                        style={{ objectPosition: "center 15%" }}
+                        style={{
+                          objectPosition: leader.imagePosition || "center 15%",
+                        }}
                         loading="lazy"
                       />
                       {/* Gradient overlay on image */}
