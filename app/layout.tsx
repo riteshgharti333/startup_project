@@ -202,13 +202,13 @@ export default function RootLayout({
         {/* Animated Background */}
         <Backgrounds />
 
-        {/* Content */}
+        {/* Content */} 
         <div className="relative z-10 flex flex-col min-h-full">
           <Navbar />
           <main className="flex-1">{children}</main>
           <AnalyticsWrapper />
           <Footer />
-          <Float />
+          {/* <Float /> */}
         </div>
       </body>
     </html>
