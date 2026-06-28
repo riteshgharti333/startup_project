@@ -51,9 +51,9 @@ const Banner = () => {
             {/* Main Headline */}
             <div className="space-y-5">
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-(--text) leading-[1.15] tracking-tight"
               >
                 We Create What
