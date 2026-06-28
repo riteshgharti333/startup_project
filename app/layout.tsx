@@ -200,7 +200,7 @@ export default function RootLayout({
         className={`${geist.className} min-h-full flex flex-col bg-[#0b0f19] antialiased`}
       >
         {/* Animated Background */}
-        {/* <Backgrounds /> */}
+        <Backgrounds />
 
         {/* Content */}
         <div className="relative z-10 flex flex-col min-h-full">
