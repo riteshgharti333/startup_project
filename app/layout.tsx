@@ -11,7 +11,6 @@
 // NEXT_PUBLIC_GOOGLE_VERIFICATION=your-code-here
 
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -19,15 +18,11 @@ import Backgrounds from "../app/components/Backgrounds";
 import { localBusinessSchema, organizationSchema } from "./lib/schema";
 import { AnalyticsWrapper } from "./analytics";
 import Float from "./components/Float";
+import { Geist } from "next/font/google";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const geist = Geist({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 // ============ VIEWPORT CONFIGURATION (SEO) ============
@@ -154,13 +149,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en">
       <head>
-        {/* Preconnect for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
         {/* Security headers as meta tags */}
@@ -206,9 +196,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#0b0f19]">
+      <body
+        className={`${geist.className} min-h-full flex flex-col bg-[#0b0f19] antialiased`}
+      >
         {/* Animated Background */}
-        <Backgrounds />
+        {/* <Backgrounds /> */}
 
         {/* Content */}
         <div className="relative z-10 flex flex-col min-h-full">
