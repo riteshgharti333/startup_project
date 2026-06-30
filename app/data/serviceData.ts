@@ -584,6 +584,43 @@ export const serviceCategories = [
     ],
   },
   {
+  title: "Video Editing",
+  slug: "video-editing",
+  description:
+    "Professional video editing services for businesses, creators, and brands to boost engagement and online presence.",
+  services: [
+    {
+      name: "YouTube Video Editing",
+      slug: "youtube-video-editing",
+      description:
+        "Professional editing for YouTube videos with smooth transitions, motion graphics, color correction, and audio enhancement.",
+      startingPrice: "৳2,500",
+      featured: true,
+    },
+    {
+      name: "Short-Form Video Editing",
+      slug: "short-form-video-editing",
+      description:
+        "Engaging edits for Instagram Reels, TikTok, and YouTube Shorts with captions and viral-style pacing.",
+      startingPrice: "৳1,000",
+    },
+    {
+      name: "Social Media Ad Video Editing",
+      slug: "social-media-ad-video-editing",
+      description:
+        "High-converting promotional videos for Facebook, Instagram, YouTube, and other digital advertising platforms.",
+      startingPrice: "৳2,000",
+    },
+    {
+      name: "Corporate & Brand Videos",
+      slug: "corporate-brand-video-editing",
+      description:
+        "Professional company profile, promotional, training, and brand story videos for businesses.",
+      startingPrice: "৳5,000",
+    },
+  ],
+},
+  {
     title: "Consulting & Training",
     slug: "consulting-training",
     description: "Professional guidance and technical learning programs.",

@@ -209,509 +209,591 @@ export const eachData: Record<string, ServiceData> = {
   },
 
   "newspaper-website-development": {
-  slug: "newspaper-website-development",
-  name: "Newspaper Website Development",
-  category: "web-development",
-  startingPrice: "৳30,000",
-  color: "#8B5CF6",
+    slug: "newspaper-website-development",
+    name: "Newspaper Website Development",
+    category: "web-development",
+    startingPrice: "৳30,000",
+    color: "#8B5CF6",
 
-  hero: {
-    title: "Modern Newspaper & News Portal Development",
-    description:
-      "Launch a fast, SEO-friendly online newspaper with powerful content management, categories, breaking news, and advertisement support.",
-    cta: "Get Free Consultation",
-  },
-
-  overview: {
-    title: "What Is Newspaper Website Development?",
-    content:
-      "We build professional online newspaper and news portal websites designed for publishers, journalists, and media companies. Our platforms include content management, multiple categories, advertising spaces, and responsive layouts for all devices.",
-  },
-
-  solutions: {
-    title: "What We Can Build",
-    items: [
-      {
-        title: "Online Newspaper",
-        description: "Complete digital newspaper platforms.",
-      },
-      {
-        title: "News Portal",
-        description: "Multi-category news publishing websites.",
-      },
-      {
-        title: "Magazine Website",
-        description: "Modern online magazine platforms.",
-      },
-      {
-        title: "Regional News Site",
-        description: "Local and regional news portals.",
-      },
-      {
-        title: "Media Company Website",
-        description: "Professional websites for media organizations.",
-      },
-      {
-        title: "News Blog",
-        description: "Editorial and article publishing platforms.",
-      },
-    ],
-  },
-
-  process: {
-    title: "Our Development Process",
-    steps: [
-      { title: "Requirement Analysis", description: "Understand your publishing workflow." },
-      { title: "UI/UX Design", description: "Design an engaging news experience." },
-      { title: "Development", description: "Build fast and scalable news systems." },
-      { title: "CMS Setup", description: "Configure easy article management." },
-      { title: "Testing", description: "Test speed, security, and responsiveness." },
-      { title: "Launch", description: "Deploy your news website successfully." },
-    ],
-  },
-
-  features: {
-    title: "Key Features",
-    items: [
-      { title: "Breaking News", description: "Highlight urgent news instantly." },
-      { title: "Category Management", description: "Organize news into multiple categories." },
-      { title: "Advertisement System", description: "Display banner and sponsored ads." },
-      { title: "SEO Optimized", description: "Increase search engine visibility." },
-      { title: "Responsive Design", description: "Perfect on mobile and desktop." },
-      { title: "Content Management", description: "Publish articles with ease." },
-    ],
-  },
-
-  whyChooseUs: {
-    title: "Why Choose Us?",
-    items: [
-      "SEO-friendly news portal",
-      "Fast loading pages",
-      "Easy article publishing",
-      "Scalable architecture",
-      "Ongoing maintenance support",
-    ],
-  },
-
-  faq: {
-    title: "Frequently Asked Questions",
-    items: [
-      {
-        question: "Can multiple authors publish articles?",
-        answer: "Yes, role-based author and editor management is supported.",
-      },
-      {
-        question: "Can advertisements be added?",
-        answer: "Yes, banner ads and sponsored content can be managed easily.",
-      },
-      {
-        question: "Is it mobile-friendly?",
-        answer: "Yes, every news portal is fully responsive.",
-      },
-      {
-        question: "Can I manage articles myself?",
-        answer: "Yes, an easy-to-use CMS is included.",
-      },
-    ],
-  },
-
-  relatedServices: [
-    { name: "Business Website Development", slug: "business-website-development" },
-    { name: "Blog Website Development", slug: "blog-website-development" },
-    { name: "SEO Services", slug: "seo-services" },
-  ],
-},
-
-"blog-website-development": {
-  slug: "blog-website-development",
-  name: "Blog Website Development",
-  category: "web-development",
-  startingPrice: "৳12,000",
-  color: "#EF4444",
-
-  hero: {
-    title: "Professional Blog Website Development",
-    description:
-      "Create a beautiful, fast, and SEO-friendly blog that helps you grow your audience and share valuable content.",
-    cta: "Get Free Consultation",
-  },
-
-  overview: {
-    title: "What Is Blog Website Development?",
-    content:
-      "We develop modern blogging platforms for individuals, businesses, and content creators with clean design, category management, SEO optimization, and easy content publishing.",
-  },
-
-  solutions: {
-    title: "What We Can Build",
-    items: [
-      {
-        title: "Personal Blog",
-        description: "Share your thoughts and experiences.",
-      },
-      {
-        title: "Business Blog",
-        description: "Grow traffic through content marketing.",
-      },
-      {
-        title: "Tech Blog",
-        description: "Publish tutorials and technology articles.",
-      },
-      {
-        title: "Travel Blog",
-        description: "Showcase destinations and travel stories.",
-      },
-      {
-        title: "Food Blog",
-        description: "Recipe and restaurant blogging websites.",
-      },
-      {
-        title: "Lifestyle Blog",
-        description: "Fashion, fitness, and lifestyle content platforms.",
-      },
-    ],
-  },
-
-  process: {
-    title: "Our Development Process",
-    steps: [
-      { title: "Planning", description: "Understand your blogging goals." },
-      { title: "Design", description: "Create a modern blog layout." },
-      { title: "Development", description: "Build a responsive platform." },
-      { title: "SEO Setup", description: "Optimize for search engines." },
-      { title: "Testing", description: "Ensure quality and performance." },
-      { title: "Launch", description: "Publish your blog online." },
-    ],
-  },
-
-  features: {
-    title: "Key Features",
-    items: [
-      { title: "SEO Friendly", description: "Rank better on Google." },
-      { title: "Category Management", description: "Organize blog posts easily." },
-      { title: "Comment System", description: "Engage with your readers." },
-      { title: "Responsive Design", description: "Works on every device." },
-      { title: "Fast Performance", description: "Optimized loading speed." },
-      { title: "CMS Integration", description: "Manage content effortlessly." },
-    ],
-  },
-
-  whyChooseUs: {
-    title: "Why Choose Us?",
-    items: [
-      "Clean modern blog design",
-      "SEO-optimized structure",
-      "Fast loading performance",
-      "Easy content management",
-      "Affordable pricing",
-    ],
-  },
-
-  faq: {
-    title: "Frequently Asked Questions",
-    items: [
-      {
-        question: "Can I publish articles myself?",
-        answer: "Yes, you'll receive a user-friendly CMS.",
-      },
-      {
-        question: "Is SEO included?",
-        answer: "Yes, every blog is built with SEO best practices.",
-      },
-      {
-        question: "Can readers leave comments?",
-        answer: "Yes, comment functionality can be enabled.",
-      },
-      {
-        question: "Will it work on mobile?",
-        answer: "Yes, it is fully responsive.",
-      },
-    ],
-  },
-
-  relatedServices: [
-    { name: "Business Website Development", slug: "business-website-development" },
-    { name: "Newspaper Website Development", slug: "newspaper-website-development" },
-    { name: "SEO Services", slug: "seo-services" },
-  ],
-},
-
-"ngo-website-development": {
-  slug: "ngo-website-development",
-  name: "NGO Website Development",
-  category: "web-development",
-  startingPrice: "৳18,000",
-  color: "#10B981",
-
-  hero: {
-    title: "Professional NGO Website Development",
-    description:
-      "Build a trustworthy online presence for your NGO, charity, or non-profit organization with a modern, responsive website.",
-    cta: "Get Free Consultation",
-  },
-
-  overview: {
-    title: "What Is NGO Website Development?",
-    content:
-      "We create professional websites for NGOs, charities, foundations, and non-profit organizations to showcase their mission, projects, impact, and donation campaigns while building trust with donors and volunteers.",
-  },
-
-  solutions: {
-    title: "What We Can Build",
-    items: [
-      {
-        title: "NGO Website",
-        description: "Professional websites for non-profit organizations.",
-      },
-      {
-        title: "Charity Website",
-        description: "Donation-focused charity platforms.",
-      },
-      {
-        title: "Foundation Website",
-        description: "Websites for social and charitable foundations.",
-      },
-      {
-        title: "Volunteer Portal",
-        description: "Volunteer registration and management.",
-      },
-      {
-        title: "Campaign Website",
-        description: "Promote fundraising and awareness campaigns.",
-      },
-      {
-        title: "Donation Platform",
-        description: "Secure online donation and supporter pages.",
-      },
-    ],
-  },
-
-  process: {
-    title: "Our Development Process",
-    steps: [
-      {
-        title: "Consultation",
-        description: "Understand your mission and goals.",
-      },
-      {
-        title: "Design",
-        description: "Create a clean and trustworthy interface.",
-      },
-      {
-        title: "Development",
-        description: "Build a responsive and secure website.",
-      },
-      {
-        title: "Content Setup",
-        description: "Add projects, galleries, and information.",
-      },
-      {
-        title: "Testing",
-        description: "Ensure quality across all devices.",
-      },
-      {
-        title: "Launch",
-        description: "Deploy your NGO website online.",
-      },
-    ],
-  },
-
-  features: {
-    title: "Key Features",
-    items: [
-      {
-        title: "Donation Integration",
-        description: "Accept online donations securely.",
-      },
-      {
-        title: "Project Showcase",
-        description: "Highlight your ongoing initiatives.",
-      },
-      {
-        title: "Volunteer Registration",
-        description: "Allow volunteers to join easily.",
-      },
-      {
-        title: "Event Management",
-        description: "Publish upcoming events and campaigns.",
-      },
-      {
-        title: "Responsive Design",
-        description: "Optimized for all devices.",
-      },
-      {
-        title: "SEO Optimized",
-        description: "Improve online visibility.",
-      },
-    ],
-  },
-
-  whyChooseUs: {
-    title: "Why Choose Us?",
-    items: [
-      "Affordable NGO solutions",
-      "Modern and responsive design",
-      "Easy content management",
-      "SEO-friendly structure",
-      "Reliable support after launch",
-    ],
-  },
-
-  faq: {
-    title: "Frequently Asked Questions",
-    items: [
-      {
-        question: "Can we accept online donations?",
-        answer:
-          "Yes, we can integrate secure online donation gateways.",
-      },
-      {
-        question: "Can we update projects ourselves?",
-        answer:
-          "Yes, you'll receive an easy-to-use content management system.",
-      },
-      {
-        question: "Is the website mobile-friendly?",
-        answer:
-          "Yes, every NGO website is fully responsive.",
-      },
-      {
-        question: "Can volunteer registration be added?",
-        answer:
-          "Yes, we can build volunteer registration and inquiry forms.",
-      },
-    ],
-  },
-
-  relatedServices: [
-    {
-      name: "Business Website Development",
-      slug: "business-website-development",
+    hero: {
+      title: "Modern Newspaper & News Portal Development",
+      description:
+        "Launch a fast, SEO-friendly online newspaper with powerful content management, categories, breaking news, and advertisement support.",
+      cta: "Get Free Consultation",
     },
-    {
-      name: "Educational Website Development",
-      slug: "educational-website-development",
+
+    overview: {
+      title: "What Is Newspaper Website Development?",
+      content:
+        "We build professional online newspaper and news portal websites designed for publishers, journalists, and media companies. Our platforms include content management, multiple categories, advertising spaces, and responsive layouts for all devices.",
     },
-    {
-      name: "Website Maintenance & Support",
-      slug: "website-maintenance-support",
+
+    solutions: {
+      title: "What We Can Build",
+      items: [
+        {
+          title: "Online Newspaper",
+          description: "Complete digital newspaper platforms.",
+        },
+        {
+          title: "News Portal",
+          description: "Multi-category news publishing websites.",
+        },
+        {
+          title: "Magazine Website",
+          description: "Modern online magazine platforms.",
+        },
+        {
+          title: "Regional News Site",
+          description: "Local and regional news portals.",
+        },
+        {
+          title: "Media Company Website",
+          description: "Professional websites for media organizations.",
+        },
+        {
+          title: "News Blog",
+          description: "Editorial and article publishing platforms.",
+        },
+      ],
     },
-  ],
-},
 
-"educational-website-development": {
-  slug: "educational-website-development",
-  name: "Educational Website Development",
-  category: "web-development",
-  startingPrice: "৳25,000",
-  color: "#0EA5E9",
+    process: {
+      title: "Our Development Process",
+      steps: [
+        {
+          title: "Requirement Analysis",
+          description: "Understand your publishing workflow.",
+        },
+        {
+          title: "UI/UX Design",
+          description: "Design an engaging news experience.",
+        },
+        {
+          title: "Development",
+          description: "Build fast and scalable news systems.",
+        },
+        {
+          title: "CMS Setup",
+          description: "Configure easy article management.",
+        },
+        {
+          title: "Testing",
+          description: "Test speed, security, and responsiveness.",
+        },
+        {
+          title: "Launch",
+          description: "Deploy your news website successfully.",
+        },
+      ],
+    },
 
-  hero: {
-    title: "Educational Website Development Services",
-    description:
-      "Professional websites for schools, colleges, universities, coaching centers, and online learning platforms.",
-    cta: "Get Free Consultation",
+    features: {
+      title: "Key Features",
+      items: [
+        {
+          title: "Breaking News",
+          description: "Highlight urgent news instantly.",
+        },
+        {
+          title: "Category Management",
+          description: "Organize news into multiple categories.",
+        },
+        {
+          title: "Advertisement System",
+          description: "Display banner and sponsored ads.",
+        },
+        {
+          title: "SEO Optimized",
+          description: "Increase search engine visibility.",
+        },
+        {
+          title: "Responsive Design",
+          description: "Perfect on mobile and desktop.",
+        },
+        {
+          title: "Content Management",
+          description: "Publish articles with ease.",
+        },
+      ],
+    },
+
+    whyChooseUs: {
+      title: "Why Choose Us?",
+      items: [
+        "SEO-friendly news portal",
+        "Fast loading pages",
+        "Easy article publishing",
+        "Scalable architecture",
+        "Ongoing maintenance support",
+      ],
+    },
+
+    faq: {
+      title: "Frequently Asked Questions",
+      items: [
+        {
+          question: "Can multiple authors publish articles?",
+          answer: "Yes, role-based author and editor management is supported.",
+        },
+        {
+          question: "Can advertisements be added?",
+          answer:
+            "Yes, banner ads and sponsored content can be managed easily.",
+        },
+        {
+          question: "Is it mobile-friendly?",
+          answer: "Yes, every news portal is fully responsive.",
+        },
+        {
+          question: "Can I manage articles myself?",
+          answer: "Yes, an easy-to-use CMS is included.",
+        },
+      ],
+    },
+
+    relatedServices: [
+      {
+        name: "Business Website Development",
+        slug: "business-website-development",
+      },
+      { name: "Blog Website Development", slug: "blog-website-development" },
+      { name: "SEO Services", slug: "seo-services" },
+    ],
   },
 
-  overview: {
-    title: "What Is Educational Website Development?",
-    content:
-      "We build secure and responsive educational websites that simplify communication, admissions, course management, notices, and student engagement for educational institutions.",
+  "blog-website-development": {
+    slug: "blog-website-development",
+    name: "Blog Website Development",
+    category: "web-development",
+    startingPrice: "৳12,000",
+    color: "#EF4444",
+
+    hero: {
+      title: "Professional Blog Website Development",
+      description:
+        "Create a beautiful, fast, and SEO-friendly blog that helps you grow your audience and share valuable content.",
+      cta: "Get Free Consultation",
+    },
+
+    overview: {
+      title: "What Is Blog Website Development?",
+      content:
+        "We develop modern blogging platforms for individuals, businesses, and content creators with clean design, category management, SEO optimization, and easy content publishing.",
+    },
+
+    solutions: {
+      title: "What We Can Build",
+      items: [
+        {
+          title: "Personal Blog",
+          description: "Share your thoughts and experiences.",
+        },
+        {
+          title: "Business Blog",
+          description: "Grow traffic through content marketing.",
+        },
+        {
+          title: "Tech Blog",
+          description: "Publish tutorials and technology articles.",
+        },
+        {
+          title: "Travel Blog",
+          description: "Showcase destinations and travel stories.",
+        },
+        {
+          title: "Food Blog",
+          description: "Recipe and restaurant blogging websites.",
+        },
+        {
+          title: "Lifestyle Blog",
+          description: "Fashion, fitness, and lifestyle content platforms.",
+        },
+      ],
+    },
+
+    process: {
+      title: "Our Development Process",
+      steps: [
+        { title: "Planning", description: "Understand your blogging goals." },
+        { title: "Design", description: "Create a modern blog layout." },
+        { title: "Development", description: "Build a responsive platform." },
+        { title: "SEO Setup", description: "Optimize for search engines." },
+        { title: "Testing", description: "Ensure quality and performance." },
+        { title: "Launch", description: "Publish your blog online." },
+      ],
+    },
+
+    features: {
+      title: "Key Features",
+      items: [
+        { title: "SEO Friendly", description: "Rank better on Google." },
+        {
+          title: "Category Management",
+          description: "Organize blog posts easily.",
+        },
+        { title: "Comment System", description: "Engage with your readers." },
+        { title: "Responsive Design", description: "Works on every device." },
+        { title: "Fast Performance", description: "Optimized loading speed." },
+        {
+          title: "CMS Integration",
+          description: "Manage content effortlessly.",
+        },
+      ],
+    },
+
+    whyChooseUs: {
+      title: "Why Choose Us?",
+      items: [
+        "Clean modern blog design",
+        "SEO-optimized structure",
+        "Fast loading performance",
+        "Easy content management",
+        "Affordable pricing",
+      ],
+    },
+
+    faq: {
+      title: "Frequently Asked Questions",
+      items: [
+        {
+          question: "Can I publish articles myself?",
+          answer: "Yes, you'll receive a user-friendly CMS.",
+        },
+        {
+          question: "Is SEO included?",
+          answer: "Yes, every blog is built with SEO best practices.",
+        },
+        {
+          question: "Can readers leave comments?",
+          answer: "Yes, comment functionality can be enabled.",
+        },
+        {
+          question: "Will it work on mobile?",
+          answer: "Yes, it is fully responsive.",
+        },
+      ],
+    },
+
+    relatedServices: [
+      {
+        name: "Business Website Development",
+        slug: "business-website-development",
+      },
+      {
+        name: "Newspaper Website Development",
+        slug: "newspaper-website-development",
+      },
+      { name: "SEO Services", slug: "seo-services" },
+    ],
   },
 
-  solutions: {
-    title: "What We Can Build",
-    items: [
+  "ngo-website-development": {
+    slug: "ngo-website-development",
+    name: "NGO Website Development",
+    category: "web-development",
+    startingPrice: "৳18,000",
+    color: "#10B981",
+
+    hero: {
+      title: "Professional NGO Website Development",
+      description:
+        "Build a trustworthy online presence for your NGO, charity, or non-profit organization with a modern, responsive website.",
+      cta: "Get Free Consultation",
+    },
+
+    overview: {
+      title: "What Is NGO Website Development?",
+      content:
+        "We create professional websites for NGOs, charities, foundations, and non-profit organizations to showcase their mission, projects, impact, and donation campaigns while building trust with donors and volunteers.",
+    },
+
+    solutions: {
+      title: "What We Can Build",
+      items: [
+        {
+          title: "NGO Website",
+          description: "Professional websites for non-profit organizations.",
+        },
+        {
+          title: "Charity Website",
+          description: "Donation-focused charity platforms.",
+        },
+        {
+          title: "Foundation Website",
+          description: "Websites for social and charitable foundations.",
+        },
+        {
+          title: "Volunteer Portal",
+          description: "Volunteer registration and management.",
+        },
+        {
+          title: "Campaign Website",
+          description: "Promote fundraising and awareness campaigns.",
+        },
+        {
+          title: "Donation Platform",
+          description: "Secure online donation and supporter pages.",
+        },
+      ],
+    },
+
+    process: {
+      title: "Our Development Process",
+      steps: [
+        {
+          title: "Consultation",
+          description: "Understand your mission and goals.",
+        },
+        {
+          title: "Design",
+          description: "Create a clean and trustworthy interface.",
+        },
+        {
+          title: "Development",
+          description: "Build a responsive and secure website.",
+        },
+        {
+          title: "Content Setup",
+          description: "Add projects, galleries, and information.",
+        },
+        {
+          title: "Testing",
+          description: "Ensure quality across all devices.",
+        },
+        {
+          title: "Launch",
+          description: "Deploy your NGO website online.",
+        },
+      ],
+    },
+
+    features: {
+      title: "Key Features",
+      items: [
+        {
+          title: "Donation Integration",
+          description: "Accept online donations securely.",
+        },
+        {
+          title: "Project Showcase",
+          description: "Highlight your ongoing initiatives.",
+        },
+        {
+          title: "Volunteer Registration",
+          description: "Allow volunteers to join easily.",
+        },
+        {
+          title: "Event Management",
+          description: "Publish upcoming events and campaigns.",
+        },
+        {
+          title: "Responsive Design",
+          description: "Optimized for all devices.",
+        },
+        {
+          title: "SEO Optimized",
+          description: "Improve online visibility.",
+        },
+      ],
+    },
+
+    whyChooseUs: {
+      title: "Why Choose Us?",
+      items: [
+        "Affordable NGO solutions",
+        "Modern and responsive design",
+        "Easy content management",
+        "SEO-friendly structure",
+        "Reliable support after launch",
+      ],
+    },
+
+    faq: {
+      title: "Frequently Asked Questions",
+      items: [
+        {
+          question: "Can we accept online donations?",
+          answer: "Yes, we can integrate secure online donation gateways.",
+        },
+        {
+          question: "Can we update projects ourselves?",
+          answer:
+            "Yes, you'll receive an easy-to-use content management system.",
+        },
+        {
+          question: "Is the website mobile-friendly?",
+          answer: "Yes, every NGO website is fully responsive.",
+        },
+        {
+          question: "Can volunteer registration be added?",
+          answer: "Yes, we can build volunteer registration and inquiry forms.",
+        },
+      ],
+    },
+
+    relatedServices: [
       {
-        title: "School Website",
-        description: "Professional websites for schools.",
+        name: "Business Website Development",
+        slug: "business-website-development",
       },
       {
-        title: "College Website",
-        description: "Institutional websites with admission details.",
+        name: "Educational Website Development",
+        slug: "educational-website-development",
       },
       {
-        title: "University Portal",
-        description: "Comprehensive university information systems.",
-      },
-      {
-        title: "Coaching Center Website",
-        description: "Course and student information platforms.",
-      },
-      {
-        title: "E-Learning Website",
-        description: "Online learning and course management systems.",
-      },
-      {
-        title: "Training Institute Website",
-        description: "Professional websites for training centers.",
+        name: "Website Maintenance & Support",
+        slug: "website-maintenance-support",
       },
     ],
   },
 
-  process: {
-    title: "Our Development Process",
-    steps: [
-      { title: "Requirement Gathering", description: "Understand institution needs." },
-      { title: "Design", description: "Create an intuitive interface." },
-      { title: "Development", description: "Develop secure and scalable systems." },
-      { title: "Content Integration", description: "Upload courses and information." },
-      { title: "Testing", description: "Ensure reliability and performance." },
-      { title: "Launch", description: "Deploy your educational platform." },
-    ],
-  },
+  "educational-website-development": {
+    slug: "educational-website-development",
+    name: "Educational Website Development",
+    category: "web-development",
+    startingPrice: "৳25,000",
+    color: "#0EA5E9",
 
-  features: {
-    title: "Key Features",
-    items: [
-      { title: "Admission Forms", description: "Online admission applications." },
-      { title: "Course Management", description: "Display courses and programs." },
-      { title: "Notice Board", description: "Publish announcements easily." },
-      { title: "Responsive Design", description: "Accessible on all devices." },
-      { title: "SEO Optimized", description: "Improve online visibility." },
-      { title: "Contact & Inquiry Forms", description: "Manage student inquiries." },
-    ],
-  },
+    hero: {
+      title: "Educational Website Development Services",
+      description:
+        "Professional websites for schools, colleges, universities, coaching centers, and online learning platforms.",
+      cta: "Get Free Consultation",
+    },
 
-  whyChooseUs: {
-    title: "Why Choose Us?",
-    items: [
-      "Custom solutions for educational institutions",
-      "Modern responsive design",
-      "Secure development practices",
-      "Easy content management",
-      "Reliable support and maintenance",
-    ],
-  },
+    overview: {
+      title: "What Is Educational Website Development?",
+      content:
+        "We build secure and responsive educational websites that simplify communication, admissions, course management, notices, and student engagement for educational institutions.",
+    },
 
-  faq: {
-    title: "Frequently Asked Questions",
-    items: [
+    solutions: {
+      title: "What We Can Build",
+      items: [
+        {
+          title: "School Website",
+          description: "Professional websites for schools.",
+        },
+        {
+          title: "College Website",
+          description: "Institutional websites with admission details.",
+        },
+        {
+          title: "University Portal",
+          description: "Comprehensive university information systems.",
+        },
+        {
+          title: "Coaching Center Website",
+          description: "Course and student information platforms.",
+        },
+        {
+          title: "E-Learning Website",
+          description: "Online learning and course management systems.",
+        },
+        {
+          title: "Training Institute Website",
+          description: "Professional websites for training centers.",
+        },
+      ],
+    },
+
+    process: {
+      title: "Our Development Process",
+      steps: [
+        {
+          title: "Requirement Gathering",
+          description: "Understand institution needs.",
+        },
+        { title: "Design", description: "Create an intuitive interface." },
+        {
+          title: "Development",
+          description: "Develop secure and scalable systems.",
+        },
+        {
+          title: "Content Integration",
+          description: "Upload courses and information.",
+        },
+        {
+          title: "Testing",
+          description: "Ensure reliability and performance.",
+        },
+        { title: "Launch", description: "Deploy your educational platform." },
+      ],
+    },
+
+    features: {
+      title: "Key Features",
+      items: [
+        {
+          title: "Admission Forms",
+          description: "Online admission applications.",
+        },
+        {
+          title: "Course Management",
+          description: "Display courses and programs.",
+        },
+        { title: "Notice Board", description: "Publish announcements easily." },
+        {
+          title: "Responsive Design",
+          description: "Accessible on all devices.",
+        },
+        { title: "SEO Optimized", description: "Improve online visibility." },
+        {
+          title: "Contact & Inquiry Forms",
+          description: "Manage student inquiries.",
+        },
+      ],
+    },
+
+    whyChooseUs: {
+      title: "Why Choose Us?",
+      items: [
+        "Custom solutions for educational institutions",
+        "Modern responsive design",
+        "Secure development practices",
+        "Easy content management",
+        "Reliable support and maintenance",
+      ],
+    },
+
+    faq: {
+      title: "Frequently Asked Questions",
+      items: [
+        {
+          question: "Can students apply online?",
+          answer: "Yes, we provide online admission forms.",
+        },
+        {
+          question: "Can administrators update notices?",
+          answer: "Yes, a CMS allows easy updates.",
+        },
+        {
+          question: "Is the website mobile-friendly?",
+          answer: "Yes, it works perfectly on all devices.",
+        },
+        {
+          question: "Can courses be managed?",
+          answer: "Yes, courses and programs can be updated anytime.",
+        },
+      ],
+    },
+
+    relatedServices: [
       {
-        question: "Can students apply online?",
-        answer: "Yes, we provide online admission forms.",
+        name: "Business Website Development",
+        slug: "business-website-development",
       },
       {
-        question: "Can administrators update notices?",
-        answer: "Yes, a CMS allows easy updates.",
+        name: "Learning Management System",
+        slug: "learning-management-system",
       },
       {
-        question: "Is the website mobile-friendly?",
-        answer: "Yes, it works perfectly on all devices.",
-      },
-      {
-        question: "Can courses be managed?",
-        answer: "Yes, courses and programs can be updated anytime.",
+        name: "Website Maintenance & Support",
+        slug: "website-maintenance-support",
       },
     ],
   },
-
-  relatedServices: [
-    { name: "Business Website Development", slug: "business-website-development" },
-    { name: "Learning Management System", slug: "learning-management-system" },
-    { name: "Website Maintenance & Support", slug: "website-maintenance-support" },
-  ],
-},
 
   "landing-page-development": {
     slug: "landing-page-development",
@@ -6272,6 +6354,701 @@ export const eachData: Record<string, ServiceData> = {
       {
         name: "Social Media Design",
         slug: "social-media-design",
+      },
+    ],
+  },
+
+  "youtube-video-editing": {
+    slug: "youtube-video-editing",
+    name: "YouTube Video Editing",
+    category: "video-editing",
+    startingPrice: "৳2,500",
+    color: "#8B5CF6",
+
+    hero: {
+      title: "Professional YouTube Video Editing Services",
+      description:
+        "Transform your raw footage into engaging YouTube videos with professional editing, smooth transitions, motion graphics, subtitles, and optimized storytelling that keeps viewers watching.",
+      cta: "Get Free Consultation",
+    },
+
+    overview: {
+      title: "What Is YouTube Video Editing?",
+      content:
+        "Professional YouTube editing helps creators, businesses, and brands produce high-quality videos that attract more viewers and improve audience retention. We edit videos with clean cuts, engaging pacing, color correction, audio enhancement, motion graphics, and branded elements to create content that stands out.",
+    },
+
+    solutions: {
+      title: "What We Can Edit",
+      items: [
+        {
+          title: "Educational Videos",
+          description:
+            "Professional editing for tutorials, online courses, and educational content.",
+        },
+        {
+          title: "Vlogs",
+          description:
+            "Engaging vlog editing with cinematic transitions and storytelling.",
+        },
+        {
+          title: "Tech & Review Videos",
+          description:
+            "Clean edits with product highlights, overlays, and animations.",
+        },
+        {
+          title: "Gaming Videos",
+          description:
+            "Dynamic gameplay editing with effects, memes, captions, and highlights.",
+        },
+        {
+          title: "Business & Marketing Videos",
+          description:
+            "Professional promotional and informational videos for companies.",
+        },
+        {
+          title: "Podcast Videos",
+          description:
+            "Multi-camera podcast editing with captions and branding.",
+        },
+      ],
+    },
+
+    process: {
+      title: "Our Editing Process",
+      steps: [
+        {
+          title: "Project Discussion",
+          description:
+            "Understand your content, audience, and editing style preferences.",
+        },
+        {
+          title: "Footage Review",
+          description:
+            "Organize and review all video, audio, and media assets.",
+        },
+        {
+          title: "Professional Editing",
+          description:
+            "Edit footage with smooth pacing, transitions, and storytelling.",
+        },
+        {
+          title: "Enhancements",
+          description:
+            "Add motion graphics, subtitles, music, color grading, and sound effects.",
+        },
+        {
+          title: "Review & Revisions",
+          description: "Refine the video based on your feedback.",
+        },
+        {
+          title: "Final Delivery",
+          description: "Deliver high-quality videos optimized for YouTube.",
+        },
+      ],
+    },
+
+    features: {
+      title: "What's Included",
+      items: [
+        {
+          title: "Professional Cuts",
+          description:
+            "Clean editing with smooth transitions and engaging pacing.",
+        },
+        {
+          title: "Motion Graphics",
+          description:
+            "Animated titles, lower thirds, and call-to-action graphics.",
+        },
+        {
+          title: "Color Correction",
+          description: "Professional color enhancement for a polished look.",
+        },
+        {
+          title: "Audio Enhancement",
+          description: "Noise reduction, balanced audio, and background music.",
+        },
+        {
+          title: "Subtitles & Captions",
+          description:
+            "Accurate captions to improve accessibility and engagement.",
+        },
+        {
+          title: "YouTube Optimization",
+          description:
+            "Videos exported in the best format and quality for YouTube.",
+        },
+      ],
+    },
+
+    whyChooseUs: {
+      title: "Why Choose Us?",
+      items: [
+        "Professional and engaging editing style",
+        "Fast turnaround time",
+        "High-quality 1080p & 4K exports",
+        "Revisions included",
+        "Optimized for YouTube audience retention",
+      ],
+    },
+
+    faq: {
+      title: "Frequently Asked Questions",
+      items: [
+        {
+          question: "How long does it take to edit a YouTube video?",
+          answer:
+            "Most projects are completed within 2–5 business days depending on video length and complexity.",
+        },
+        {
+          question: "Can you edit 4K videos?",
+          answer:
+            "Yes. We support Full HD, 2K, and 4K video editing and export.",
+        },
+        {
+          question: "Do you provide background music and sound effects?",
+          answer:
+            "Yes. We can add royalty-free music and professional sound effects that match your content.",
+        },
+        {
+          question: "How many revisions are included?",
+          answer:
+            "We include revisions to ensure the final video meets your expectations.",
+        },
+      ],
+    },
+
+    relatedServices: [
+      {
+        name: "Short-Form Video Editing",
+        slug: "short-form-video-editing",
+      },
+      {
+        name: "Social Media Ad Video Editing",
+        slug: "social-media-ad-video-editing",
+      },
+    ],
+  },
+  "short-form-video-editing": {
+    slug: "short-form-video-editing",
+    name: "Short-Form Video Editing",
+    category: "video-editing",
+    startingPrice: "৳1,000",
+    color: "#EC4899",
+
+    hero: {
+      title: "Professional Short-Form Video Editing Services",
+      description:
+        "Capture attention with engaging short-form videos for Instagram Reels, TikTok, and YouTube Shorts. We create fast-paced, scroll-stopping content designed to maximize views and engagement.",
+      cta: "Get Free Consultation",
+    },
+
+    overview: {
+      title: "What Is Short-Form Video Editing?",
+      content:
+        "Short-form videos are one of the fastest-growing content formats across social media. We transform raw footage into high-performing videos using dynamic cuts, animated captions, transitions, music, and effects that keep viewers engaged from the first second.",
+    },
+
+    solutions: {
+      title: "What We Can Create",
+      items: [
+        {
+          title: "Instagram Reels",
+          description:
+            "Creative edits optimized to increase reach and engagement.",
+        },
+        {
+          title: "TikTok Videos",
+          description:
+            "Fast-paced edits with trending styles, effects, and captions.",
+        },
+        {
+          title: "YouTube Shorts",
+          description:
+            "Attention-grabbing vertical videos designed for maximum retention.",
+        },
+        {
+          title: "Personal Branding Content",
+          description:
+            "Professional short videos that build your personal or business brand.",
+        },
+        {
+          title: "Product Showcase Videos",
+          description:
+            "Highlight products with engaging visuals and promotional editing.",
+        },
+        {
+          title: "Event Highlights",
+          description:
+            "Convert long recordings into exciting short highlight videos.",
+        },
+      ],
+    },
+
+    process: {
+      title: "Our Editing Process",
+      steps: [
+        {
+          title: "Content Review",
+          description: "Understand your audience, platform, and content goals.",
+        },
+        {
+          title: "Footage Selection",
+          description: "Choose the best clips to create an engaging story.",
+        },
+        {
+          title: "Creative Editing",
+          description:
+            "Apply dynamic cuts, transitions, and visual enhancements.",
+        },
+        {
+          title: "Captions & Effects",
+          description:
+            "Add animated captions, emojis, motion graphics, and sound effects.",
+        },
+        {
+          title: "Quality Review",
+          description: "Review the video and make revisions if needed.",
+        },
+        {
+          title: "Optimized Delivery",
+          description:
+            "Export videos in the ideal format for every social platform.",
+        },
+      ],
+    },
+
+    features: {
+      title: "What's Included",
+      items: [
+        {
+          title: "Vertical Video Optimization",
+          description: "Perfectly formatted for Reels, TikTok, and Shorts.",
+        },
+        {
+          title: "Animated Captions",
+          description:
+            "Stylish captions that improve engagement and watch time.",
+        },
+        {
+          title: "Trending Transitions",
+          description:
+            "Modern transitions and effects for a professional look.",
+        },
+        {
+          title: "Background Music",
+          description: "Royalty-free music matched to your content style.",
+        },
+        {
+          title: "Color Enhancement",
+          description: "Professional color correction for vibrant visuals.",
+        },
+        {
+          title: "Fast Delivery",
+          description: "Quick turnaround without compromising quality.",
+        },
+      ],
+    },
+
+    whyChooseUs: {
+      title: "Why Choose Us?",
+      items: [
+        "Optimized for social media algorithms",
+        "Eye-catching captions and animations",
+        "Professional editing with fast delivery",
+        "High-quality exports for every platform",
+        "Affordable pricing for creators and businesses",
+      ],
+    },
+
+    faq: {
+      title: "Frequently Asked Questions",
+      items: [
+        {
+          question: "Which platforms do you edit videos for?",
+          answer:
+            "We create videos for Instagram Reels, TikTok, YouTube Shorts, Facebook Reels, and other vertical video platforms.",
+        },
+        {
+          question: "Can you add subtitles and captions?",
+          answer:
+            "Yes. We create animated captions that improve accessibility and viewer engagement.",
+        },
+        {
+          question: "What video format do you deliver?",
+          answer:
+            "Videos are delivered in high-quality MP4 format, optimized for social media platforms.",
+        },
+        {
+          question: "Can I request revisions?",
+          answer:
+            "Yes. We include revisions to ensure the final video matches your expectations.",
+        },
+      ],
+    },
+
+    relatedServices: [
+      {
+        name: "YouTube Video Editing",
+        slug: "youtube-video-editing",
+      },
+      {
+        name: "Social Media Ad Video Editing",
+        slug: "social-media-ad-video-editing",
+      },
+    ],
+  },
+  "social-media-ad-video-editing": {
+    slug: "social-media-ad-video-editing",
+    name: "Social Media Ad Video Editing",
+    category: "video-editing",
+    startingPrice: "৳2,000",
+    color: "#F97316",
+
+    hero: {
+      title: "High-Converting Social Media Ad Video Editing",
+      description:
+        "Drive more clicks, leads, and sales with professionally edited ad videos for Facebook, Instagram, YouTube, LinkedIn, and other digital advertising platforms.",
+      cta: "Start Your Project",
+    },
+
+    overview: {
+      title: "What Is Social Media Ad Video Editing?",
+      content:
+        "Advertising videos need to capture attention within the first few seconds. We create compelling promotional videos using dynamic editing, motion graphics, subtitles, product highlights, and persuasive storytelling to maximize campaign performance and conversions.",
+    },
+
+    solutions: {
+      title: "What We Can Create",
+      items: [
+        {
+          title: "Facebook & Instagram Ads",
+          description:
+            "High-converting promotional videos optimized for Meta advertising.",
+        },
+        {
+          title: "YouTube Video Ads",
+          description:
+            "Professional pre-roll and in-stream advertisements that grab attention quickly.",
+        },
+        {
+          title: "Product Advertisement Videos",
+          description:
+            "Showcase products with creative visuals, animations, and persuasive messaging.",
+        },
+        {
+          title: "Service Promotion Videos",
+          description:
+            "Promote your services with engaging videos that generate leads.",
+        },
+        {
+          title: "Brand Awareness Campaigns",
+          description:
+            "Creative videos that strengthen your brand identity and recognition.",
+        },
+        {
+          title: "Seasonal & Offer Promotions",
+          description:
+            "Eye-catching videos for discounts, campaigns, and special events.",
+        },
+      ],
+    },
+
+    process: {
+      title: "Our Editing Process",
+      steps: [
+        {
+          title: "Campaign Planning",
+          description:
+            "Understand your business, target audience, and advertising goals.",
+        },
+        {
+          title: "Creative Strategy",
+          description:
+            "Plan visuals, messaging, and call-to-actions for maximum impact.",
+        },
+        {
+          title: "Professional Editing",
+          description:
+            "Edit footage with smooth transitions, product highlights, and engaging pacing.",
+        },
+        {
+          title: "Branding & Motion Graphics",
+          description:
+            "Add logos, animated text, captions, and promotional graphics.",
+        },
+        {
+          title: "Review & Optimization",
+          description:
+            "Refine the video based on feedback and advertising best practices.",
+        },
+        {
+          title: "Final Delivery",
+          description:
+            "Export videos optimized for every advertising platform.",
+        },
+      ],
+    },
+
+    features: {
+      title: "What's Included",
+      items: [
+        {
+          title: "Platform Optimization",
+          description:
+            "Videos tailored for Facebook, Instagram, YouTube, LinkedIn, and more.",
+        },
+        {
+          title: "Animated Captions",
+          description:
+            "Attention-grabbing captions that improve viewer retention.",
+        },
+        {
+          title: "Motion Graphics",
+          description:
+            "Professional animations, icons, and promotional effects.",
+        },
+        {
+          title: "Brand Integration",
+          description:
+            "Consistent use of your logo, colors, fonts, and brand identity.",
+        },
+        {
+          title: "Royalty-Free Music",
+          description:
+            "Professional background music that matches your campaign.",
+        },
+        {
+          title: "Call-to-Action Design",
+          description: "Strong visual CTAs to increase clicks and conversions.",
+        },
+      ],
+    },
+
+    whyChooseUs: {
+      title: "Why Choose Us?",
+      items: [
+        "Videos designed to increase conversions",
+        "Creative edits that capture attention instantly",
+        "Optimized for all major advertising platforms",
+        "Fast turnaround with professional quality",
+        "Affordable solutions for businesses of all sizes",
+      ],
+    },
+
+    faq: {
+      title: "Frequently Asked Questions",
+      items: [
+        {
+          question: "Which advertising platforms do you support?",
+          answer:
+            "We edit videos for Facebook, Instagram, YouTube, LinkedIn, TikTok, and other major advertising platforms.",
+        },
+        {
+          question: "Can you edit videos for product promotions?",
+          answer:
+            "Yes. We create engaging promotional videos for products, services, and brand campaigns.",
+        },
+        {
+          question: "Do you include branding in the videos?",
+          answer:
+            "Absolutely. We can incorporate your logo, brand colors, fonts, and messaging into every video.",
+        },
+        {
+          question: "Can you edit videos in different aspect ratios?",
+          answer:
+            "Yes. We deliver videos in vertical, square, and horizontal formats depending on your campaign requirements.",
+        },
+      ],
+    },
+
+    relatedServices: [
+      {
+        name: "Short-Form Video Editing",
+        slug: "short-form-video-editing",
+      },
+      {
+        name: "YouTube Video Editing",
+        slug: "youtube-video-editing",
+      },
+    ],
+  },
+  "corporate-brand-video-editing": {
+    slug: "corporate-brand-video-editing",
+    name: "Corporate & Brand Videos",
+    category: "video-editing",
+    startingPrice: "৳5,000",
+    color: "#0EA5E9",
+
+    hero: {
+      title: "Professional Corporate & Brand Video Editing",
+      description:
+        "Showcase your business with polished corporate videos that build trust, strengthen your brand, and communicate your message with clarity and impact.",
+      cta: "Get Free Consultation",
+    },
+
+    overview: {
+      title: "What Are Corporate & Brand Videos?",
+      content:
+        "Corporate and brand videos help businesses present their story, services, products, and culture in a professional way. We create visually engaging videos that improve brand awareness, build customer trust, and leave a lasting impression across websites, presentations, and social media.",
+    },
+
+    solutions: {
+      title: "What We Can Create",
+      items: [
+        {
+          title: "Company Profile Videos",
+          description:
+            "Professional videos introducing your company, mission, and services.",
+        },
+        {
+          title: "Brand Story Videos",
+          description:
+            "Tell your brand's journey through engaging storytelling and visuals.",
+        },
+        {
+          title: "Promotional Videos",
+          description:
+            "Highlight products, services, or campaigns to attract new customers.",
+        },
+        {
+          title: "Training Videos",
+          description:
+            "Educational videos for employee onboarding and internal training.",
+        },
+        {
+          title: "Event Highlight Videos",
+          description:
+            "Capture conferences, seminars, launches, and corporate events.",
+        },
+        {
+          title: "Client Testimonial Videos",
+          description:
+            "Build credibility with professionally edited customer success stories.",
+        },
+      ],
+    },
+
+    process: {
+      title: "Our Editing Process",
+      steps: [
+        {
+          title: "Project Consultation",
+          description:
+            "Understand your business goals, audience, and brand identity.",
+        },
+        {
+          title: "Footage Organization",
+          description:
+            "Review and organize all provided video and media assets.",
+        },
+        {
+          title: "Professional Editing",
+          description:
+            "Create a polished edit with smooth pacing and storytelling.",
+        },
+        {
+          title: "Brand Enhancement",
+          description:
+            "Add logos, brand colors, graphics, music, and subtitles.",
+        },
+        {
+          title: "Review & Feedback",
+          description:
+            "Implement revisions to ensure the video meets your expectations.",
+        },
+        {
+          title: "Final Delivery",
+          description:
+            "Export high-quality videos optimized for your intended platforms.",
+        },
+      ],
+    },
+
+    features: {
+      title: "What's Included",
+      items: [
+        {
+          title: "Professional Editing",
+          description: "Clean cuts, transitions, and polished storytelling.",
+        },
+        {
+          title: "Brand Integration",
+          description:
+            "Consistent use of logos, fonts, colors, and visual identity.",
+        },
+        {
+          title: "Motion Graphics",
+          description:
+            "Animated titles, lower thirds, and branded visual elements.",
+        },
+        {
+          title: "Audio Enhancement",
+          description: "Noise reduction, music, and balanced audio levels.",
+        },
+        {
+          title: "Color Grading",
+          description:
+            "Professional color correction for a premium visual appearance.",
+        },
+        {
+          title: "Multiple Export Formats",
+          description:
+            "Optimized delivery for websites, presentations, and social media.",
+        },
+      ],
+    },
+
+    whyChooseUs: {
+      title: "Why Choose Us?",
+      items: [
+        "Professional business-focused editing",
+        "Strong brand consistency in every video",
+        "High-quality visual storytelling",
+        "Fast turnaround with revision support",
+        "Suitable for businesses of every size",
+      ],
+    },
+
+    faq: {
+      title: "Frequently Asked Questions",
+      items: [
+        {
+          question: "Who are corporate videos suitable for?",
+          answer:
+            "Corporate videos are ideal for startups, small businesses, enterprises, educational institutions, and organizations.",
+        },
+        {
+          question: "Can you add our company branding?",
+          answer:
+            "Yes. We incorporate your logo, colors, typography, and brand guidelines into the final video.",
+        },
+        {
+          question: "Do you edit videos for company events?",
+          answer:
+            "Absolutely. We create highlight videos for conferences, seminars, product launches, and corporate events.",
+        },
+        {
+          question: "Can the video be used on multiple platforms?",
+          answer:
+            "Yes. We optimize videos for websites, YouTube, LinkedIn, Facebook, presentations, and other platforms.",
+        },
+      ],
+    },
+
+    relatedServices: [
+      {
+        name: "Social Media Ad Video Editing",
+        slug: "social-media-ad-video-editing",
+      },
+      {
+        name: "YouTube Video Editing",
+        slug: "youtube-video-editing",
+      },
+      {
+        name: "Motion Graphics & Animation",
+        slug: "motion-graphics-animation",
       },
     ],
   },

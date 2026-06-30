@@ -158,23 +158,6 @@ const Stats: React.FC = () => {
           })}
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mt-12 sm:mt-16 text-center"
-        >
-          <p className="text-sm text-(--text-muted) mb-1">
-            Ready to join these numbers?
-          </p>
-          <button className="text-(--primary) hover:text-(--primary-hover) text-sm font-medium transition-colors flex items-center gap-1 mx-auto">
-            Let's work together
-            <span className="inline-block transition-transform group-hover:translate-x-1">
-              →
-            </span>
-          </button>
-        </motion.div>
       </div>
     </section>
   );

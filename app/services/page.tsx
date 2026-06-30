@@ -14,6 +14,7 @@ import {
   FiUsers,
   FiCode,
   FiPenTool,
+  FiVideo,
 } from "react-icons/fi";
 import { serviceCategories } from "../data/serviceData";
 import ServiceCard from "../components/ServiceCard";
@@ -53,6 +54,7 @@ const Service: React.FC = () => {
       "Digital Marketing": FiTrendingUp,
       "Consulting & Training": FiUsers,
       "Graphic Design": FiPenTool,
+      "Video Editing": FiVideo,
     };
     return icons[category.title] || FiCode;
   };

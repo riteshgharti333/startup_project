@@ -31,6 +31,7 @@ export const navLinks = [
         label: "Digital Marketing",
         href: "/services/digital-marketing",
       },
+      { label: "Video Editing", href: "/services/video-editing" },
       {
         label: "Consulting & Training",
         href: "/services/consulting-training",
@@ -112,7 +113,6 @@ export const footerLinks = [
   },
 ];
 
-
 import {
   FiCpu,
   FiCode,
@@ -121,6 +121,7 @@ import {
   FiUsers,
   FiSmartphone,
   FiPenTool,
+  FiVideo,
 } from "react-icons/fi";
 
 export const mainServices = [
@@ -194,6 +195,17 @@ export const mainServices = [
     borderGradient: "from-indigo-500 to-blue-500",
     stats: "100+ Sessions",
   },
+  {
+    icon: FiVideo,
+    title: "Video Editing",
+    description:
+      "Professional video editing for social media, YouTube & brands",
+    startingPrice: "৳2,500",
+    link: "/services/video-editing",
+    gradient: "from-violet-500/20 to-fuchsia-500/20",
+    borderGradient: "from-violet-500 to-fuchsia-500",
+    stats: "Fast Delivery",
+  },
 ];
 
 /////////////
@@ -209,6 +221,7 @@ export const serviceLinks = [
   { label: "Cloud & Infrastructure", href: "/services/cloud-infrastructure" },
   { label: "Digital Marketing", href: "/services/digital-marketing" },
   { label: "Consulting & Training", href: "/services/consulting-training" },
+  { label: "Video Editing", href: "/services/video-editing" },
 ];
 
 export const sections = [
@@ -405,13 +418,7 @@ Last Updated: June 2024`,
   },
 ];
 
-
-import {
-  FiGlobe,
-  FiMonitor,
-  FiAward,
-  FiPlay,
-} from "react-icons/fi";
+import { FiGlobe, FiMonitor, FiAward, FiPlay } from "react-icons/fi";
 
 interface Course {
   icon: React.ComponentType<{ size?: number; className?: string }>;
@@ -426,109 +433,109 @@ interface Course {
   bg: string;
 }
 
- export const courses: Course[] = [
-    {
-      icon: FiGlobe,
-      title: "Full-Stack Web Development",
-      category: "Web Development",
-      description:
-        "Master modern web development with React, Next.js, Node.js, and databases. Build real-world projects from scratch.",
-      duration: "12 Weeks",
-      level: "Beginner to Advanced",
-      modules: 12,
-      color: "text-(--primary)",
-      bg: "bg-(--primary)/10",
-      comingSoon: true,
-    },
-    {
-      icon: FiCpu,
-      title: "AI & Machine Learning",
-      category: "Artificial Intelligence",
-      description:
-        "Learn AI fundamentals, neural networks, NLP, and build intelligent applications with Python and TensorFlow.",
-      duration: "10 Weeks",
-      level: "Intermediate",
-      modules: 10,
-      color: "text-purple-400",
-      bg: "bg-purple-500/10",
-      comingSoon: true,
-    },
-    {
-      icon: FiSmartphone,
-      title: "Mobile App Development",
-      category: "App Development",
-      description:
-        "Build cross-platform mobile apps with React Native and Flutter. Deploy to both iOS and Android.",
-      duration: "8 Weeks",
-      level: "Intermediate",
-      comingSoon: true,
-      modules: 8,
-      color: "text-green-400",
-      bg: "bg-green-500/10",
-    },
-    {
-      icon: FiCloud,
-      title: "Cloud & DevOps Engineering",
-      category: "Cloud Computing",
-      description:
-        "Master AWS, Docker, Kubernetes, CI/CD pipelines, and infrastructure as code for modern deployments.",
-      duration: "10 Weeks",
-      level: "Advanced",
-      modules: 10,
-      comingSoon: true,
-      color: "text-amber-400",
-      bg: "bg-amber-500/10",
-    },
-    {
-      icon: FiCode,
-      title: "Python & Data Science",
-      category: "Data Science",
-      description:
-        "Learn Python programming, data analysis, visualization, and machine learning for data-driven decisions.",
-      duration: "8 Weeks",
-      level: "Beginner to Intermediate",
-      modules: 8,
-      comingSoon: true,
-      color: "text-cyan-400",
-      bg: "bg-cyan-500/10",
-    },
-    {
-      icon: FiMonitor,
-      title: "UI/UX Design Mastery",
-      category: "Design",
-      description:
-        "Master user interface and experience design with Figma, design systems, prototyping, and user research.",
-      duration: "6 Weeks",
-      level: "Beginner to Advanced",
-      modules: 6,
-      comingSoon: true,
-      color: "text-rose-400",
-      bg: "bg-rose-500/10",
-    },
-    {
-      icon: FiTrendingUp,
-      title: "Digital Marketing & SEO",
-      category: "Marketing",
-      description:
-        "Learn SEO, Google Ads, social media marketing, content strategy, and analytics to grow businesses online.",
-      duration: "6 Weeks",
-      level: "Beginner",
-      modules: 6,
-      comingSoon: true,
-      color: "text-emerald-400",
-      bg: "bg-emerald-500/10",
-    },
-    {
-      icon: FiAward,
-      title: "Cybersecurity Fundamentals",
-      category: "Security",
-      description:
-        "Learn network security, ethical hacking, penetration testing, and how to protect systems from threats.",
-      duration: "8 Weeks",
-      level: "Intermediate",
-      modules: 8,
-      comingSoon: true,
-      color: "text-indigo-400",
-      bg: "bg-indigo-500/10",
-    },
-  ];
+export const courses: Course[] = [
+  {
+    icon: FiGlobe,
+    title: "Full-Stack Web Development",
+    category: "Web Development",
+    description:
+      "Master modern web development with React, Next.js, Node.js, and databases. Build real-world projects from scratch.",
+    duration: "12 Weeks",
+    level: "Beginner to Advanced",
+    modules: 12,
+    color: "text-(--primary)",
+    bg: "bg-(--primary)/10",
+    comingSoon: true,
+  },
+  {
+    icon: FiCpu,
+    title: "AI & Machine Learning",
+    category: "Artificial Intelligence",
+    description:
+      "Learn AI fundamentals, neural networks, NLP, and build intelligent applications with Python and TensorFlow.",
+    duration: "10 Weeks",
+    level: "Intermediate",
+    modules: 10,
+    color: "text-purple-400",
+    bg: "bg-purple-500/10",
+    comingSoon: true,
+  },
+  {
+    icon: FiSmartphone,
+    title: "Mobile App Development",
+    category: "App Development",
+    description:
+      "Build cross-platform mobile apps with React Native and Flutter. Deploy to both iOS and Android.",
+    duration: "8 Weeks",
+    level: "Intermediate",
+    comingSoon: true,
+    modules: 8,
+    color: "text-green-400",
+    bg: "bg-green-500/10",
+  },
+  {
+    icon: FiCloud,
+    title: "Cloud & DevOps Engineering",
+    category: "Cloud Computing",
+    description:
+      "Master AWS, Docker, Kubernetes, CI/CD pipelines, and infrastructure as code for modern deployments.",
+    duration: "10 Weeks",
+    level: "Advanced",
+    modules: 10,
+    comingSoon: true,
+    color: "text-amber-400",
+    bg: "bg-amber-500/10",
+  },
+  {
+    icon: FiCode,
+    title: "Python & Data Science",
+    category: "Data Science",
+    description:
+      "Learn Python programming, data analysis, visualization, and machine learning for data-driven decisions.",
+    duration: "8 Weeks",
+    level: "Beginner to Intermediate",
+    modules: 8,
+    comingSoon: true,
+    color: "text-cyan-400",
+    bg: "bg-cyan-500/10",
+  },
+  {
+    icon: FiMonitor,
+    title: "UI/UX Design Mastery",
+    category: "Design",
+    description:
+      "Master user interface and experience design with Figma, design systems, prototyping, and user research.",
+    duration: "6 Weeks",
+    level: "Beginner to Advanced",
+    modules: 6,
+    comingSoon: true,
+    color: "text-rose-400",
+    bg: "bg-rose-500/10",
+  },
+  {
+    icon: FiTrendingUp,
+    title: "Digital Marketing & SEO",
+    category: "Marketing",
+    description:
+      "Learn SEO, Google Ads, social media marketing, content strategy, and analytics to grow businesses online.",
+    duration: "6 Weeks",
+    level: "Beginner",
+    modules: 6,
+    comingSoon: true,
+    color: "text-emerald-400",
+    bg: "bg-emerald-500/10",
+  },
+  {
+    icon: FiAward,
+    title: "Cybersecurity Fundamentals",
+    category: "Security",
+    description:
+      "Learn network security, ethical hacking, penetration testing, and how to protect systems from threats.",
+    duration: "8 Weeks",
+    level: "Intermediate",
+    modules: 8,
+    comingSoon: true,
+    color: "text-indigo-400",
+    bg: "bg-indigo-500/10",
+  },
+];
