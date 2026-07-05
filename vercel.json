@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.twipratech.com"
+        }
+      ],
+      "destination": "https://twipratech.com/:1",
+      "permanent": true
+    }
+  ]
+}
