@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     template: "%s | Twipra Technology",
   },
   description:
-    "Professional web development, AI solutions, mobile apps, and digital marketing services for businesses in Bangladesh and India.",
+    "Professional web development, AI solutions, mobile apps, and digital marketing services for businesses in Bangladesh.",
 
   keywords: [
     "web development",
@@ -60,10 +60,11 @@ export const metadata: Metadata = {
     "cloud infrastructure",
     "IT consulting",
     "Bangladesh",
-    "India",
   ],
 
-  authors: [{ name: "Twipra Technology", url: "https://www.twipratech.com" }],
+  authors: [
+    { name: "Twipra Technology", url: "https://www.twipratech.com" },
+  ],
   creator: "Twipra Technology",
   publisher: "Twipra Technology",
 
@@ -122,10 +123,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@twipratech",
     creator: "@twipratech",
-    title:
-      "Twipra Technology | Top Software, AI & Digital Marketing Company in Bangladesh",
-    description:
-      "Twipra Technology offers professional web development, AI-powered solutions, mobile app development, digital marketing, and branding services in Bangladesh. We build websites, automate workflows, and drive results for startups and enterprises.",
+    title: "Twipra Technology | Top Software, AI & Digital Marketing Company in Bangladesh",
+    description:"Twipra Technology offers professional web development, AI-powered solutions, mobile app development, digital marketing, and branding services in Bangladesh. We build websites, automate workflows, and drive results for startups and enterprises.",
     images: ["/twitter-image.jpg"],
   },
 
@@ -158,7 +157,6 @@ export default function RootLayout({
 
         {/* Geo targeting for Bangladesh & India */}
         <meta name="geo.region" content="BD" />
-        <meta name="geo.region" content="IN" />
 
         {/* Language alternatives */}
         <link
@@ -201,7 +199,7 @@ export default function RootLayout({
         {/* Animated Background */}
         <Backgrounds />
 
-        {/* Content */}
+        {/* Content */} 
         <div className="relative z-10 flex flex-col min-h-full">
           <Navbar />
           <main className="flex-1">{children}</main>
