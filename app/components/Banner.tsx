@@ -43,7 +43,7 @@ const Banner = () => {
               </div>
               <span className="text-xs sm:text-sm text-(--text-muted)">
                 Trusted by{" "}
-                <span className="text-(--text) font-semibold">500+</span>{" "}
+                <span className="text-(--text) font-semibold">40+</span>{" "}
                 businesses
               </span>
             </motion.div>
@@ -212,7 +212,7 @@ const Banner = () => {
                         transition={{ duration: 3, repeat: Infinity }}
                         className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-(--primary) to-purple-500 bg-clip-text text-transparent"
                       >
-                        500+
+                        40+
                       </motion.div>
                       <p className="text-xs text-(--text-muted) mt-1">
                         Happy Clients

@@ -1,4 +1,3 @@
-// next.config.ts
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
@@ -7,7 +6,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'www.twipratechnology.com',
+        hostname: 'twipratech.com',
       },
       {
         protocol: 'https',
@@ -102,7 +101,7 @@ const nextConfig: NextConfig = {
             value: 'twipratechnology.com',
           },
         ],
-        destination: 'https://www.twipratechnology.com/:path*',
+        destination: 'https://twipratech.com/:path*',
         permanent: true,
       },
       // Remove trailing slash for SEO

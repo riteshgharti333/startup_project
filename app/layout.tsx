@@ -40,7 +40,7 @@ export const viewport: Viewport = {
 // ============ METADATA FOR TWIPRA TECHNOLOGY (SEO) ============
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://www.twipratechnology.com",
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.twipratech.com",
   ),
 
   // Basic metadata
@@ -63,9 +63,7 @@ export const metadata: Metadata = {
     "India",
   ],
 
-  authors: [
-    { name: "Twipra Technology", url: "https://www.twipratechnology.com" },
-  ],
+  authors: [{ name: "Twipra Technology", url: "https://www.twipratech.com" }],
   creator: "Twipra Technology",
   publisher: "Twipra Technology",
 
@@ -91,11 +89,11 @@ export const metadata: Metadata = {
 
   // Canonical URL
   alternates: {
-    canonical: "https://www.twipratechnology.com",
+    canonical: "https://www.twipratech.com",
     languages: {
-      en: "https://www.twipratechnology.com/en",
-      hi: "https://www.twipratechnology.com/hi",
-      bn: "https://www.twipratechnology.com/bn",
+      en: "https://www.twipratech.com/en",
+      hi: "https://www.twipratech.com/hi",
+      bn: "https://www.twipratech.com/bn",
     },
   },
 
@@ -104,7 +102,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     alternateLocale: ["hi_IN", "bn_IN"],
-    url: "https://www.twipratechnology.com",
+    url: "https://www.twipratech.com",
     siteName: "Twipra Technology",
     title: "Twipra Technology | Web Development & Digital Agency",
     description:
@@ -124,9 +122,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@twipratech",
     creator: "@twipratech",
-    title: "Twipra Technology | Web Development & Digital Agency",
+    title:
+      "Twipra Technology | Top Software, AI & Digital Marketing Company in Bangladesh",
     description:
-      "Professional web development, AI solutions, mobile apps, and digital marketing services.",
+      "Twipra Technology offers professional web development, AI-powered solutions, mobile app development, digital marketing, and branding services in Bangladesh. We build websites, automate workflows, and drive results for startups and enterprises.",
     images: ["/twitter-image.jpg"],
   },
 
@@ -165,22 +164,22 @@ export default function RootLayout({
         <link
           rel="alternate"
           hrefLang="en"
-          href="https://www.twipratechnology.com/en"
+          href="https://www.twipratech.com/en"
         />
         <link
           rel="alternate"
           hrefLang="hi"
-          href="https://www.twipratechnology.com/hi"
+          href="https://www.twipratech.com/hi"
         />
         <link
           rel="alternate"
           hrefLang="bn"
-          href="https://www.twipratechnology.com/bn"
+          href="https://www.twipratech.com/bn"
         />
         <link
           rel="alternate"
           hrefLang="x-default"
-          href="https://www.twipratechnology.com"
+          href="https://www.twipratech.com"
         />
 
         <script
@@ -202,7 +201,7 @@ export default function RootLayout({
         {/* Animated Background */}
         <Backgrounds />
 
-        {/* Content */} 
+        {/* Content */}
         <div className="relative z-10 flex flex-col min-h-full">
           <Navbar />
           <main className="flex-1">{children}</main>

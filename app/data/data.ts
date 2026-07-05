@@ -179,7 +179,7 @@ export const mainServices = [
     icon: FiTrendingUp,
     title: "Digital Marketing",
     description: "Data-driven marketing strategies for growth",
-    startingPrice: "৳5,000",
+    startingPrice: "৳8,000",
     link: "/services/digital-marketing",
     gradient: "from-yellow-500/20 to-orange-500/20",
     borderGradient: "from-yellow-500 to-orange-500",

@@ -196,35 +196,32 @@ export const serviceCat = [
 
     services: [
       {
-        slug: "seo-services",
-        name: "Search Engine Optimization (SEO)",
-        description: "Technical and content SEO to improve search rankings.",
-        startingPrice: "৳8,000/month",
-        featured: true,
+        name: "Launch Package",
+        slug: "launch-package",
+        description:
+          "Digital marketing for startups & small businesses with social media management, content creation, and Meta ads.",
+        startingPrice: "৳15,000",
       },
       {
-        slug: "social-media-management",
-        name: "Social Media Management",
-        description: "Content planning, publishing, and audience engagement.",
-        startingPrice: "৳8,000/month",
+        name: "Growth Package",
+        slug: "growth-package",
+        description:
+          "Advanced marketing for growing businesses with multi-platform management, SEO, and Google & Meta ad campaigns.",
+        startingPrice: "৳30,000",
       },
       {
-        slug: "google-ads-management",
-        name: "Google Ads Management",
-        description: "Google Ads campaign setup and optimization.",
-        startingPrice: "৳10,000/month",
+        name: "Scale Package",
+        slug: "scale-package",
+        description:
+          "Full-scale marketing for established companies with video production, multi-channel ads, and advanced analytics.",
+        startingPrice: "৳60,000",
       },
       {
-        slug: "meta-ads-management",
-        name: "Meta Ads Management",
-        description: "Facebook and Instagram advertising campaigns.",
-        startingPrice: "৳10,000/month",
-      },
-      {
-        slug: "content-marketing",
-        name: "Content Marketing",
-        description: "Content creation focused on traffic and conversions.",
-        startingPrice: "৳6,000/month",
+        name: "Enterprise Package",
+        slug: "enterprise-package",
+        description:
+          "Custom enterprise solution with dedicated team, automation, CRM integration, and multi-country campaigns.",
+        startingPrice: "৳100,000",
       },
     ],
   },
@@ -504,122 +501,72 @@ export const serviceCategories = [
       "Strategies to increase visibility, traffic, leads, and conversions.",
     services: [
       {
-        name: "Search Engine Optimization (SEO)",
-        slug: "search-engine-optimization-seo",
+        name: "Launch Package",
+        slug: "launch-package",
         description:
-          "Improve search rankings, organic traffic, and online visibility.",
-        startingPrice: "৳8,000",
-        featured: true,
-      },
-      {
-        name: "Content Marketing",
-        slug: "content-marketing",
-        description:
-          "Blog posts, articles, and content strategies to attract customers.",
-        startingPrice: "৳6,000",
-      },
-      {
-        name: "Social Media Marketing",
-        slug: "social-media-marketing",
-        description:
-          "Grow your brand presence on Facebook, Instagram, LinkedIn, and more.",
-        startingPrice: "৳8,000",
-      },
-      {
-        name: "Pay-Per-Click (PPC) Advertising",
-        slug: "pay-per-click-ppc-advertising",
-        description:
-          "Targeted Google Ads campaigns focused on leads and sales.",
-        startingPrice: "৳10,000",
-      },
-      {
-        name: "Email Marketing",
-        slug: "email-marketing",
-        description:
-          "Email campaigns, newsletters, and customer retention strategies.",
-        startingPrice: "৳5,000",
-      },
-      {
-        name: "Influencer Marketing",
-        slug: "influencer-marketing",
-        description:
-          "Collaborate with influencers to increase brand awareness and reach.",
+          "Digital marketing for startups & small businesses with social media management, content creation, and Meta ads.",
         startingPrice: "৳15,000",
       },
       {
-        name: "Affiliate Marketing",
-        slug: "affiliate-marketing",
+        name: "Growth Package",
+        slug: "growth-package",
         description:
-          "Build affiliate programs that generate performance-based sales.",
-        startingPrice: "৳12,000",
+          "Advanced marketing for growing businesses with multi-platform management, SEO, and Google & Meta ad campaigns.",
+        startingPrice: "৳30,000",
       },
       {
-        name: "Social Media Advertising",
-        slug: "social-media-advertising",
+        name: "Scale Package",
+        slug: "scale-package",
         description:
-          "Paid advertising campaigns on Facebook, Instagram, LinkedIn, and TikTok.",
-        startingPrice: "৳10,000",
+          "Full-scale marketing for established companies with video production, multi-channel ads, and advanced analytics.",
+        startingPrice: "৳60,000",
       },
       {
-        name: "E-commerce Marketing",
-        slug: "e-commerce-marketing",
+        name: "Enterprise Package",
+        slug: "enterprise-package",
         description:
-          "Marketing strategies designed specifically for online stores.",
-        startingPrice: "৳12,000",
-      },
-      {
-        name: "Mobile Marketing",
-        slug: "mobile-marketing",
-        description:
-          "SMS campaigns, app promotions, and mobile-focused advertising.",
-        startingPrice: "৳7,000",
-      },
-      {
-        name: "Local Search Marketing",
-        slug: "local-search-marketing",
-        description:
-          "Google Business Profile optimization and local search visibility.",
-        startingPrice: "৳5,000",
+          "Custom enterprise solution with dedicated team, automation, CRM integration, and multi-country campaigns.",
+        startingPrice: "৳100,000",
       },
     ],
   },
   {
-  title: "Video Editing",
-  slug: "video-editing",
-  description:
-    "Professional video editing services for businesses, creators, and brands to boost engagement and online presence.",
-  services: [
-    {
-      name: "YouTube Video Editing",
-      slug: "youtube-video-editing",
-      description:
-        "Professional editing for YouTube videos with smooth transitions, motion graphics, color correction, and audio enhancement.",
-      startingPrice: "৳2,500",
-      featured: true,
-    },
-    {
-      name: "Short-Form Video Editing",
-      slug: "short-form-video-editing",
-      description:
-        "Engaging edits for Instagram Reels, TikTok, and YouTube Shorts with captions and viral-style pacing.",
-      startingPrice: "৳1,000",
-    },
-    {
-      name: "Social Media Ad Video Editing",
-      slug: "social-media-ad-video-editing",
-      description:
-        "High-converting promotional videos for Facebook, Instagram, YouTube, and other digital advertising platforms.",
-      startingPrice: "৳2,000",
-    },
-    {
-      name: "Corporate & Brand Videos",
-      slug: "corporate-brand-video-editing",
-      description:
-        "Professional company profile, promotional, training, and brand story videos for businesses.",
-      startingPrice: "৳5,000",
-    },
-  ],
-},
+    title: "Video Editing",
+    slug: "video-editing",
+    description:
+      "Professional video editing services for businesses, creators, and brands to boost engagement and online presence.",
+    services: [
+      {
+        name: "YouTube Video Editing",
+        slug: "youtube-video-editing",
+        description:
+          "Professional editing for YouTube videos with smooth transitions, motion graphics, color correction, and audio enhancement.",
+        startingPrice: "৳2,500",
+        featured: true,
+      },
+      {
+        name: "Short-Form Video Editing",
+        slug: "short-form-video-editing",
+        description:
+          "Engaging edits for Instagram Reels, TikTok, and YouTube Shorts with captions and viral-style pacing.",
+        startingPrice: "৳1,000",
+      },
+      {
+        name: "Social Media Ad Video Editing",
+        slug: "social-media-ad-video-editing",
+        description:
+          "High-converting promotional videos for Facebook, Instagram, YouTube, and other digital advertising platforms.",
+        startingPrice: "৳2,000",
+      },
+      {
+        name: "Corporate & Brand Videos",
+        slug: "corporate-brand-video-editing",
+        description:
+          "Professional company profile, promotional, training, and brand story videos for businesses.",
+        startingPrice: "৳5,000",
+      },
+    ],
+  },
   {
     title: "Consulting & Training",
     slug: "consulting-training",

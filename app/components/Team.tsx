@@ -86,7 +86,7 @@ interface Leader {
   desc: string;
   linkedin?: string;
   website?: string;
-  imagePosition?: string
+  imagePosition?: string;
 }
 
 const Team: React.FC = () => {
@@ -104,20 +104,21 @@ const Team: React.FC = () => {
       desc: "Leads company vision, client relationships, AI Solution and business strategy with 6+ years in tech.",
       linkedin: "https://www.linkedin.com/in/luis-king-richard-tripura/",
       website: "https://sites.google.com/view/richardtripura",
-      imagePosition: "center 10%",
+      imagePosition: "center 30%",
     },
     {
-      name: "Ritesh Gharti",
-      role: "CTO",
-      country: "India",
-      color: "text-purple-400",
-      image: "/profile.png",
-      bg: "bg-purple-500/10",
-      desc: "Oversees all technical architecture, AI research, and engineering best practices.",
-      linkedin: "https://www.linkedin.com/in/riteshgharti333",
-      website: "https://rgdev-portfolio-six.vercel.app/",
-      imagePosition: "center 10%",
+      name: "Payel Paul Mrong",
+      role: "Co-Founder / Branding & Marketing Lead",
+      country: "Bangladesh",
+      image: "/leader2.jpg",
+      color: "text-green-400",
+      bg: "bg-green-500/10",
+      desc: "Builds strong brands through creative marketing and audience engagement.",
+      linkedin: "https://linkedin.com/in/payel-paul-mrong",
+      website: "https://richardtripura.com",
+      imagePosition: "center 0%",
     },
+
     {
       name: "Clinton Tripura",
       role: "Head of Design",
@@ -131,15 +132,15 @@ const Team: React.FC = () => {
       imagePosition: "center 10%",
     },
     {
-      name: "Payel Paul Mrong",
-      role: "Branding & Marketing Lead",
-      country: "Bangladesh",
-      image: "/leader2.jpg",
-      color: "text-green-400",
-      bg: "bg-green-500/10",
-      desc: "Builds strong brands through creative marketing and audience engagement.",
-      linkedin: "https://linkedin.com/in/payel-paul-mrong",
-      website: "https://richardtripura.com",
+      name: "Ritesh Gharti",
+      role: "CTO",
+      country: "India",
+      color: "text-purple-400",
+      image: "/profile.png",
+      bg: "bg-purple-500/10",
+      desc: "Oversees all technical architecture, AI research, and engineering best practices.",
+      linkedin: "https://www.linkedin.com/in/riteshgharti333",
+      website: "https://rgdev-portfolio-six.vercel.app/",
       imagePosition: "center 10%",
     },
   ];
@@ -317,11 +318,11 @@ const Team: React.FC = () => {
                   )}
 
                   {/* Name & Role overlay on image */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 z-10">
+                  <div className="absolute bottom-0 left-0 right-0 px-4 sm:px-6 z-10">
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-1 drop-shadow-lg">
                       {leader.name}
                     </h3>
-                    <p className="text-sm text-white/90 drop-shadow-md">
+                    <p className="text-xs text-white/90 drop-shadow-md">
                       {leader.role}
                     </p>
                   </div>
