@@ -22,6 +22,8 @@ export default function Home() {
           'AI solutions Bangladesh',
           'mobile app development',
           'digital marketing agency',
+          'cloud service',
+
         ]}
         canonical="https://www.twipratechnology.com"
         ogImage="/og-home.jpg"
