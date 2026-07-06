@@ -62,9 +62,7 @@ export const metadata: Metadata = {
     "Bangladesh",
   ],
 
-  authors: [
-    { name: "Twipra Technology", url: "https://www.twipratech.com" },
-  ],
+  authors: [{ name: "Twipra Technology", url: "https://www.twipratech.com" }],
   creator: "Twipra Technology",
   publisher: "Twipra Technology",
 
@@ -123,8 +121,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@twipratech",
     creator: "@twipratech",
-    title: "Twipra Technology | Top Software, AI & Digital Marketing Company in Bangladesh",
-    description:"Twipra Technology offers professional web development, AI-powered solutions, mobile app development, digital marketing, and branding services in Bangladesh. We build websites, automate workflows, and drive results for startups and enterprises.",
+    title:
+      "Twipra Technology | Top Software, AI & Digital Marketing Company in Bangladesh",
+    description:
+      "Twipra Technology offers professional web development, AI-powered solutions, mobile app development, digital marketing, and branding services in Bangladesh. We build websites, automate workflows, and drive results for startups and enterprises.",
     images: ["/twitter-image.jpg"],
   },
 
@@ -199,7 +199,7 @@ export default function RootLayout({
         {/* Animated Background */}
         <Backgrounds />
 
-        {/* Content */} 
+        {/* Content */}
         <div className="relative z-10 flex flex-col min-h-full">
           <Navbar />
           <main className="flex-1">{children}</main>
