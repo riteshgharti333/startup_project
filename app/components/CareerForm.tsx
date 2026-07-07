@@ -27,6 +27,7 @@ interface FormData {
   experience: string;
   portfolio: string;
   linkedin: string;
+
   github: string;
   coverLetter: string;
   resume: File | null;
@@ -354,12 +355,11 @@ const CareerForm: React.FC<CareerFormProps> = ({ onSuccess }) => {
               <option value="Backend Developer">Backend Developer</option>
               <option value="Full Stack Developer">Full Stack Developer</option>
               <option value="UI/UX Designer">UI/UX Designer</option>
-              <option value="Project Manager">Project Manager</option>
-              <option value="Quality Assurance Engineer">
-                Quality Assurance Engineer
-              </option>
+              <option value="Graphic Designer">Graphic Designer</option>
+              <option value="Video Editor">Video Editor</option>
+              <option value="App Developer">App Developer</option>
               <option value="DevOps Engineer">DevOps Engineer</option>
-              <option value="Technical Writer">Technical Writer</option>
+              <option value="Other">Other</option>
             </select>
             {errors.position && (
               <p className="mt-1 text-xs text-red-500 flex items-center gap-1">

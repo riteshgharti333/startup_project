@@ -29,43 +29,44 @@ import { PageSEO } from "../components/PageSEO";
 const About: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.twipratechnology.com";
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.twipratechnology.com";
 
   const steps = [
     {
       step: "01",
       title: "Discovery",
-      desc: "We learn about your business, goals, target audience, and project requirements.",
+      desc: "We begin by thoroughly understanding your business goals, target audience, and project requirements through in-depth consultations. This crucial phase involves analyzing your market position, studying competitor strategies, and identifying unique opportunities that will shape the foundation of your project's success.",
     },
     {
       step: "02",
       title: "Planning",
-      desc: "We create a detailed roadmap, architecture plan, and project timeline.",
+      desc: "Based on our discovery findings, we create a comprehensive project roadmap outlining every milestone, deliverable, and timeline. Our team develops detailed technical architecture plans, resource allocation strategies, and risk mitigation frameworks to ensure smooth execution from start to finish.",
     },
     {
       step: "03",
       title: "Design",
-      desc: "Our designers create beautiful, intuitive interfaces and user experiences.",
+      desc: "Our design team transforms concepts into stunning visual experiences that captivate your audience. We craft intuitive user interfaces and seamless user journeys through wireframing, prototyping, and iterative design reviews. Every pixel is thoughtfully placed to balance aesthetic appeal with functional excellence.",
     },
     {
       step: "04",
       title: "Development",
-      desc: "We build your solution using modern technologies and best practices.",
+      desc: "Using cutting-edge technologies and industry best practices, our skilled developers bring designs to life with clean, scalable, and maintainable code. We follow agile methodologies with regular sprint reviews, ensuring transparency and allowing you to track progress while we build your robust solution.",
     },
     {
       step: "05",
       title: "Testing",
-      desc: "Rigorous quality assurance, security checks, and performance optimization.",
+      desc: "Quality is paramount in our process. We conduct rigorous manual and automated testing across multiple devices, browsers, and scenarios. Our comprehensive quality assurance includes functional testing, performance optimization, security audits, and accessibility checks to ensure a flawless user experience.",
     },
     {
       step: "06",
       title: "Launch",
-      desc: "Smooth deployment to production with monitoring and backup systems.",
+      desc: "We orchestrate a smooth, carefully planned deployment to your production environment. Our launch process includes final security hardening, database optimization, CDN configuration, and comprehensive backup systems. We monitor everything closely during the initial hours to ensure zero downtime.",
     },
     {
       step: "07",
       title: "Support",
-      desc: "Ongoing maintenance, updates, and technical support for your peace of mind.",
+      desc: "Our commitment continues long after launch with dedicated ongoing maintenance and support. We provide regular updates, security patches, performance monitoring, and feature enhancements. Your peace of mind is assured with our responsive technical support team ready to address any concerns promptly.",
     },
   ];
 
@@ -230,14 +231,8 @@ const About: React.FC = () => {
           </div>
         </section>
 
-        {/* What We Do - Core Services */}
-        <Service />
-
         {/* Why Choose Us - Import Component */}
         <Choose />
-
-        {/* Stats - Import Component */}
-        <Stats />
 
         {/* Our Process */}
         <section className="relative pb-16 sm:pb-20 lg:pb-24">
@@ -298,7 +293,7 @@ const About: React.FC = () => {
 
                     {/* Content */}
                     <div className="bg-(--surface) border border-(--border) rounded-(--radius-lg) p-4 sm:p-5 hover:border-(--primary)/20 transition-all">
-                      <h3 className="text-sm sm:text-base font-semibold text-(--text) mb-1">
+                      <h3 className="text-sm sm:text-base font-semibold text-(--primary) mb-1">
                         {step.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-(--text-muted)">

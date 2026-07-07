@@ -20,21 +20,22 @@ export const navLinks = [
         href: "/services/mobile-app-development",
       },
       {
-        label: "Graphic Design",
-        href: "/services/graphic-design",
-      },
-      {
-        label: "Cloud & Infrastructure",
-        href: "/services/cloud-infrastructure",
-      },
-      {
         label: "Digital Marketing",
         href: "/services/digital-marketing",
       },
+      {
+        label: "Graphic Design",
+        href: "/services/graphic-design",
+      },
+
       { label: "Video Editing", href: "/services/video-editing" },
       {
         label: "Consulting & Training",
         href: "/services/consulting-training",
+      },
+      {
+        label: "Cloud & Infrastructure",
+        href: "/services/cloud-infrastructure",
       },
     ],
   },
@@ -78,20 +79,20 @@ export const footerLinks = [
         href: "/services/mobile-app-development",
       },
       {
-        label: "Graphic Design",
-        href: "/services/graphic-design",
-      },
-      {
-        label: "Cloud & Infrastructure",
-        href: "/services/cloud-infrastructure",
-      },
-      {
         label: "Digital Marketing",
         href: "/services/digital-marketing",
       },
       {
+        label: "Graphic Design",
+        href: "/services/graphic-design",
+      },
+      {
         label: "Consulting & Training",
         href: "/services/consulting-training",
+      },
+      {
+        label: "Cloud & Infrastructure",
+        href: "/services/cloud-infrastructure",
       },
     ],
   },
@@ -155,15 +156,16 @@ export const mainServices = [
     borderGradient: "from-orange-500 to-red-500",
     stats: "50+ Apps",
   },
+
   {
-    icon: FiCloud,
-    title: "Cloud & Infrastructure",
-    description: "Scalable cloud solutions & DevOps services",
-    startingPrice: "৳2,000",
-    link: "/services/cloud-infrastructure",
-    gradient: "from-teal-500/20 to-green-500/20",
-    borderGradient: "from-teal-500 to-green-500",
-    stats: "99.9% Uptime",
+    icon: FiTrendingUp,
+    title: "Digital Marketing",
+    description: "Data-driven marketing strategies for growth",
+    startingPrice: "৳8,000",
+    link: "/services/digital-marketing",
+    gradient: "from-yellow-500/20 to-orange-500/20",
+    borderGradient: "from-yellow-500 to-orange-500",
+    stats: "3x ROI",
   },
   {
     icon: FiPenTool,
@@ -175,15 +177,17 @@ export const mainServices = [
     borderGradient: "from-pink-500 to-rose-500",
     stats: "Unlimited Revisions",
   },
+
   {
-    icon: FiTrendingUp,
-    title: "Digital Marketing",
-    description: "Data-driven marketing strategies for growth",
-    startingPrice: "৳8,000",
-    link: "/services/digital-marketing",
-    gradient: "from-yellow-500/20 to-orange-500/20",
-    borderGradient: "from-yellow-500 to-orange-500",
-    stats: "3x ROI",
+    icon: FiVideo,
+    title: "Video Editing",
+    description:
+      "Professional video editing for social media, YouTube & brands",
+    startingPrice: "৳2,500",
+    link: "/services/video-editing",
+    gradient: "from-violet-500/20 to-fuchsia-500/20",
+    borderGradient: "from-violet-500 to-fuchsia-500",
+    stats: "Fast Delivery",
   },
   {
     icon: FiUsers,
@@ -196,15 +200,14 @@ export const mainServices = [
     stats: "100+ Sessions",
   },
   {
-    icon: FiVideo,
-    title: "Video Editing",
-    description:
-      "Professional video editing for social media, YouTube & brands",
-    startingPrice: "৳2,500",
-    link: "/services/video-editing",
-    gradient: "from-violet-500/20 to-fuchsia-500/20",
-    borderGradient: "from-violet-500 to-fuchsia-500",
-    stats: "Fast Delivery",
+    icon: FiCloud,
+    title: "Cloud & Infrastructure",
+    description: "Scalable cloud solutions & DevOps services",
+    startingPrice: "৳2,000",
+    link: "/services/cloud-infrastructure",
+    gradient: "from-teal-500/20 to-green-500/20",
+    borderGradient: "from-teal-500 to-green-500",
+    stats: "99.9% Uptime",
   },
 ];
 

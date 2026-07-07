@@ -213,7 +213,7 @@ const Footer: React.FC = () => {
                 <span>+880 1310889153</span>
               </a>
               <a
-                href="mailto:hello@nexora.studio"
+                href={`mailto:${socialData.email}`}
                 className="flex items-center gap-3 text-sm text-(--text-muted) hover:text-(--primary) transition-colors group"
               >
                 <FiMail size={15} className="text-(--primary) flex-shrink-0" />

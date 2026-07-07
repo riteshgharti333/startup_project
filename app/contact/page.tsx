@@ -309,7 +309,7 @@ const Contact: React.FC = () => {
                               name="phone"
                               value={formData.phone}
                               onChange={handleChange}
-                              placeholder="+1 (555) 000-0000"
+                              placeholder="+880 000-0000"
                               className="w-full pl-10 pr-4 py-2.5 bg-(--background) border border-(--border) rounded-(--radius-md) text-sm text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary)/50 transition-colors"
                             />
                           </div>

@@ -133,7 +133,7 @@ const Team: React.FC = () => {
     },
     {
       name: "Ritesh Gharti",
-      role: "CTO",
+      role: "Tech Lead",
       country: "India",
       color: "text-purple-400",
       image: "/profile.png",
