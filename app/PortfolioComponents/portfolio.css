@@ -1,0 +1,154 @@
+/* ==================== PAGE ==================== */
+.page-bg {
+  color: var(--text);
+}
+
+/* ==================== HEADER ==================== */
+.header-dot {
+  background: #e11d48;
+}
+
+.header-label {
+  color: var(--text-muted);
+}
+
+.header-gradient {
+  background: linear-gradient(135deg, #e11d48, #f59e0b, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==================== FILTER BUTTON ==================== */
+.filter-btn-base {
+  background: var(--surface);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.filter-btn-active {
+  background: var(--primary);
+  color: white;
+  border: 1px solid var(--primary);
+}
+
+/* ==================== CARD BASE ==================== */
+.card-base {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  min-height: 230px;
+}
+
+/* ==================== DEFAULT OVERLAY ==================== */
+.card-overlay-bg {
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.05) 100%);
+}
+
+.card-overlay-padding {
+  padding: clamp(12px, 2vw, 20px);
+}
+
+.card-category-text {
+  font-size: clamp(8px, 1vw, 11px);
+}
+
+.card-title-text {
+  font-size: clamp(14px, 1.8vw, 20px);
+}
+
+/* ==================== HOVER OVERLAY ==================== */
+.hover-padding {
+  padding: clamp(12px, 2.5vw, 28px);
+}
+
+.hover-left-wide {
+  text-align: left;
+  flex: 1;
+  padding-right: clamp(16px, 3vw, 36px);
+}
+
+.hover-right-wide {
+  flex: 0 0 auto;
+  gap: clamp(8px, 1.5vw, 14px);
+}
+
+.hover-category-text {
+  font-size: clamp(9px, 1vw, 13px);
+  margin-bottom: clamp(4px, 1vw, 10px);
+}
+
+.hover-title-text {
+  font-size: clamp(16px, 2.5vw, 30px);
+  line-height: 1.2;
+  margin-bottom: clamp(6px, 1.2vw, 14px);
+}
+
+.hover-desc-text {
+  font-size: clamp(11px, 1.2vw, 15px);
+  margin-bottom: clamp(8px, 1.5vw, 16px);
+}
+
+/* ==================== STATS ==================== */
+.stats-gap {
+  gap: clamp(5px, 1vw, 12px);
+}
+
+.stats-margin {
+  margin-bottom: clamp(8px, 1.5vw, 16px);
+}
+
+.stat-box-padding {
+  padding: clamp(6px, 1vw, 12px) clamp(4px, 0.8vw, 10px);
+}
+
+.stat-value-text {
+  font-size: clamp(14px, 2vw, 18px);
+  line-height: 1.1;
+}
+
+.stat-label-text {
+  font-size: clamp(7px, 0.8vw, 11px);
+}
+
+/* ==================== VIEW BUTTON ==================== */
+.view-btn-padding {
+  padding: clamp(6px, 1vw, 12px) clamp(14px, 2vw, 24px);
+}
+
+.view-btn-text {
+  font-size: clamp(10px, 1vw, 14px);
+}
+
+/* ==================== MODAL ==================== */
+.modal-bg {
+  background: var(--surface);
+}
+
+.modal-overlay-bg {
+  background: rgba(0,0,0,0.9);
+  backdrop-filter: blur(12px);
+}
+
+.modal-close-bg {
+  background: rgba(0,0,0,0.5);
+}
+
+.modal-desc {
+  color: var(--text-muted);
+}
+
+.modal-stat-bg {
+  background: var(--surface-hover);
+}
+
+.modal-stat-label {
+  color: var(--text-muted);
+}
+
+/* ==================== CTA ==================== */
+.cta-text-color {
+  color: var(--text-muted);
+}
+
+.cta-btn-bg {
+  background: linear-gradient(135deg, #e11d48, #7c3aed);
+}

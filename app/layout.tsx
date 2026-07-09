@@ -12,12 +12,9 @@
 
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Backgrounds from "../app/components/Backgrounds";
 import { localBusinessSchema, organizationSchema } from "./lib/schema";
 import { AnalyticsWrapper } from "./analytics";
-import Float from "./components/Float";
 import { Geist } from "next/font/google";
 
 const geist = Geist({
@@ -196,15 +193,10 @@ export default function RootLayout({
       <body
         className={`${geist.className} min-h-full flex flex-col bg-[#0b0f19] antialiased`}
       >
-        {/* Animated Background */}
-        <Backgrounds />
-
         {/* Content */}
         <div className="relative z-10 flex flex-col min-h-full">
-          <Navbar />
           <main className="flex-1">{children}</main>
           <AnalyticsWrapper />
-          <Footer />
           {/* <Float /> */}
         </div>
       </body>

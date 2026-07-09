@@ -1,0 +1,14 @@
+:root {
+  --blog-bg: #ffffff;
+  --blog-surface: #f8fafc;
+  --blog-text: #1e293b;
+  --blog-text-muted: #64748b;
+  --blog-primary: #2563eb;
+  --blog-primary-hover: #1d4ed8;
+  --blog-border: #e2e8f0;
+  --blog-radius: 12px;
+}
+
+.blog-body {
+  min-height: 100vh;
+}
