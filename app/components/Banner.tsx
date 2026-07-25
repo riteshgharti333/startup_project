@@ -26,27 +26,6 @@ const Banner = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-8 text-center lg:text-left"
           >
-            {/* Trust Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-3 px-4 py-2 bg-(--surface) border border-(--border) rounded-full shadow-lg mx-auto lg:mx-0"
-            >
-              <div className="flex -space-x-2">
-                {[1, 2, 3].map((i) => (
-                  <div
-                    key={i}
-                    className="w-7 h-7 rounded-full border-2 border-(--surface) bg-gradient-to-br from-(--primary) to-purple-500"
-                  />
-                ))}
-              </div>
-              <span className="text-xs sm:text-sm text-(--text-muted)">
-                Trusted by{" "}
-                <span className="text-(--text) font-semibold">40+</span>{" "}
-                businesses
-              </span>
-            </motion.div>
 
             {/* Main Headline */}
             <div className="space-y-5">

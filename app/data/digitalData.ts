@@ -38,6 +38,7 @@ export interface PackageData {
 export interface AdManagementItem {
   adBudget: string;
   managementFee: string;
+  link?: string;
 }
 
 export interface AdManagementOnly {
@@ -78,15 +79,18 @@ export const digitalMarketingPackages: DigitalMarketingPackages = {
     slug: "launch-package",
     startingPrice: "৳15,000",
     idealFor: "Startups & Small Businesses",
-    description: "Perfect for startups and small businesses looking to establish their online presence with professional social media management and targeted advertising.",
+    description:
+      "Perfect for startups and small businesses looking to establish their online presence with professional social media management and targeted advertising.",
     hero: {
       title: "Launch Package",
-      description: "Perfect for startups and small businesses looking to establish their online presence with professional social media management and targeted advertising.",
-      cta: "Get Started"
+      description:
+        "Perfect for startups and small businesses looking to establish their online presence with professional social media management and targeted advertising.",
+      cta: "Get Started",
     },
     overview: {
       title: "Overview",
-      content: "The Launch Package is designed to help startups and small businesses build a strong digital foundation. We handle your social media presence, create engaging content, and manage your Meta advertising campaigns so you can focus on growing your business."
+      content:
+        "The Launch Package is designed to help startups and small businesses build a strong digital foundation. We handle your social media presence, create engaging content, and manage your Meta advertising campaigns so you can focus on growing your business.",
     },
     includes: [
       "Digital Marketing Strategy",
@@ -99,22 +103,25 @@ export const digitalMarketingPackages: DigitalMarketingPackages = {
       "Monthly Content Calendar",
       "Basic Community Management",
       "Monthly Performance Report",
-      "1 Strategy Meeting"
+      "1 Strategy Meeting",
     ],
     paidMarketing: {
       title: "Paid Marketing",
       platforms: ["Meta (Facebook & Instagram) Ads Setup & Management"],
       campaigns: "Up to 1 advertising campaign/month",
-      recommendedBudget: "৳10,000–৳30,000"
+      recommendedBudget: "৳10,000–৳30,000",
     },
     totalCost: {
       title: "Total Monthly Cost",
       items: [
         { label: "Twipra Service Fee", amount: "৳15,000" },
-        { label: "Recommended Ad Budget (Paid to Meta)", amount: "৳10,000–30,000" },
-        { label: "Estimated Total Client Budget", amount: "৳25,000–45,000" }
-      ]
-    }
+        {
+          label: "Recommended Ad Budget (Paid to Meta)",
+          amount: "৳10,000–30,000",
+        },
+        { label: "Estimated Total Client Budget", amount: "৳25,000–45,000" },
+      ],
+    },
   },
 
   "growth-package": {
@@ -122,15 +129,18 @@ export const digitalMarketingPackages: DigitalMarketingPackages = {
     slug: "growth-package",
     startingPrice: "৳30,000",
     idealFor: "Growing Businesses",
-    description: "Advanced marketing solution for growing businesses that need multi-platform management, SEO, and comprehensive ad campaigns.",
+    description:
+      "Advanced marketing solution for growing businesses that need multi-platform management, SEO, and comprehensive ad campaigns.",
     hero: {
       title: "Growth Package",
-      description: "Advanced marketing solution for growing businesses that need multi-platform management, SEO, and comprehensive ad campaigns.",
-      cta: "Get Started"
+      description:
+        "Advanced marketing solution for growing businesses that need multi-platform management, SEO, and comprehensive ad campaigns.",
+      cta: "Get Started",
     },
     overview: {
       title: "Overview",
-      content: "The Growth Package is built for businesses ready to scale. We expand your reach across LinkedIn and Google, optimize your content with SEO, and manage advanced ad campaigns across multiple platforms to drive measurable growth."
+      content:
+        "The Growth Package is built for businesses ready to scale. We expand your reach across LinkedIn and Google, optimize your content with SEO, and manage advanced ad campaigns across multiple platforms to drive measurable growth.",
     },
     includes: [
       "Everything in Launch plus:",
@@ -144,7 +154,7 @@ export const digitalMarketingPackages: DigitalMarketingPackages = {
       "Basic SEO Optimization",
       "Community Management",
       "Detailed Analytics Report",
-      "Two Strategy Meetings"
+      "Two Strategy Meetings",
     ],
     paidMarketing: {
       title: "Paid Marketing",
@@ -153,19 +163,22 @@ export const digitalMarketingPackages: DigitalMarketingPackages = {
         "Facebook Ads",
         "Instagram Ads",
         "Google Search Ads",
-        "Google Display Ads"
+        "Google Display Ads",
       ],
       campaigns: "Up to 3 active campaigns/month",
-      recommendedBudget: "৳30,000–৳80,000"
+      recommendedBudget: "৳30,000–৳80,000",
     },
     totalCost: {
       title: "Total Monthly Cost",
       items: [
         { label: "Twipra Service Fee", amount: "৳30,000" },
-        { label: "Recommended Ad Budget (Paid to Platforms)", amount: "৳30,000–80,000" },
-        { label: "Estimated Total Client Budget", amount: "৳60,000–110,000" }
-      ]
-    }
+        {
+          label: "Recommended Ad Budget (Paid to Platforms)",
+          amount: "৳30,000–80,000",
+        },
+        { label: "Estimated Total Client Budget", amount: "৳60,000–110,000" },
+      ],
+    },
   },
 
   "scale-package": {
@@ -173,15 +186,18 @@ export const digitalMarketingPackages: DigitalMarketingPackages = {
     slug: "scale-package",
     startingPrice: "৳60,000",
     idealFor: "Established Companies",
-    description: "Full-scale marketing for established companies with video production, multi-channel ads, and advanced analytics.",
+    description:
+      "Full-scale marketing for established companies with video production, multi-channel ads, and advanced analytics.",
     hero: {
       title: "Scale Package",
-      description: "Full-scale marketing for established companies with video production, multi-channel ads, and advanced analytics.",
-      cta: "Get Started"
+      description:
+        "Full-scale marketing for established companies with video production, multi-channel ads, and advanced analytics.",
+      cta: "Get Started",
     },
     overview: {
       title: "Overview",
-      content: "The Scale Package delivers enterprise-level marketing. We create premium video content, manage campaigns across all major platforms, implement advanced tracking, and provide detailed analytics to maximize your ROI."
+      content:
+        "The Scale Package delivers enterprise-level marketing. We create premium video content, manage campaigns across all major platforms, implement advanced tracking, and provide detailed analytics to maximize your ROI.",
     },
     includes: [
       "Everything in Growth plus:",
@@ -198,7 +214,7 @@ export const digitalMarketingPackages: DigitalMarketingPackages = {
       "Meta Pixel Setup",
       "Google Analytics",
       "Advanced Reporting Dashboard",
-      "Weekly Strategy Meetings"
+      "Weekly Strategy Meetings",
     ],
     paidMarketing: {
       title: "Paid Marketing",
@@ -207,19 +223,22 @@ export const digitalMarketingPackages: DigitalMarketingPackages = {
         "Meta Ads",
         "Google Ads",
         "LinkedIn Ads",
-        "TikTok Ads"
+        "TikTok Ads",
       ],
       campaigns: "Up to 6 active campaigns/month",
-      recommendedBudget: "৳80,000–300,000+"
+      recommendedBudget: "৳80,000–300,000+",
     },
     totalCost: {
       title: "Total Monthly Cost",
       items: [
         { label: "Twipra Service Fee", amount: "৳60,000" },
-        { label: "Recommended Ad Budget (Paid to Advertising Platforms)", amount: "৳80,000–300,000+" },
-        { label: "Estimated Total Client Budget", amount: "৳140,000–360,000+" }
-      ]
-    }
+        {
+          label: "Recommended Ad Budget (Paid to Advertising Platforms)",
+          amount: "৳80,000–300,000+",
+        },
+        { label: "Estimated Total Client Budget", amount: "৳140,000–360,000+" },
+      ],
+    },
   },
 
   "enterprise-package": {
@@ -227,15 +246,18 @@ export const digitalMarketingPackages: DigitalMarketingPackages = {
     slug: "enterprise-package",
     startingPrice: "৳100,000+",
     idealFor: "Large Organizations",
-    description: "Custom enterprise solution with dedicated team, automation, CRM integration, and multi-country campaigns.",
+    description:
+      "Custom enterprise solution with dedicated team, automation, CRM integration, and multi-country campaigns.",
     hero: {
       title: "Enterprise Package",
-      description: "Custom enterprise solution with dedicated team, automation, CRM integration, and multi-country campaigns.",
-      cta: "Contact Sales"
+      description:
+        "Custom enterprise solution with dedicated team, automation, CRM integration, and multi-country campaigns.",
+      cta: "Contact Sales",
     },
     overview: {
       title: "Overview",
-      content: "The Enterprise Package is a fully customized marketing solution for large organizations. You get a dedicated marketing team, advanced automation, CRM integration, and the ability to run campaigns across multiple countries with unlimited strategy meetings."
+      content:
+        "The Enterprise Package is a fully customized marketing solution for large organizations. You get a dedicated marketing team, advanced automation, CRM integration, and the ability to run campaigns across multiple countries with unlimited strategy meetings.",
     },
     includes: [
       "Dedicated Marketing Team",
@@ -247,23 +269,23 @@ export const digitalMarketingPackages: DigitalMarketingPackages = {
       "Lead Generation",
       "Multi-country Campaigns",
       "Unlimited Strategy Meetings",
-      "Monthly Executive Reports"
+      "Monthly Executive Reports",
     ],
     paidMarketing: {
       title: "Paid Marketing",
       platforms: ["Custom advertising across all platforms"],
       campaigns: "Unlimited campaigns",
-      recommendedBudget: "Custom (paid separately by the client)"
+      recommendedBudget: "Custom (paid separately by the client)",
     },
     totalCost: {
       title: "Total Monthly Cost",
       items: [
         { label: "Twipra Service Fee", amount: "Starting from ৳100,000" },
         { label: "Recommended Ad Budget", amount: "Custom" },
-        { label: "Estimated Total Client Budget", amount: "Custom" }
-      ]
-    }
-  }
+        { label: "Estimated Total Client Budget", amount: "Custom" },
+      ],
+    },
+  },
 };
 
 // ============================================
@@ -277,8 +299,12 @@ export const adManagementOnly: AdManagementOnly = {
     { adBudget: "৳20,001–50,000", managementFee: "৳12,000" },
     { adBudget: "৳50,001–100,000", managementFee: "৳18,000" },
     { adBudget: "৳100,001–300,000", managementFee: "৳25,000" },
-    { adBudget: "Above ৳300,000", managementFee: "Custom Quote" }
-  ]
+    {
+      adBudget: "Above ৳300,000",
+      managementFee: "Custom Quote",
+      link: "/contact",
+    },
+  ],
 };
 
 // ============================================
@@ -286,7 +312,8 @@ export const adManagementOnly: AdManagementOnly = {
 // ============================================
 export const importantNote: ImportantNote = {
   title: "Important Note for All Packages",
-  content: "Advertising Spend: All advertising costs are paid directly by the client to the respective advertising platforms (e.g., Meta, Google, LinkedIn, TikTok). Twipra Technologies does not include the advertising budget in its service fee unless otherwise agreed in writing."
+  content:
+    "Advertising Spend: All advertising costs are paid directly by the client to the respective advertising platforms (e.g., Meta, Google, LinkedIn, TikTok). Twipra Technologies does not include the advertising budget in its service fee unless otherwise agreed in writing.",
 };
 
 // ============================================
@@ -294,25 +321,26 @@ export const importantNote: ImportantNote = {
 // ============================================
 export const allInPackages: AllInPackages = {
   title: 'Optional: "All-In" Managed Marketing Packages',
-  description: "Some clients prefer one invoice that includes both your service fee and the ad budget (which you then manage on their behalf, subject to agreement).",
+  description:
+    "Some clients prefer one invoice that includes both your service fee and the ad budget (which you then manage on their behalf, subject to agreement).",
   table: [
     {
-      "Package": "Launch",
+      Package: "Launch",
       "Twipra Service Fee": 15000,
       "Suggested Ad Budget": 15000,
-      "Total Monthly Budget": 30000
+      "Total Monthly Budget": 30000,
     },
     {
-      "Package": "Growth",
+      Package: "Growth",
       "Twipra Service Fee": 30000,
       "Suggested Ad Budget": 50000,
-      "Total Monthly Budget": 80000
+      "Total Monthly Budget": 80000,
     },
     {
-      "Package": "Scale",
+      Package: "Scale",
       "Twipra Service Fee": 60000,
       "Suggested Ad Budget": 100000,
-      "Total Monthly Budget": 160000
-    }
-  ]
+      "Total Monthly Budget": 160000,
+    },
+  ],
 };

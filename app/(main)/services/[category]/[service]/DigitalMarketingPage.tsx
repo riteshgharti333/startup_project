@@ -2,7 +2,13 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { FiArrowRight, FiPhone, FiCheck, FiStar } from "react-icons/fi";
+import {
+  FiArrowRight,
+  FiPhone,
+  FiCheck,
+  FiStar,
+  FiArrowUpRight,
+} from "react-icons/fi";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { PageSEO } from "@/app/components/PageSEO";
@@ -385,24 +391,25 @@ const DigitalMarketingPage = () => {
                     index !== adManagementOnly.table.length - 1
                       ? "border-b border-(--border)"
                       : ""
-                  } ${
-                    item.managementFee === "Custom Quote"
-                      ? "text-(--primary) font-semibold"
-                      : ""
                   }`}
                 >
                   <span className="text-xs sm:text-sm text-(--text)">
                     {item.adBudget}
                   </span>
-                  <span
-                    className={`text-xs sm:text-sm text-right ${
-                      item.managementFee === "Custom Quote"
-                        ? "text-(--primary) font-bold"
-                        : "text-(--text)"
-                    }`}
-                  >
-                    {item.managementFee}
-                  </span>
+
+                  {item.link ? (
+                    <Link
+                      href={item.link}
+                      className="text-xs sm:text-sm text-right text-(--primary)/80 font-bold hover:text-(--primary) inline-flex items-center justify-end gap-1"
+                    >
+                      {item.managementFee}
+                      <FiArrowUpRight size={14} />
+                    </Link>
+                  ) : (
+                    <span className="text-xs sm:text-sm text-right text-(--text)">
+                      {item.managementFee}
+                    </span>
+                  )}
                 </motion.div>
               ))}
             </div>

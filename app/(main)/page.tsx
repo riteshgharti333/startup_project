@@ -15,8 +15,8 @@ export default function Home() {
   return (
     <>
       <PageSEO
-        title="Home"
-        description="Professional web development, AI solutions, mobile apps, and digital marketing services for businesses in Bangladesh."
+        title="Twipra Technologies"
+        description="AI Software & Digital Innovation, Professional web development, AI solutions, mobile apps, and digital marketing services for businesses in Bangladesh."
         keywords={[
           'web development Bangladesh',
           'AI solutions Bangladesh',
@@ -36,7 +36,7 @@ export default function Home() {
         <Banner />
         <Service />
         <Choose />
-        {/* <Company /> */}
+        <Company />
         <Review />
         <Stats />
         <Team />

@@ -42,11 +42,11 @@ export const metadata: Metadata = {
 
   // Basic metadata
   title: {
-    default: "Twipra Technology | Web Development & Digital Agency",
+    default: "Twipra Technologies | AI Software & Digital Innovation",
     template: "%s | Twipra Technology",
   },
   description:
-    "Professional web development, AI solutions, mobile apps, and digital marketing services for businesses in Bangladesh.",
+    "Twipra Technologies is an AI-powered technology company delivering custom software, AI solutions, web development, automation, and digital transformation to help businesses innovate, scale, and succeed globally.",
 
   keywords: [
     "web development",

@@ -1,142 +1,188 @@
-// Import flags as React components
-import { 
-  BD, IN, MW, SL, NP, CM, NG, GH, TH, CN, LK 
-} from 'country-flag-icons/react/3x2'; // 3x2 aspect ratio
+import { FiFacebook, FiGithub, FiGlobe, FiLinkedin } from "react-icons/fi";
 
-// OR for square flags (1x1):
-// import { BD, IN, MW, SL, NP, CM, NG, GH, TH, CN, LK } from 'country-flag-icons/react/1x1';
-
-// Team member type
-interface TeamMember {
-  name: string;
-  role: string;
-  country: string;
-  color: string;
-  bg: string;
-  desc?: string;
-}
-
-export const leaders = [
+export const leader = [
   {
-    name: "Richard Tripura",
-    role: "Founder & CEO",
-    country: "Bangladesh",
-    flag: BD, // Direct component reference
-    color: "text-(--primary)",
-    bg: "bg-(--primary)/10",
-    desc: "Leads company vision, client relationships, and business strategy with 6+ years in tech.",
+    img: "/team_image/richard-tripura.webp",
+    title: "Richard Tripura",
+    subtitle: "Founder & CEO",
+    desc1:
+      "With 6+ years of experience in the technology industry, he is a Business Analyst, Data Analyst, and Technology Leader specializing in AI, data science, business intelligence, automation, and digital strategy. He has worked with multinational organizations including the Australian High Commission, ThinkNext Technologies Pvt. Ltd., Bahra University, and the ICT Division of the Government of Bangladesh.",
+    desc2:
+      "He has earned 80+ professional certifications in Data Analytics, Python, Artificial Intelligence, Robotics, and Project Management. Passionate about innovation and technology leadership, he leverages AI and data-driven strategies to build impactful solutions and drive sustainable business growth.",
+    links: [
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/luis-king-richard-tripura/",
+        icon: FiLinkedin,
+      },
+      {
+        label: "Portfolio",
+        url: "https://sites.google.com/view/richardtripura",
+        icon: FiGlobe,
+      },
+    ],
   },
   {
+    img: "/team_image/payel-paul-mrong.webp",
+    title: "Payel Paul Mrong",
+    subtitle: "Co-founder & COO",
+    desc1:
+      "Digital Marketing & Business Development Professional with expertise in digital strategy, social media marketing, SEO, branding, project coordination, and business growth. He has professional experience as a Digital Marketing Executive, Business Development Executive, and Level One Fiverr Freelancer, successfully delivering 50+ local and international projects.",
+    desc2:
+      "Payel has driven significant brand growth through data-driven marketing campaigns, managed paid advertising, and strengthened brand identity while leveraging a background in finance, analytical thinking, and leadership. Passionate about innovation and business development, he is committed to helping organizations achieve sustainable growth through creative, data-driven solutions.",
+    links: [
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/payelpaulmrong/",
+        icon: "linkedin",
+      },
+      {
+        label: "Portfolio",
+        url: "https://www.fiverr.com/users/payelmrong/portfolio",
+        icon: "globe",
+      },
+    ],
+  },
+];
+
+export const teamMembers = [
+  {
+    img: "/team_image/profile.png",
     name: "Ritesh Gharti",
-    role: "CTO",
-    country: "India",
-    flag: IN,
-    color: "text-purple-400",
-    bg: "bg-purple-500/10",
-    desc: "Oversees all technical architecture, AI research, and engineering best practices.",
+    role: "Tech Lead",
+    objectPosition: "bottom center",
+    links: [
+      {
+        label: "Portfolio",
+        url: "https://rgdev-portfolio-six.vercel.app/",
+        icon: FiGlobe,
+      },
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/riteshgharti333",
+        icon: FiLinkedin,
+      },
+      {
+        label: "GitHub",
+        url: "https://github.com/riteshgharti333",
+        icon: FiGithub,
+      },
+    ],
   },
   {
+    img: "/team_image/profile.png",
+    name: "Sinepolo Soumaoro",
+    role: "Full Stack Developer",
+    objectPosition: "center 20%",
+    links: [
+      { label: "GitHub", url: "https://github.com/sinesoum", icon: FiGithub },
+    ],
+  },
+  {
+    img: "/team_image/joytripur.webp",
+    name: "Jony Tripura",
+    role: "IT Professional",
+    objectPosition: "center 15%",
+    links: [],
+  },
+  {
+    img: "/team_image/AdityMree.webp",
+    name: "Aditi Mree",
+    role: "Head of Digital Marketing & Brand Growth",
+    objectPosition: "center 10%",
+    links: [
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/aditi-mree-social-media-manager/",
+        icon: FiLinkedin,
+      },
+    ],
+  },
+  {
+    img: "/team_image/leader4.webp",
     name: "Clinton Tripura",
-    role: "Head of Design",
-    country: "Bangladesh",
-    flag: BD,
-    color: "text-green-400",
-    bg: "bg-green-500/10",
-    desc: "Creates beautiful, intuitive user experiences for web and mobile products.",
+    role: "Head of Creative Design",
+    objectPosition: "center 15%",
+    links: [
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/clinton-tripura-190804217/",
+        icon: FiLinkedin,
+      },
+      {
+        label: "Facebook",
+        url: "https://www.linkedin.com/in/clinton-tripura-190804217/",
+        icon: FiFacebook,
+      },
+    ],
+  },
+  {
+    img: "/team_image/pepeA.webp",
+    name: "Pepe Abdoulaye Kpohomou",
+    role: "Head of Business Strategy & Consulting",
+    objectPosition: "center 15%",
+    links: [],
+  },
+  {
+    img: "/team_image/profile.png",
+    name: "Rapu Mangsang",
+    role: "Human Resources, People & Operations",
+    objectPosition: "center 20%",
+    links: [],
+  },
+  {
+    img: "/team_image/ProbinDa.jpg.webp",
+    name: "Probin Tripura",
+    role: "Career Strategy & Development Lead",
+    objectPosition: "center 15%",
+    links: [
+      {
+        label: "Portfolio",
+        url: "https://probintripura.mystrikingly.com/home",
+        icon: FiGlobe,
+      },
+      {
+        label: "Facebook",
+        url: "https://www.facebook.com/tripura.probin/",
+        icon: FiFacebook,
+      },
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/probintripura/",
+        icon: FiLinkedin,
+      },
+    ],
+  },
+  {
+    img: "/team_image/profile.png",
+    name: "Martina Tripura",
+    role: "Head of Professional Development",
+    objectPosition: "center 20%",
+    links: [
+      {
+        label: "Facebook",
+        url: "https://www.facebook.com/martina.tripura.2024",
+        icon: FiFacebook,
+      },
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/martina-tripura-57b111223/?skipRedirect=true",
+        icon: FiLinkedin,
+      },
+    ],
+  },
+  {
+    img: "/team_image/ki.webp",
+    name: "Kitress Manyozo",
+    role: "Country Lead Malawi",
+    objectPosition: "center 15%",
+    links: [],
+  },
+  {
+    img: "/team_image/Gopalbha.webp",
+    name: "Gopal Chaudhary",
+    role: "Country Lead Nepal",
+    objectPosition: "center 15%",
+    links: [],
   },
 ];
-
-export const teamMembers: TeamMember[] = [
-  {
-    name: "Priya Sharma",
-    role: "Academic Lead",
-    country: "India",
-    color: "text-amber-400",
-    bg: "bg-amber-500/10",
-  },
-  {
-    name: "Kitress Monyozo",
-    role: "Marketing",
-    country: "Malawi",
-    color: "text-cyan-400",
-    bg: "bg-cyan-500/10",
-  },
-  {
-    name: "Arnold Chisisito",
-    role: "R&D",
-    country: "Malawi",
-    color: "text-pink-400",
-    bg: "bg-pink-500/10",
-  },
-  {
-    name: "Steven Ansumana",
-    role: "Country Head",
-    country: "Sierra Leone",
-    color: "text-emerald-400",
-    bg: "bg-emerald-500/10",
-  },
-  {
-    name: "Abhishek",
-    role: "Developer",
-    country: "Nepal",
-    color: "text-orange-400",
-    bg: "bg-orange-500/10",
-  },
-  {
-    name: "Stiphan",
-    role: "Engineer",
-    country: "Cameroon",
-    color: "text-indigo-400",
-    bg: "bg-indigo-500/10",
-  },
-  {
-    name: "Dimaji",
-    role: "Developer",
-    country: "Nigeria",
-    color: "text-rose-400",
-    bg: "bg-rose-500/10",
-  },
-  {
-    name: "Sinepolo",
-    role: "Designer",
-    country: "Ghana",
-    color: "text-teal-400",
-    bg: "bg-teal-500/10",
-  },
-  {
-    name: "Malvi",
-    role: "Developer",
-    country: "Thailand",
-    color: "text-violet-400",
-    bg: "bg-violet-500/10",
-  },
-  {
-    name: "Priyanka",
-    role: "Researcher",
-    country: "Tibet",
-    color: "text-red-400",
-    bg: "bg-red-500/10",
-  },
-  {
-    name: "Zairam",
-    role: "Engineer",
-    country: "Sri Lanka",
-    color: "text-lime-400",
-    bg: "bg-lime-500/10",
-  },
-];
-
-// Country code to flag component mapping
-const flagMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  bangladesh: BD,
-  india: IN,
-  malawi: MW,
-  "sierra leone": SL,
-  nepal: NP,
-  cameroon: CM,
-  nigeria: NG,
-  ghana: GH,
-  thailand: TH,
-  tibet: CN, // Tibet uses China flag
-  "sri lanka": LK,
-};
