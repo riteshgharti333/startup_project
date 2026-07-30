@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import BlogImage from "./BlogImage";
 
 interface BlogPost {
   slug: string;
@@ -60,10 +61,10 @@ const RecentPost: React.FC<RecentPostProps> = ({ posts }) => {
               <div className="flex flex-col h-full">
                 {/* Large Image */}
                 <div className="relative h-64 sm:h-80 lg:h-[500px] overflow-hidden">
-                  <Image
+                  <BlogImage
                     src={mainPost.image}
                     alt={mainPost.title}
-                    fill
+                    variant="recent"
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-(--surface) via-transparent to-transparent" />
@@ -108,8 +109,18 @@ const RecentPost: React.FC<RecentPostProps> = ({ posts }) => {
 
                   <div className="mt-6 flex items-center gap-2 text-(--primary) font-medium text-sm group-hover:gap-3 transition-all duration-300">
                     Read Full Article
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
                     </svg>
                   </div>
                 </div>
@@ -128,10 +139,10 @@ const RecentPost: React.FC<RecentPostProps> = ({ posts }) => {
                 <div className="flex flex-col sm:flex-row lg:flex-col h-full">
                   {/* Image */}
                   <div className="relative sm:w-36 lg:w-full h-32 sm:h-auto lg:h-30 overflow-hidden flex-shrink-0">
-                    <Image
+                    <BlogImage
                       src={post.image}
                       alt={post.title}
-                      fill
+                      variant="recent"
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r lg:bg-gradient-to-t from-(--surface) to-transparent" />
@@ -158,7 +169,7 @@ const RecentPost: React.FC<RecentPostProps> = ({ posts }) => {
                       </h3>
                     </div>
 
-                    <div className="flex items-center justify-between pt-2 lg:pt-3 border-t border-(--border)">
+                    <div className="flex items-center justify-between py-2 lg:py-3 border-t border-(--border)">
                       <div className="flex items-center gap-1.5">
                         <div className="w-5 h-5 lg:w-6 lg:h-6 rounded-full bg-(--primary)/20 flex items-center justify-center text-(--primary) text-[9px] lg:text-[10px] font-bold">
                           {post.authorAvatar}
@@ -170,8 +181,18 @@ const RecentPost: React.FC<RecentPostProps> = ({ posts }) => {
 
                       <span className="text-(--primary) text-[10px] lg:text-xs font-medium flex items-center gap-1 group-hover:gap-2 transition-all duration-300">
                         Read
-                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        <svg
+                          className="w-3 h-3"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                          />
                         </svg>
                       </span>
                     </div>

@@ -62,6 +62,26 @@ const FAQ: React.FC = () => {
       answer:
         "Simply contact us through our website or schedule a consultation. We'll discuss your goals, requirements, timeline, and provide a tailored proposal.",
     },
+    {
+      question: "Do you work with clients internationally?",
+      answer:
+        "Yes, we work with clients worldwide. We're experienced in remote collaboration across different time zones and use tools to ensure smooth communication regardless of location.",
+    },
+    {
+      question: "What if I don't like the design?",
+      answer:
+        "We offer multiple revision rounds during the design phase to ensure you're completely satisfied. Your feedback is essential, and we refine until it meets your expectations before moving to development.",
+    },
+    {
+      question: "Do you provide content writing services?",
+      answer:
+        "Yes, we can help with copywriting, blog content, and SEO-optimized website content. We also work with your existing content if you already have it ready.",
+    },
+    {
+      question: "Will I be able to update the website myself?",
+      answer:
+        "Yes. We build websites with easy-to-use content management systems (CMS) that allow you to update text, images, and other content without technical knowledge.",
+    },
   ];
 
   const toggleFAQ = (index: number) => {

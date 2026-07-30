@@ -5,14 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import {
-  FiPhone,
-  FiArrowRight,
-  FiChevronDown,
-} from "react-icons/fi";
+import { FiPhone, FiArrowRight, FiChevronDown } from "react-icons/fi";
 import { navLinks } from "../data/data";
 import logo from "../../public/new-logo.png";
-
 
 // Types
 interface NavChild {
@@ -180,7 +175,7 @@ const Navbar: React.FC = () => {
                   alt="TWIPRA Technology"
                   // width={36}
                   // height={36}
-                  priority={true} 
+                  priority={true}
                   className="h-4 w-full sm:w-full sm:h-7"
                 />
               </div>

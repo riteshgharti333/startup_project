@@ -47,7 +47,7 @@ export const leader = [
 
 export const teamMembers = [
   {
-    img: "/team_image/profile.png",
+    img: "/team_image/profile.webp",
     name: "Ritesh Gharti",
     role: "Tech Lead",
     objectPosition: "bottom center",
@@ -70,12 +70,17 @@ export const teamMembers = [
     ],
   },
   {
-    img: "/team_image/profile.png",
+    img: "/team_image/Sinepolo Soumaoro.webp",
     name: "Sinepolo Soumaoro",
     role: "Full Stack Developer",
     objectPosition: "center 20%",
     links: [
       { label: "GitHub", url: "https://github.com/sinesoum", icon: FiGithub },
+      {
+        label: "LinkedIn",
+        url: "www.linkedin.com/in/sinepolo-soumaoro-b7b257257",
+        icon: FiLinkedin,
+      },
     ],
   },
   {
@@ -124,7 +129,7 @@ export const teamMembers = [
     links: [],
   },
   {
-    img: "/team_image/profile.png",
+    img: "/team_image/Ropu.webp",
     name: "Rapu Mangsang",
     role: "Human Resources, People & Operations",
     objectPosition: "center 20%",
@@ -154,7 +159,7 @@ export const teamMembers = [
     ],
   },
   {
-    img: "/team_image/profile.png",
+    img: "/team_image/MartinaTripura.webp",
     name: "Martina Tripura",
     role: "Head of Professional Development",
     objectPosition: "center 20%",
@@ -172,6 +177,13 @@ export const teamMembers = [
     ],
   },
   {
+    img: "/team_image/Dr. Basudeo Rajbhor.webp",
+    name: "Dr. Basudeo Rajbhor",
+    role: "Advisor Panel Member",
+    objectPosition: "center 15%",
+    links: [],
+  },
+  {
     img: "/team_image/ki.webp",
     name: "Kitress Manyozo",
     role: "Country Lead Malawi",
@@ -183,6 +195,12 @@ export const teamMembers = [
     name: "Gopal Chaudhary",
     role: "Country Lead Nepal",
     objectPosition: "center 15%",
-    links: [],
+    links: [
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/gopal-chaudhary-7a3ba1329?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+        icon: FiLinkedin,
+      },
+    ],
   },
 ];

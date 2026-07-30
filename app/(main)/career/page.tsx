@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Toaster } from "react-hot-toast";
 import {
   FiUsers,
   FiTarget,
@@ -110,30 +109,6 @@ const Career: React.FC = () => {
           { name: "Home", url: `${baseUrl}/` },
           { name: "Career", url: `${baseUrl}/career` },
         ]}
-      />
-
-      <Toaster
-        position="top-right"
-        toastOptions={{
-          duration: 4000,
-          style: {
-            background: "#1e1e2e",
-            color: "#fff",
-            border: "1px solid #313244",
-          },
-          success: {
-            iconTheme: {
-              primary: "#10b981",
-              secondary: "#fff",
-            },
-          },
-          error: {
-            iconTheme: {
-              primary: "#ef4444",
-              secondary: "#fff",
-            },
-          },
-        }}
       />
 
       <main className="relative">

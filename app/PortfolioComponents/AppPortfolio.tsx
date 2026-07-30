@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,19 +9,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { IoClose, IoLogoApple, IoLogoGooglePlaystore } from "react-icons/io5";
 import { FaPlay } from "react-icons/fa6";
-
-// TypeScript Interfaces
-interface AppProject {
-  id: number;
-  title: string;
-  category: string;
-  platform: "iOS" | "Android" | "Cross-Platform";
-  image: string; // Main banner image
-  gallery: string[]; // 3 extra screenshots for the modal
-  description: string;
-  color: string;
-  downloadLink: string;
-}
+import { appProjects, type AppProject } from "../data/portfolioData";
 
 const AppPortfolio: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<AppProject | null>(
@@ -30,69 +18,9 @@ const AppPortfolio: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number>(1);
   const swiperRef = useRef<SwiperType | null>(null);
 
-  const appProjects: AppProject[] = [
-    {
-      id: 1,
-      title: "UrbanEats",
-      category: "Food Delivery",
-      platform: "Cross-Platform",
-      image:
-        "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80",
-      gallery: [
-        "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80",
-        "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&q=80",
-        "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=400&q=80",
-        "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=400&q=80",
-      ],
-      description:
-        "AI-powered food delivery app with real-time tracking and personalized recommendations.",
-      color: "#f43f5e",
-      downloadLink: "#",
-    },
-    {
-      id: 2,
-      title: "FitTrack",
-      category: "Health & Fitness",
-      platform: "iOS",
-      image:
-        "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80",
-      gallery: [
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80",
-        "https://images.unsplash.com/photo-1584735935682-2fbed1d5e8d8?w=400&q=80",
-        "https://images.unsplash.com/photo-1576678927484-eb90794fd915?w=400&q=80",
-        "https://images.unsplash.com/photo-1580041065738-e72023775cdc?w=400&q=80",
-      ],
-      description:
-        "Smart fitness tracker with AI coaching, heart-rate monitoring, and social challenges.",
-      color: "#3b82f6",
-      downloadLink: "#",
-    },
-    {
-      id: 3,
-      title: "WalletWise",
-      category: "Finance",
-      platform: "Android",
-      image:
-        "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80",
-      gallery: [
-        "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400&q=80",
-        "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&q=80",
-        "https://images.unsplash.com/photo-1580041065738-e72023775cdc?w=400&q=80",
-        "https://images.unsplash.com/photo-1580041065738-e72023775cdc?w=400&q=80",
-      ],
-      description:
-        "Personal finance tracker with budget planning, bill reminders, and investment insights.",
-      color: "#10b981",
-      downloadLink: "#",
-    },
-  ];
-
   return (
-    <div
-      className="min-h-screen pb-20 px-2"
-      style={{ color: "var(--text)" }}
-    >
-      {/* Header (Neon Theme) */}
+    <div className="min-h-screen pb-20 px-2" style={{ color: "var(--text)" }}>
+      {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -100,7 +28,6 @@ const AppPortfolio: React.FC = () => {
       >
         <div className="flex items-center gap-3 mb-3 md:mb-4">
           <span className="w-2 h-2 rounded-full bg-cyan-400" />
-
           <span className="text-xs font-medium tracking-widest uppercase text-cyan-400">
             App Development
           </span>
@@ -141,28 +68,20 @@ const AppPortfolio: React.FC = () => {
               key={project.id}
               className="!w-[220px] sm:!w-[260px] md:!w-[300px] !h-[420px] sm:!h-[480px] md:!h-[540px] cursor-pointer transition-all duration-300"
             >
-              {/* EXACT SAME PHONE BORDER DESIGN */}
               <div
                 className="relative w-full h-full rounded-[40px] overflow-hidden border-[8px] border-gray-800 bg-gray-900 shadow-[0_20px_60px_rgba(0,0,0,0.8)] group"
                 style={{ background: project.color + "20" }}
                 onClick={() => setSelectedProject(project)}
               >
-                {/* Screen Image */}
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover"
                 />
-
-                {/* Gradient Overlay on the bottom */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-
-                {/* Phone Notch (Top) */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-800 rounded-b-xl flex items-center justify-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-gray-700" />
                 </div>
-
-                {/* Content (Bottom) */}
                 <div className="absolute bottom-0 left-0 p-5 w-full z-10">
                   <span
                     className="text-[10px] font-bold tracking-wider block mb-1 drop-shadow-md"
@@ -177,8 +96,6 @@ const AppPortfolio: React.FC = () => {
                     {project.category}
                   </p>
                 </div>
-
-                {/* Hover Play Button */}
                 <motion.div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60 backdrop-blur-sm">
                   <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
                     <FaPlay className="text-white text-xl ml-1" />
@@ -206,7 +123,7 @@ const AppPortfolio: React.FC = () => {
         ))}
       </div>
 
-      {/* ==================== APP MODAL ==================== */}
+      {/* Modal */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div
@@ -224,11 +141,7 @@ const AppPortfolio: React.FC = () => {
               className="max-w-3xl w-full rounded-2xl overflow-hidden bg-[#12121a] border border-gray-800"
               style={{ borderColor: `${selectedProject.color}40` }}
             >
-              {/* --- REMOVED HEADER IMAGE --- */}
-
-              {/* Modal Body - Takes Full Height */}
               <div className="p-6 sm:p-8 max-h-[85vh] overflow-y-auto scrollbar-hide relative">
-                {/* Close Button (Moved inside the body) */}
                 <button
                   onClick={() => setSelectedProject(null)}
                   className="absolute top-2 right-2 z-20 p-1 rounded-full bg-black/60 hover:bg-black/80 text-white transition-all duration-200 border border-gray-700"
@@ -236,7 +149,6 @@ const AppPortfolio: React.FC = () => {
                   <IoClose size={22} />
                 </button>
 
-                {/* Top Section: Text */}
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6 mt-2">
                   <div>
                     <span
@@ -249,46 +161,48 @@ const AppPortfolio: React.FC = () => {
                       {selectedProject.title}
                     </h2>
                     <p className="text-sm sm:text-base text-gray-400 leading-relaxed max-w-xl">
-                      {selectedProject.description}
+                      {selectedProject.overview}
                     </p>
-                  </div>
-
-                  {/* Download Buttons */}
-                  <div className="flex flex-col gap-2 shrink-0 w-full sm:w-auto">
-                    <motion.a
-                      whileHover={{ scale: 1.02 }}
-                      href={selectedProject.downloadLink}
-                      className="flex items-center justify-center gap-3 px-6 py-2.5 rounded-xl font-semibold text-sm text-white bg-gray-800 hover:bg-gray-700 border border-gray-700 transition-colors"
-                    >
-                      <IoLogoApple size={20} />
-                      App Store
-                    </motion.a>
-                    <motion.a
-                      whileHover={{ scale: 1.02 }}
-                      href={selectedProject.downloadLink}
-                      className="flex items-center justify-center gap-3 px-6 py-2.5 rounded-xl font-semibold text-sm text-white bg-gray-800 hover:bg-gray-700 border border-gray-700 transition-colors"
-                    >
-                      <IoLogoGooglePlaystore size={20} />
-                      Google Play
-                    </motion.a>
                   </div>
                 </div>
 
-                {/* App Screenshot Gallery - Smaller Size */}
+                {/* Features */}
+                <div className="mb-6">
+                  <h4 className="text-sm font-bold text-gray-300 mb-3">
+                    Key Features
+                  </h4>
+                  <ul className="text-sm text-gray-400 list-disc pl-4 space-y-1">
+                    {selectedProject.features.map((feature, i) => (
+                      <li key={i}>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Impact */}
+                <div className="mb-6">
+                  <h4 className="text-sm font-bold text-gray-300 mb-2">
+                    Impact
+                  </h4>
+                  <p className="text-sm text-gray-400 leading-relaxed">
+                    {selectedProject.impact}
+                  </p>
+                </div>
+
+                {/* App Screenshot Gallery */}
                 <div>
                   <h4 className="text-sm font-bold text-gray-300 mb-3">
                     App Screenshots
                   </h4>
-                  <div className="flex justify-between flex-wrap gap-2 ">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                     {selectedProject.gallery.map((img, i) => (
                       <div
                         key={i}
-                        className="rounded-sm overflow-hidden border border-gray-800 aspect-[9/19] max-h-[280px]"
+                        className="rounded-sm overflow-hidden max-h-[280px]"
                       >
                         <img
                           src={img}
                           alt={`Screenshot ${i + 1}`}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full max-h-[280px] object-contain"
                         />
                       </div>
                     ))}

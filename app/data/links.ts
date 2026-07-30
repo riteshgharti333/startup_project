@@ -73,6 +73,7 @@ export const services = [
   "Cloud & Infrastructure",
   "Digital Marketing",
   "Consulting & Training",
+  "Other",
 ];
 
 export const budgets = [

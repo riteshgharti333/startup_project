@@ -90,7 +90,7 @@ const Portfolio = () => {
             <AppPortfolio />
             <GraphicDesign />
             <AIPortfolio />
-            <VideoPortfolio />
+            {/* <VideoPortfolio /> */}
           </div>
         </section>
       </main>

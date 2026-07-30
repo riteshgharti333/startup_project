@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+import BlogImage from "./BlogImage";
 
 interface BlogPost {
   slug: string;
@@ -57,10 +57,10 @@ const PopularPosts: React.FC<PopularPostsProps> = ({ posts }) => {
             >
               <div className="flex flex-col h-full">
                 <div className="relative h-52 sm:h-72 lg:h-[500px] overflow-hidden">
-                  <Image
+                  <BlogImage
                     src={mainPost.image}
                     alt={mainPost.title}
-                    fill
+                    variant="popular"
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-(--surface) via-transparent to-transparent" />
@@ -81,9 +81,13 @@ const PopularPosts: React.FC<PopularPostsProps> = ({ posts }) => {
                         {mainPost.author}
                       </span>
                       <span className="w-1 h-1 rounded-full bg-(--text-muted)" />
-                      <span className="text-[10px] sm:text-sm">{mainPost.date}</span>
+                      <span className="text-[10px] sm:text-sm">
+                        {mainPost.date}
+                      </span>
                       <span className="w-1 h-1 rounded-full bg-(--text-muted)" />
-                      <span className="text-[10px] sm:text-sm">{mainPost.readTime}</span>
+                      <span className="text-[10px] sm:text-sm">
+                        {mainPost.readTime}
+                      </span>
                     </div>
 
                     <h3 className="text-base sm:text-xl lg:text-2xl font-bold text-(--text) group-hover:text-(--primary) transition-colors duration-300 mb-2 sm:mb-3">
@@ -97,8 +101,18 @@ const PopularPosts: React.FC<PopularPostsProps> = ({ posts }) => {
 
                   <div className="mt-4 sm:mt-6 flex items-center gap-1 sm:gap-2 text-(--primary) font-medium text-xs sm:text-sm group-hover:gap-3 transition-all duration-300">
                     Read Full Article
-                    <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    <svg
+                      className="w-3 h-3 sm:w-4 sm:h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
                     </svg>
                   </div>
                 </div>
@@ -116,10 +130,10 @@ const PopularPosts: React.FC<PopularPostsProps> = ({ posts }) => {
                   className="group block bg-(--surface) rounded-(--radius-lg) border border-(--border) hover:border-(--primary) transition-all duration-300 overflow-hidden hover:shadow-xl hover:shadow-blue-500/10"
                 >
                   <div className="relative h-40 overflow-hidden">
-                    <Image
+                    <BlogImage
                       src={post.image}
                       alt={post.title}
-                      fill
+                      variant="popular"
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-(--surface) to-transparent" />
@@ -142,7 +156,9 @@ const PopularPosts: React.FC<PopularPostsProps> = ({ posts }) => {
                       <div className="w-5 h-5 rounded-full bg-(--primary)/20 flex items-center justify-center text-(--primary) text-[9px] font-bold">
                         {post.authorAvatar}
                       </div>
-                      <span className="text-[10px] text-(--text-muted)">{post.author}</span>
+                      <span className="text-[10px] text-(--text-muted)">
+                        {post.author}
+                      </span>
                     </div>
                   </div>
                 </Link>
@@ -157,10 +173,10 @@ const PopularPosts: React.FC<PopularPostsProps> = ({ posts }) => {
                   >
                     <div className="flex flex-col sm:flex-row h-full">
                       <div className="relative sm:w-56 h-40 sm:h-auto overflow-hidden flex-shrink-0">
-                        <Image
+                        <BlogImage
                           src={bottomPost.image}
                           alt={bottomPost.title}
-                          fill
+                          variant="popular"
                           className="object-cover group-hover:scale-110 transition-transform duration-700"
                         />
                         <div className="absolute inset-0 bg-gradient-to-r from-(--surface) to-transparent" />
@@ -177,7 +193,9 @@ const PopularPosts: React.FC<PopularPostsProps> = ({ posts }) => {
                             <div className="w-6 h-6 rounded-full bg-(--primary)/20 flex items-center justify-center text-(--primary) text-[10px] font-bold">
                               {bottomPost.authorAvatar}
                             </div>
-                            <span className="font-medium text-(--text)">{bottomPost.author}</span>
+                            <span className="font-medium text-(--text)">
+                              {bottomPost.author}
+                            </span>
                             <span className="w-1 h-1 rounded-full bg-(--text-muted)" />
                             <span>{bottomPost.date}</span>
                             <span className="w-1 h-1 rounded-full bg-(--text-muted)" />
@@ -192,8 +210,18 @@ const PopularPosts: React.FC<PopularPostsProps> = ({ posts }) => {
                         </div>
                         <span className="text-(--primary) text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all duration-300 mt-3">
                           Read More
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          <svg
+                            className="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M17 8l4 4m0 0l-4 4m4-4H3"
+                            />
                           </svg>
                         </span>
                       </div>

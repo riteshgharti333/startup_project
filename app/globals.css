@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-
 :root {
   /* Colors */
   --background: #0b0f19;
@@ -21,10 +20,6 @@
   --radius-md: 16px;
   --radius-lg: 24px;
   --radius-xl: 32px;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
@@ -72,4 +67,42 @@ button {
 
 .animate-slideUp {
   animation: slideUp 0.3s ease;
+}
+
+/* /////////////////// */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #2563eb, #7c3aed);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #1d4ed8, #6d28d9);
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Hide arrows for all states */
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+  display: none;
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+/* Hide scrollbar corner */
+::-webkit-scrollbar-corner {
+  background: transparent;
 }

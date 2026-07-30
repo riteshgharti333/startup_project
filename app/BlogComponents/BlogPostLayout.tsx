@@ -126,7 +126,7 @@ export default function BlogPostLayout({
                   key={tag}
                   className="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full hover:bg-gray-700 transition-colors cursor-pointer"
                 >
-                  #{tag}
+                  #{tag} 
                 </span>
               ))}
             </div>

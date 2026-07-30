@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import {
@@ -18,29 +18,7 @@ import {
 } from "react-icons/fi";
 import axiosInstance from "../utils/axios";
 import { uploadResume } from "../lib/cloudinary";
-
-interface FormData {
-  fullName: string;
-  email: string;
-  phone: string;
-  position: string;
-  experience: string;
-  portfolio: string;
-  linkedin: string;
-
-  github: string;
-  coverLetter: string;
-  resume: File | null;
-}
-
-interface FormErrors {
-  fullName?: string;
-  email?: string;
-  phone?: string;
-  position?: string;
-  experience?: string;
-  resume?: string;
-}
+import { careerFormSchema, type CareerFormData } from "../lib/validations";
 
 interface CareerFormProps {
   onSuccess?: () => void;
@@ -49,9 +27,11 @@ interface CareerFormProps {
 const CareerForm: React.FC<CareerFormProps> = ({ onSuccess }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
-  const formRef = useRef<HTMLFormElement>(null);
+  const [errors, setErrors] = useState<
+    Partial<Record<keyof CareerFormData, string>>
+  >({});
 
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
@@ -61,10 +41,8 @@ const CareerForm: React.FC<CareerFormProps> = ({ onSuccess }) => {
     linkedin: "",
     github: "",
     coverLetter: "",
-    resume: null,
+    resume: null as File | null,
   });
-
-  const [errors, setErrors] = useState<FormErrors>({});
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -73,78 +51,21 @@ const CareerForm: React.FC<CareerFormProps> = ({ onSuccess }) => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name as keyof FormErrors]) {
+    if (errors[name as keyof typeof errors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
-  };
-
-  const validateForm = (): boolean => {
-    const newErrors: FormErrors = {};
-
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = "Full name is required";
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = "Email address is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
-    }
-
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required";
-    } else if (!/^[0-9+\-\s()]{10,15}$/.test(formData.phone)) {
-      newErrors.phone = "Please enter a valid phone number";
-    }
-
-    if (!formData.experience) {
-      newErrors.experience = "Please select years of experience";
-    }
-
-    if (!formData.position) {
-      newErrors.position = "Please select a position";
-    }
-
-    if (!formData.resume) {
-      newErrors.resume = "Please upload your resume (PDF or DOCX)";
-    }
-
-    setErrors(newErrors);
-
-    if (Object.keys(newErrors).length > 0) {
-      toast.error("Please fix the errors in the form");
-      return false;
-    }
-
-    return true;
-  };
-
-  const simulateProgress = () => {
-    setUploadProgress(0);
-    const interval = setInterval(() => {
-      setUploadProgress((prev) => {
-        if (prev >= 90) {
-          clearInterval(interval);
-          return 90;
-        }
-        return prev + 10;
-      });
-    }, 200);
-    return interval;
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
 
     if (file) {
-      // Validate file size (2MB)
       if (file.size > 2 * 1024 * 1024) {
         toast.error("File size must be less than 2MB");
         e.target.value = "";
         return;
       }
 
-      // Validate file type
       const allowedTypes = [
         "application/pdf",
         "application/msword",
@@ -170,14 +91,25 @@ const CareerForm: React.FC<CareerFormProps> = ({ onSuccess }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validateForm()) return;
+
+    const result = careerFormSchema.safeParse(formData);
+
+    if (!result.success) {
+      const fieldErrors: Partial<Record<keyof CareerFormData, string>> = {};
+      result.error.issues.forEach((err) => {
+        const field = err.path[0] as keyof CareerFormData;
+        fieldErrors[field] = err.message;
+      });
+      setErrors(fieldErrors);
+      toast.error("Please fix the errors in the form");
+      return;
+    }
 
     setIsSubmitting(true);
     setUploadProgress(20);
     toast.loading("Uploading resume...");
 
     try {
-      // Upload to Cloudinary via Server Action
       const cloudinaryResult = await uploadResume(formData.resume!);
 
       setUploadProgress(70);
@@ -193,7 +125,7 @@ const CareerForm: React.FC<CareerFormProps> = ({ onSuccess }) => {
         linkedInProfile: formData.linkedin || undefined,
         githubProfile: formData.github || undefined,
         coverLetter: formData.coverLetter || undefined,
-        resumeUrl: cloudinaryResult.url, // Cloudinary URL
+        resumeUrl: cloudinaryResult.url,
       };
 
       const response = await axiosInstance.post(
@@ -207,7 +139,6 @@ const CareerForm: React.FC<CareerFormProps> = ({ onSuccess }) => {
         response.data.message || "Application submitted successfully! 🎉",
       );
 
-      // Reset form
       setFormData({
         fullName: "",
         email: "",
@@ -259,7 +190,7 @@ const CareerForm: React.FC<CareerFormProps> = ({ onSuccess }) => {
         </p>
       </div>
 
-      <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-6">
         {/* Full Name */}
         <div>
           <label className="block text-sm font-medium text-(--text) mb-2">
@@ -285,7 +216,7 @@ const CareerForm: React.FC<CareerFormProps> = ({ onSuccess }) => {
           )}
         </div>
 
-        {/* Email & Phone - 2 columns */}
+        {/* Email & Phone */}
         <div className="grid sm:grid-cols-2 gap-5">
           <div>
             <label className="block text-sm font-medium text-(--text) mb-2">
@@ -396,7 +327,7 @@ const CareerForm: React.FC<CareerFormProps> = ({ onSuccess }) => {
           </div>
         </div>
 
-        {/* Portfolio / LinkedIn / GitHub */}
+        {/* Portfolio / LinkedIn */}
         <div className="grid sm:grid-cols-2 gap-5">
           <div>
             <label className="block text-sm font-medium text-(--text) mb-2">
@@ -413,6 +344,11 @@ const CareerForm: React.FC<CareerFormProps> = ({ onSuccess }) => {
                 className="w-full pl-10 pr-4 py-3 bg-(--background) border border-(--border) rounded-(--radius-md) text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary) transition-colors"
               />
             </div>
+            {errors.portfolio && (
+              <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                <FiAlertCircle size={10} /> {errors.portfolio}
+              </p>
+            )}
           </div>
 
           <div>
@@ -430,9 +366,15 @@ const CareerForm: React.FC<CareerFormProps> = ({ onSuccess }) => {
                 className="w-full pl-10 pr-4 py-3 bg-(--background) border border-(--border) rounded-(--radius-md) text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary) transition-colors"
               />
             </div>
+            {errors.linkedin && (
+              <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                <FiAlertCircle size={10} /> {errors.linkedin}
+              </p>
+            )}
           </div>
         </div>
 
+        {/* GitHub */}
         <div>
           <label className="block text-sm font-medium text-(--text) mb-2">
             GitHub Profile
@@ -448,6 +390,11 @@ const CareerForm: React.FC<CareerFormProps> = ({ onSuccess }) => {
               className="w-full pl-10 pr-4 py-3 bg-(--background) border border-(--border) rounded-(--radius-md) text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary) transition-colors"
             />
           </div>
+          {errors.github && (
+            <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+              <FiAlertCircle size={10} /> {errors.github}
+            </p>
+          )}
         </div>
 
         {/* Resume Upload */}
@@ -507,6 +454,11 @@ const CareerForm: React.FC<CareerFormProps> = ({ onSuccess }) => {
             placeholder="Tell us about yourself, your skills, and why you'd be a great fit for our team..."
             className="w-full px-3 py-3 bg-(--background) border border-(--border) rounded-(--radius-md) text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary) transition-colors resize-none"
           />
+          {errors.coverLetter && (
+            <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+              <FiAlertCircle size={10} /> {errors.coverLetter}
+            </p>
+          )}
         </div>
 
         {/* Submit Button */}
@@ -530,7 +482,7 @@ const CareerForm: React.FC<CareerFormProps> = ({ onSuccess }) => {
         </button>
       </form>
 
-      {/* Progress Bar (shown during submission) */}
+      {/* Progress Bar */}
       {isSubmitting && (
         <div className="fixed top-0 left-0 right-0 z-50">
           <div className="h-1 bg-(--surface)">

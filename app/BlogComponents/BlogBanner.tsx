@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import Link from "next/link";
-import Image from "next/image";
+import BlogImage from "./BlogImage";
 
 interface BlogPost {
   slug: string;
@@ -54,10 +54,10 @@ const BlogBanner: React.FC<BlogBannerProps> = ({ posts }) => {
               <SwiperSlide key={post.slug}>
                 <div className="relative group cursor-pointer">
                   <div className="relative h-[250px] sm:h-[350px] lg:h-[500px] w-full overflow-hidden rounded-xl sm:rounded-(--radius-lg)">
-                    <Image
+                    <BlogImage
                       src={post.image}
                       alt={post.title}
-                      fill
+                      variant="banner"
                       className="object-cover transition-transform duration-1000 group-hover:scale-110"
                     />
 
@@ -168,10 +168,10 @@ const BlogBanner: React.FC<BlogBannerProps> = ({ posts }) => {
                 className="group bg-(--surface) rounded-xl sm:rounded-(--radius-lg) overflow-hidden border border-(--border) hover:border-(--primary) transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10"
               >
                 <div className="relative h-36 sm:h-48 overflow-hidden">
-                  <Image
+                  <BlogImage
                     src={post.image}
                     alt={post.title}
-                    fill
+                    variant="recent"
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute top-2 sm:top-3 left-2 sm:left-3">

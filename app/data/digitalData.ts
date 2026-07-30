@@ -1,9 +1,3 @@
-// app/data/digitalMarketingData.ts
-
-// ============================================
-// INTERFACES / TYPES
-// ============================================
-
 export interface PackageData {
   name: string;
   slug: string;

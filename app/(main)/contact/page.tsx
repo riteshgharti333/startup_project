@@ -1,63 +1,17 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
-import {
-  FiArrowRight,
-  FiPhone,
-  FiMail,
-  FiMapPin,
-  FiClock,
-  FiSend,
-  FiStar,
-  FiMessageCircle,
-  FiCheck,
-  FiUser,
-  FiBriefcase,
-  FiDollarSign,
-  FiFileText,
-  FiPhoneCall,
-} from "react-icons/fi";
+import { motion } from "framer-motion";
+import { FiMessageCircle } from "react-icons/fi";
 import { PageSEO } from "../../components/PageSEO";
-import {
-  budgets,
-  contactInfo,
-  services,
-  socialData,
-  socialLinks,
-} from "../../data/links";
+import { contactInfo, socialLinks } from "../../data/links";
+import ContactForm from "@/app/components/ContactForm";
 
 const Contact: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   const baseUrl =
     process.env.NEXT_PUBLIC_SITE_URL || "https://www.twipratechnology.com";
-
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    company: "",
-    service: "",
-    budget: "",
-    details: "",
-  });
-
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-  };
 
   return (
     <>
@@ -213,7 +167,6 @@ const Contact: React.FC = () => {
                 </motion.div>
               </div>
 
-              {/* Right - Contact Form */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -222,243 +175,7 @@ const Contact: React.FC = () => {
                 className="lg:col-span-2"
               >
                 <div className="bg-(--surface) border border-(--border) rounded-(--radius-xl) p-4 sm:p-8 lg:p-10 shadow-xl">
-                  <h2 className="text-xl sm:text-2xl font-bold text-(--text) mb-2">
-                    Send Us a Message
-                  </h2>
-                  <p className="text-sm text-(--text-muted) mb-6">
-                    Fill out the form and we'll get back to you as soon as
-                    possible.
-                  </p>
-
-                  {submitted ? (
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      className="text-center py-12"
-                    >
-                      <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <FiCheck size={32} className="text-green-400" />
-                      </div>
-                      <h3 className="text-xl font-bold text-(--text) mb-2">
-                        Message Sent!
-                      </h3>
-                      <p className="text-sm text-(--text-muted)">
-                        We'll get back to you within 24 hours.
-                      </p>
-                    </motion.div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      {/* Row 1: Full Name + Email */}
-                      <div className="grid sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-xs text-(--text-muted) mb-1.5">
-                            Full Name <span className="text-red-400">*</span>
-                          </label>
-                          <div className="relative">
-                            <FiUser
-                              size={14}
-                              className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted)"
-                            />
-                            <input
-                              type="text"
-                              name="fullName"
-                              value={formData.fullName}
-                              onChange={handleChange}
-                              placeholder="Full Name"
-                              className="w-full pl-10 pr-4 py-2.5 bg-(--background) border border-(--border) rounded-(--radius-md) text-sm text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary)/50 transition-colors"
-                              required
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <label className="block text-xs text-(--text-muted) mb-1.5">
-                            Email Address{" "}
-                            <span className="text-red-400">*</span>
-                          </label>
-                          <div className="relative">
-                            <FiMail
-                              size={14}
-                              className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted)"
-                            />
-                            <input
-                              type="email"
-                              name="email"
-                              value={formData.email}
-                              onChange={handleChange}
-                              placeholder="company@example.com"
-                              className="w-full pl-10 pr-4 py-2.5 bg-(--background) border border-(--border) rounded-(--radius-md) text-sm text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary)/50 transition-colors"
-                              required
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Row 2: Phone + Company */}
-                      <div className="grid sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-xs text-(--text-muted) mb-1.5">
-                            Phone Number
-                          </label>
-                          <div className="relative">
-                            <FiPhone
-                              size={14}
-                              className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted)"
-                            />
-                            <input
-                              type="tel"
-                              name="phone"
-                              value={formData.phone}
-                              onChange={handleChange}
-                              placeholder="+880 000-0000"
-                              className="w-full pl-10 pr-4 py-2.5 bg-(--background) border border-(--border) rounded-(--radius-md) text-sm text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary)/50 transition-colors"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <label className="block text-xs text-(--text-muted) mb-1.5">
-                            Company Name
-                          </label>
-                          <div className="relative">
-                            <FiBriefcase
-                              size={14}
-                              className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted)"
-                            />
-                            <input
-                              type="text"
-                              name="company"
-                              value={formData.company}
-                              onChange={handleChange}
-                              placeholder="Your Company"
-                              className="w-full pl-10 pr-4 py-2.5 bg-(--background) border border-(--border) rounded-(--radius-md) text-sm text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary)/50 transition-colors"
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Row 3: Service + Budget */}
-                      <div className="grid sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-xs text-(--text-muted) mb-1.5">
-                            Service Interested In{" "}
-                            <span className="text-red-400">*</span>
-                          </label>
-                          <div className="relative">
-                            <FiStar
-                              size={14}
-                              className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted)"
-                            />
-                            <select
-                              name="service"
-                              value={formData.service}
-                              onChange={handleChange}
-                              className="w-full pl-10 pr-4 py-2.5 bg-(--background) border border-(--border) rounded-(--radius-md) text-sm text-(--text) focus:outline-none focus:border-(--primary)/50 transition-colors appearance-none cursor-pointer"
-                              required
-                            >
-                              <option value="" disabled>
-                                Select a service
-                              </option>
-                              {services.map((service, i) => (
-                                <option key={i} value={service}>
-                                  {service}
-                                </option>
-                              ))}
-                            </select>
-                            <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                              <svg
-                                width="12"
-                                height="8"
-                                viewBox="0 0 12 8"
-                                fill="none"
-                              >
-                                <path
-                                  d="M1 1.5L6 6.5L11 1.5"
-                                  stroke="currentColor"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  className="text-(--text-muted)"
-                                />
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                        <div>
-                          <label className="block text-xs text-(--text-muted) mb-1.5">
-                            Project Budget
-                          </label>
-                          <div className="relative">
-                            <FiDollarSign
-                              size={14}
-                              className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted)"
-                            />
-                            <select
-                              name="budget"
-                              value={formData.budget}
-                              onChange={handleChange}
-                              className="w-full pl-10 pr-4 py-2.5 bg-(--background) border border-(--border) rounded-(--radius-md) text-sm text-(--text) focus:outline-none focus:border-(--primary)/50 transition-colors appearance-none cursor-pointer"
-                            >
-                              <option value="" disabled>
-                                Select budget range
-                              </option>
-                              {budgets.map((budget, i) => (
-                                <option key={i} value={budget}>
-                                  {budget}
-                                </option>
-                              ))}
-                            </select>
-                            <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                              <svg
-                                width="12"
-                                height="8"
-                                viewBox="0 0 12 8"
-                                fill="none"
-                              >
-                                <path
-                                  d="M1 1.5L6 6.5L11 1.5"
-                                  stroke="currentColor"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  className="text-(--text-muted)"
-                                />
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Row 4: Project Details */}
-                      <div>
-                        <label className="block text-xs text-(--text-muted) mb-1.5">
-                          Project Details
-                        </label>
-                        <div className="relative">
-                          <FiFileText
-                            size={14}
-                            className="absolute left-3 top-3 text-(--text-muted)"
-                          />
-                          <textarea
-                            name="details"
-                            value={formData.details}
-                            onChange={handleChange}
-                            placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
-                            rows={5}
-                            className="w-full pl-10 pr-4 py-2.5 bg-(--background) border border-(--border) rounded-(--radius-md) text-sm text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary)/50 transition-colors resize-none"
-                          />
-                        </div>
-                      </div>
-
-                      {/* Submit Button */}
-                      <button
-                        type="submit"
-                        className="w-full px-6 py-3.5 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-(--radius-md) transition-all shadow-lg shadow-(--primary)/20 hover:shadow-(--primary)/40 flex items-center justify-center gap-2 group"
-                      >
-                        <span>Send Message</span>
-                        <FiSend
-                          size={14}
-                          className="group-hover:translate-x-1 transition-transform"
-                        />
-                      </button>
-                    </form>
-                  )}
+                  <ContactForm />
                 </div>
               </motion.div>
             </div>

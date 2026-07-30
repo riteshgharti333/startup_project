@@ -18,6 +18,7 @@ export interface BlogPost {
   featured: boolean;
   popular: boolean;
   banner: boolean;
+  recent: boolean; 
 }
 
 export function getAllPosts(): BlogPost[] {
@@ -72,6 +73,7 @@ export function getAllPosts(): BlogPost[] {
       featured: data.featured || false,
       popular: data.popular || false,
       banner: data.banner || false,
+      recent: data.recent || false, // Added recent flag with default false
     };
   });
 
@@ -95,9 +97,8 @@ export function getPopularPosts(): BlogPost[] {
 
 export function getRecentPosts(): BlogPost[] {
   const posts = getAllPosts();
-  return posts
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 4);
+  // Filter posts with recent: true instead of sorting by date
+  return posts.filter((post) => post.recent === true);
 }
 
 export function getCategories(): string[] {

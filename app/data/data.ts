@@ -39,10 +39,14 @@ export const navLinks = [
       },
     ],
   },
-  //   {
-  //     label: "Portfolio",
-  //     href: "/portfolio",
-  //   },
+  {
+    label: "Portfolio",
+    href: "/portfolio",
+  },
+  {
+    label: "Blog",
+    href: "/blogs",
+  },
   {
     label: "Courses",
     href: "/courses",
@@ -50,14 +54,6 @@ export const navLinks = [
   {
     label: "About",
     href: "/about",
-  },
-  //   {
-  //     label: "Blog",
-  //     href: "/blog",
-  //   },
-  {
-    label: "Contact",
-    href: "/contact",
   },
 ];
 
@@ -99,6 +95,14 @@ export const footerLinks = [
   {
     label: "Courses",
     href: "/courses",
+  },
+  {
+    label: "Portfolio",
+    href: "/portfolio",
+  },
+  {
+    label: "Blog",
+    href: "/blogs",
   },
   {
     label: "About",

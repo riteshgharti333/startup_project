@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import Link from "next/link";
 import {
@@ -12,6 +11,7 @@ import {
   FiFileText,
   FiRss,
 } from "react-icons/fi";
+import { getAllPosts } from "../lib/blogs"; 
 
 interface Category {
   name: string;
@@ -21,72 +21,78 @@ interface Category {
   color: string;
 }
 
+// Icon mapping based on category name
+const getCategoryIcon = (categoryName: string) => {
+  const iconMap: { [key: string]: React.ReactNode } = {
+    "Web Development": <FiGlobe />,
+    "Cloud": <FiCloud />,
+    "Digital Marketing": <FiTrendingUp />,
+    "Graphic Design": <FiPenTool />,
+    "SEO": <FiSearch />,
+    "AI": <FiCpu />,
+    "Business Tips": <FiBriefcase />,
+    "Case Studies": <FiFileText />,
+    "Company News": <FiRss />,
+  };
+  return iconMap[categoryName] || <FiFileText />;
+};
+
+// Color mapping based on category name
+const getCategoryColor = (categoryName: string) => {
+  const colorMap: { [key: string]: string } = {
+    "Web Development": "#3b82f6",
+    "Cloud": "#8b5cf6",
+    "Digital Marketing": "#f59e0b",
+    "Graphic Design": "#ec4899",
+    "SEO": "#10b981",
+    "AI": "#6366f1",
+    "Business Tips": "#14b8a6",
+    "Case Studies": "#f43f5e",
+    "Company News": "#0ea5e9",
+  };
+  return colorMap[categoryName] || "#6b7280";
+};
+
 const BlogCategory: React.FC = () => {
-  const categories: Category[] = [
-    {
-      name: "Web Development",
-      slug: "category/web-development",
-      icon: <FiGlobe />,
-      count: 24,
-      color: "#3b82f6",
-    },
-    {
-      name: "Cloud",
-      slug: "category/cloud",
-      icon: <FiCloud />,
-      count: 18,
-      color: "#8b5cf6",
-    },
-    {
-      name: "Digital Marketing",
-      slug: "category/digital-marketing",
-      icon: <FiTrendingUp />,
-      count: 15,
-      color: "#f59e0b",
-    },
-    {
-      name: "Graphic Design",
-      slug: "category/graphic-design",
-      icon: <FiPenTool />,
-      count: 12,
-      color: "#ec4899",
-    },
-    {
-      name: "SEO",
-      slug: "category/seo",
-      icon: <FiSearch />,
-      count: 20,
-      color: "#10b981",
-    },
-    {
-      name: "AI",
-      slug: "#category",
-      icon: <FiCpu />,
-      count: 30,
-      color: "#6366f1",
-    },
-    {
-      name: "Business Tips",
-      slug: "category/business-tips",
-      icon: <FiBriefcase />,
-      count: 10,
-      color: "#14b8a6",
-    },
-    {
-      name: "Case Studies",
-      slug: "category/case-studies",
-      icon: <FiFileText />,
-      count: 8,
-      color: "#f43f5e",
-    },
-    {
-      name: "Company News",
-      slug: "category/company-news",
-      icon: <FiRss />,
-      count: 6,
-      color: "#0ea5e9",
-    },
-  ];
+  // Get all posts from MDX files
+  const allPosts = getAllPosts();
+  
+  // Get unique categories with counts
+  const categoryMap = new Map<string, number>();
+  
+  allPosts.forEach(post => {
+    const category = post.category;
+    categoryMap.set(category, (categoryMap.get(category) || 0) + 1);
+  });
+
+  // Convert to array and create category objects
+  const categories: Category[] = Array.from(categoryMap.entries())
+    .map(([name, count]) => ({
+      name,
+      slug: `category/${name.toLowerCase().replace(/\s+/g, '-')}`,
+      icon: getCategoryIcon(name),
+      count,
+      color: getCategoryColor(name),
+    }))
+    .sort((a, b) => b.count - a.count); // Sort by count (most popular first)
+
+  // If no categories, show empty state
+  if (categories.length === 0) {
+    return (
+      <section className="w-full py-8 sm:py-12" id="category">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-(--text) mb-1 sm:mb-2">
+              Browse Categories
+            </h2>
+            <p className="text-(--text-muted) text-xs sm:text-sm">
+              No categories found
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="w-full py-8 sm:py-12" id="category">
@@ -106,7 +112,7 @@ const BlogCategory: React.FC = () => {
           {categories.map((category: Category) => (
             <Link
               key={category.name}
-              href={`blogs/${category.slug}`}
+              href={`/blogs/${category.slug}`}
               className="group relative bg-(--surface) rounded-full border border-(--border) hover:border-(--primary) transition-all duration-300 overflow-hidden hover:shadow-lg hover:shadow-blue-500/10 px-2.5 sm:px-4 py-1.5 sm:py-2 flex items-center gap-1.5 sm:gap-2"
               style={{
                 background: `linear-gradient(135deg, var(--surface) 0%, ${category.color}08 100%)`,
@@ -128,7 +134,7 @@ const BlogCategory: React.FC = () => {
                 {category.name}
               </span>
 
-              {/* Post Count */}
+              {/* Post Count - NOW USING REAL DATA */}
               <span className="text-[9px] sm:text-[10px] text-(--text-muted) bg-(--border)/30 px-1 sm:px-1.5 py-0.5 rounded-full">
                 {category.count}
               </span>

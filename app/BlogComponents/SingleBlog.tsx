@@ -149,7 +149,10 @@ export default function SingleBlog({ slug, post }: SingleBlogProps) {
           aria-label="Breadcrumb"
           className="flex items-center flex-wrap gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-(--text-muted) mb-4 sm:mb-6"
         >
-          <Link href="/blogs" className="hover:text-(--primary) transition-colors">
+          <Link
+            href="/blogs"
+            className="hover:text-(--primary) transition-colors"
+          >
             Home
           </Link>
           <span aria-hidden="true">/</span>
@@ -247,9 +250,11 @@ export default function SingleBlog({ slug, post }: SingleBlogProps) {
                     {post.tags.map((tag: string) => (
                       <span
                         key={tag}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-(--surface) text-(--text-muted) text-xs font-medium rounded-full border border-(--border) hover:bg-(--primary) hover:text-white hover:border-(--primary) transition-all duration-200 cursor-pointer"
+                        className="group inline-flex items-center gap-1.5 px-3 py-1.5 bg-(--surface) text-(--text-muted) text-xs font-medium rounded-full border border-(--border) hover:bg-(--primary) hover:text-white hover:border-(--primary) transition-all duration-200 cursor-pointer"
                       >
-                        <span className="text-(--primary)">#</span>
+                        <span className="text-(--primary) group-hover:text-white transition-colors duration-200">
+                          #
+                        </span>
                         {tag}
                       </span>
                     ))}

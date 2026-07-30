@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import BlogImage from "./BlogImage";
 
 interface BlogPost {
   slug: string;
@@ -52,8 +52,18 @@ const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
             className="featured-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-(--surface) border border-(--border) text-(--text) hover:border-(--primary) hover:text-(--primary) hover:bg-(--surface-hover) transition-all shadow-lg opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 disabled:opacity-0 disabled:cursor-not-allowed"
             style={{ transition: "all 0.3s ease" }}
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
             </svg>
           </button>
 
@@ -62,8 +72,18 @@ const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
             className="featured-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-(--surface) border border-(--border) text-(--text) hover:border-(--primary) hover:text-(--primary) hover:bg-(--surface-hover) transition-all shadow-lg opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 disabled:opacity-0 disabled:cursor-not-allowed"
             style={{ transition: "all 0.3s ease" }}
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </button>
 
@@ -105,10 +125,10 @@ const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
                   <div className="bg-(--surface) rounded-(--radius-lg) border border-(--border) hover:border-(--primary) transition-all duration-300 overflow-hidden hover:shadow-xl hover:shadow-blue-500/10 h-full">
                     {/* Image */}
                     <div className="relative h-44 overflow-hidden">
-                      <Image
+                      <BlogImage
                         src={post.image}
                         alt={post.title}
-                        fill
+                        variant="feature"
                         className="object-cover group-hover/card:scale-110 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-(--surface) to-transparent" />
@@ -144,8 +164,18 @@ const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
 
                       <div className="flex items-center gap-1.5 text-(--primary) font-medium text-xs group-hover/card:gap-2 transition-all duration-300 pt-2 border-t border-(--border)">
                         Read Article
-                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        <svg
+                          className="w-3.5 h-3.5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                          />
                         </svg>
                       </div>
                     </div>

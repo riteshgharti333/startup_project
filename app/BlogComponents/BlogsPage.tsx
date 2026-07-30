@@ -167,7 +167,7 @@ const BlogsPage: React.FC<BlogsPageProps> = ({ posts, type, categoryName }) => {
         breadcrumb={breadcrumb}
       />
 
-      <BlogFilter
+      {/* <BlogFilter
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         sortBy={sortBy}
@@ -175,7 +175,7 @@ const BlogsPage: React.FC<BlogsPageProps> = ({ posts, type, categoryName }) => {
         categories={categories}
         totalPosts={filteredPosts.length}
         filteredCount={sortedPosts.length}
-      />
+      /> */}
 
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-8">
         {sortedPosts.length > 0 ? (
@@ -195,13 +195,13 @@ const BlogsPage: React.FC<BlogsPageProps> = ({ posts, type, categoryName }) => {
           </div>
         )}
 
-        {sortedPosts.length > 0 && (
+        {/* {sortedPosts.length > 0 && (
           <div className="text-center mt-8">
             <button className="px-6 py-2.5 border border-(--border) text-(--text) text-sm font-medium rounded-full hover:border-(--primary) hover:text-(--primary) transition-all duration-200">
               Load More Posts
             </button>
           </div>
-        )}
+        )} */}
       </div>
     </section>
   );

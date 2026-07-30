@@ -1,138 +1,189 @@
 "use client";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FiX, FiMail, FiCheck } from "react-icons/fi";
+import axiosInstance from "../utils/axios";
 
 interface SubscribeModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onSuccess?: () => void;
 }
 
-const SubscribeModal: React.FC<SubscribeModalProps> = ({ isOpen, onClose }) => {
+const SubscribeModal: React.FC<SubscribeModalProps> = ({
+  isOpen,
+  onClose,
+  onSuccess,
+}) => {
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [isSubscribing, setIsSubscribing] = useState(false);
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [subscribeMessage, setSubscribeMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    const subscribed = localStorage.getItem("twipraTech-newsletter") === "true";
+    setIsSubscribed(subscribed);
+  }, []);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setEmail("");
+      setSubscribeMessage("");
+    }
+  }, [isOpen]);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      setSubmitted(true);
-      // Here you would send email to your API
-      console.log("Subscribed:", email);
+
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+      setSubscribeMessage("Please enter a valid email address");
+      return;
+    }
+
+    setIsSubscribing(true);
+    setSubscribeMessage("");
+
+    try {
+      const response = await axiosInstance.post("/subscribe", { email });
+
+      if (response.data.success) {
+        setIsSubscribed(true);
+        localStorage.setItem("twipraTech-newsletter", "true");
+        setSubscribeMessage("You've been subscribed successfully! 🎉");
+        if (onSuccess) onSuccess();
+        setTimeout(() => {
+          onClose();
+          setSubscribeMessage("");
+        }, 2000);
+      } else {
+        setSubscribeMessage(response.data.message || "Subscription failed");
+      }
+    } catch (error: any) {
+      // Check if it's the "already subscribed" error
+      if (error.message === "You're already subscribed!") {
+        setIsSubscribed(true);
+        localStorage.setItem("twipraTech-newsletter", "true");
+        setSubscribeMessage("You're already subscribed!");
+        if (onSuccess) onSuccess();
+        setTimeout(() => {
+          onClose();
+          setSubscribeMessage("");
+        }, 2000);
+      } else {
+        setSubscribeMessage(
+          error.message || "Something went wrong. Please try again.",
+        );
+      }
+    } finally {
+      setIsSubscribing(false);
     }
   };
 
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          {/* Overlay */}
+        <>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
           />
 
-          {/* Modal */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className="relative bg-(--surface) rounded-(--radius-xl) border border-(--border) p-6 sm:p-8 max-w-md w-full shadow-2xl"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
-            <button
-              onClick={onClose}
-              className="absolute top-4 right-4 p-1 text-(--text-muted) hover:text-(--text) transition-colors"
-            >
-              ✕
-            </button>
-
-            {!submitted ? (
-              <>
-                {/* Icon */}
-                <div className="w-14 h-14 bg-(--primary)/10 rounded-full flex items-center justify-center mb-5 mx-auto">
-                  <svg
-                    className="w-7 h-7 text-(--primary)"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
+            <div className="bg-(--surface) border border-(--border) rounded-2xl max-w-md w-full p-6 shadow-2xl">
+              <div className="flex justify-between items-start mb-4">
+                <div>
+                  <h3 className="text-xl font-bold text-(--text)">
+                    {isSubscribed
+                      ? "Already Subscribed"
+                      : "Subscribe to Newsletter"}
+                  </h3>
+                  <p className="text-sm text-(--text-muted) mt-1">
+                    {isSubscribed
+                      ? "You're already a subscriber! Stay tuned for updates."
+                      : "Get the latest insights and updates directly in your inbox."}
+                  </p>
                 </div>
-
-                {/* Title */}
-                <h2 className="text-xl font-bold text-(--text) text-center mb-2">
-                  Subscribe to Our Newsletter
-                </h2>
-                <p className="text-(--text-muted) text-sm text-center mb-6">
-                  Get the latest posts, insights, and updates delivered straight
-                  to your inbox.
-                </p>
-
-                {/* Form */}
-                <form onSubmit={handleSubmit} className="space-y-3">
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="w-full px-4 py-3 bg-(--background) border border-(--border) rounded-full text-sm text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary) transition-colors"
-                  />
-                  <button
-                    type="submit"
-                    className="w-full py-3 bg-(--primary) text-white text-sm font-medium rounded-full hover:bg-(--primary-hover) transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25"
-                  >
-                    Subscribe Now
-                  </button>
-                </form>
-
-                <p className="text-(--text-muted) text-xs text-center mt-4">
-                  No spam. Unsubscribe anytime.
-                </p>
-              </>
-            ) : (
-              /* Success State */
-              <div className="text-center py-6">
-                <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mb-4 mx-auto">
-                  <svg
-                    className="w-8 h-8 text-green-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-bold text-(--text) mb-2">
-                  Thank You!
-                </h3>
-                <p className="text-(--text-muted) text-sm">
-                  You've successfully subscribed to our newsletter.
-                </p>
                 <button
                   onClick={onClose}
-                  className="mt-6 px-6 py-2 bg-(--primary) text-white text-sm font-medium rounded-full hover:bg-(--primary-hover) transition-all"
+                  className="p-1.5 hover:bg-(--surface-hover) rounded-lg transition-colors text-(--text-muted)"
+                >
+                  <FiX size={20} />
+                </button>
+              </div>
+
+              {subscribeMessage && (
+                <div className="mb-4 p-3 rounded-lg text-sm flex items-center gap-2 bg-green-500/10 text-green-500 border border-green-500/20">
+                  <FiCheck size={16} />
+                  {subscribeMessage}
+                </div>
+              )}
+
+              {!isSubscribed && (
+                <form onSubmit={handleSubscribe} className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-(--text) mb-1.5">
+                      Email Address
+                    </label>
+                    <div className="relative">
+                      <FiMail
+                        className="absolute left-3 top-1/2 -translate-y-1/2 text-(--text-muted)"
+                        size={16}
+                      />
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="you@example.com"
+                        required
+                        className="w-full pl-10 pr-4 py-2.5 bg-(--background) border border-(--border) rounded-lg text-sm text-(--text) placeholder:text-(--text-muted) focus:outline-none focus:border-(--primary) transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubscribing}
+                    className="w-full py-2.5 bg-(--primary) hover:bg-(--primary-hover) text-white text-sm font-medium rounded-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+                  >
+                    {isSubscribing ? (
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        Subscribing...
+                      </div>
+                    ) : (
+                      "Subscribe Now"
+                    )}
+                  </button>
+                </form>
+              )}
+
+              {!isSubscribed && (
+                <p className="text-xs text-(--text-muted) mt-4 text-center">
+                  No spam, unsubscribe anytime.
+                </p>
+              )}
+
+              {isSubscribed && (
+                <button
+                  onClick={onClose}
+                  className="w-full py-2.5 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-lg transition-all"
                 >
                   Close
                 </button>
-              </div>
-            )}
+              )}
+            </div>
           </motion.div>
-        </div>
+        </>
       )}
     </AnimatePresence>
   );

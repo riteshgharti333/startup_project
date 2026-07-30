@@ -16,6 +16,7 @@ import Footer from "./components/Footer";
 import { localBusinessSchema, organizationSchema } from "./lib/schema";
 import { AnalyticsWrapper } from "./analytics";
 import { Geist } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -144,7 +145,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
@@ -192,12 +193,35 @@ export default function RootLayout({
       </head>
       <body
         className={`${geist.className} min-h-full flex flex-col bg-[#0b0f19] antialiased`}
+        suppressHydrationWarning
       >
         {/* Content */}
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            duration: 4000,
+            style: {
+              background: "#1e1e2e",
+              color: "#fff",
+              border: "1px solid #313244",
+            },
+            success: {
+              iconTheme: {
+                primary: "#10b981",
+                secondary: "#fff",
+              },
+            },
+            error: {
+              iconTheme: {
+                primary: "#ef4444",
+                secondary: "#fff",
+              },
+            },
+          }}
+        />
         <div className="relative z-10 flex flex-col min-h-full">
           <main className="flex-1">{children}</main>
           <AnalyticsWrapper />
-          {/* <Float /> */}
         </div>
       </body>
     </html>

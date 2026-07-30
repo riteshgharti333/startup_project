@@ -1,6 +1,6 @@
-"use client"
+"use client";
 import Link from "next/link";
-import Image from "next/image";
+import BlogImage from "./BlogImage";
 
 interface BlogPost {
   slug: string;
@@ -25,10 +25,10 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
       className="group bg-(--surface) rounded-(--radius-md) border border-(--border) hover:border-(--primary) transition-all duration-300 overflow-hidden hover:shadow-lg hover:shadow-blue-500/10 block h-full"
     >
       <div className="relative h-36 overflow-hidden">
-        <Image
+        <BlogImage
           src={post.image}
           alt={post.title}
-          fill
+          variant="recent"
           className="object-cover group-hover:scale-110 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-(--surface) to-transparent" />
@@ -45,7 +45,9 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
             <div className="w-5 h-5 rounded-full bg-(--primary)/20 flex items-center justify-center text-(--primary) text-[9px] font-bold">
               {post.authorAvatar}
             </div>
-            <span className="font-medium text-(--text) text-[11px]">{post.author}</span>
+            <span className="font-medium text-(--text) text-[11px]">
+              {post.author}
+            </span>
           </div>
           <span className="w-1 h-1 rounded-full bg-(--text-muted)" />
           <span>{post.date}</span>
@@ -63,8 +65,18 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
 
         <div className="flex items-center gap-1 text-(--primary) font-medium text-xs group-hover:gap-1.5 transition-all duration-300 pt-2 border-t border-(--border)">
           Read Article
-          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          <svg
+            className="w-3 h-3"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
           </svg>
         </div>
       </div>
