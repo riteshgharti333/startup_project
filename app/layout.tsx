@@ -17,6 +17,7 @@ import { localBusinessSchema, organizationSchema } from "./lib/schema";
 import { AnalyticsWrapper } from "./analytics";
 import { Geist } from "next/font/google";
 import { Toaster } from "react-hot-toast";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -223,6 +224,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <AnalyticsWrapper />
         </div>
+        <GoogleAnalytics gaId="G-6MB4X6E3RH" />
       </body>
     </html>
   );
