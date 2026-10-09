@@ -1,18 +1,5 @@
-// app/layout.tsx
-
-// What You Need to Do:
-// Create OG image (1200x630) → save as /public/og-image.jpg
-
-// Create Twitter image → save as /public/twitter-image.jpg
-
-// Add verification codes to .env.local:
-
-// env
-// NEXT_PUBLIC_GOOGLE_VERIFICATION=your-code-here
-
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import Footer from "./components/Footer";
 import { localBusinessSchema, organizationSchema } from "./lib/schema";
 import { AnalyticsWrapper } from "./analytics";
 import { Geist } from "next/font/google";
@@ -66,7 +53,6 @@ export const metadata: Metadata = {
   creator: "Twipra Technology",
   publisher: "Twipra Technology",
 
-  // Icons (keeping your existing)
   icons: {
     icon: "/logo.svg",
     shortcut: "/logo.svg",
