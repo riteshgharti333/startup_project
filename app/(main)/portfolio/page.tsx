@@ -88,7 +88,7 @@ const Portfolio = () => {
             <WebPortfolio />
             <DigitalMarketing />
             <AppPortfolio />
-            <GraphicDesign />
+            {/* <GraphicDesign /> */}
             <AIPortfolio />
             {/* <VideoPortfolio /> */}
           </div>
